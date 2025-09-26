@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="Options Basics | ऑप्शन मूलतत्त्वे | SstocksS">
+<meta property="og:description" content="Learn the fundamentals of options trading with our comprehensive guides and articles. Understand call and put options, strategies, and risk management.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.sstockss.com/options-basics.html">
+<meta property="og:image" content="https://www.sstockss.com/ImageData/sstockss_Img.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="SstocksS">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Options Basics | ऑप्शन मूलतत्त्वे | SstocksS">
+<meta name="twitter:description" content="Learn the fundamentals of options trading with our comprehensive guides and articles.">
+<meta name="twitter:image" content="https://www.sstockss.com/ImageData/sstockss_Img.jpg">
+<meta name="twitter:site" content="@sstockssBlog">
+<meta name="author" content="SstocksS">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.sstockss.com/options-basics.html" />
+
+<meta name="description" content="Learn the fundamentals of options trading with our comprehensive guides and articles. Understand call and put options, strategies, and risk management.">
+<meta name="keywords" content="options basics, options trading, call options, put options, options strategies, risk management, option Greeks, ऑप्शन ट्रेडिंग, ऑप्शन मूलतत्त्वे, कॉल ऑप्शन, पुट ऑप्शन, ऑप्शन रणनीती, जोखीम व्यवस्थापन">
+<title>Option Basics | ऑप्शनची मूलतत्त्वे | SstocksS</title>
+<link rel="icon" type="image/ico" sizes="96x96" href="ImageData/favicon.ico">
+<!-- Font Awesome for social icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Web App Manifest for PWA functionality -->
+<link rel="manifest" href="manifest.json">
+    <style>
+        /* Base styles from index.html for consistent look and feel */
+        body {
+            font-family: 'Noto Sans Devanagari', Arial, sans-serif; /* Added Noto Sans Devanagari for Marathi */
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box; /* Include padding in width calculation */
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+            width: 100%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        .logo:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-links a.active {
+            background-color: #ff9800;
+        }
+
+        .nav-links a.active:hover {
+            background-color: #e68900;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin: 0;
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+            width: 100%;
+            box-sizing: border-box;
+            padding-bottom: 80px; /* Space for fixed bottom nav */
+        }
+        
+        /* New: Main content area for articles */
+        .main-content-area {
+            display: flex;
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #ff9800;
+            border-radius: 2px;
+        }
+
+        .articles-grid {
+            display: grid;
+            gap: 2rem;
+            /* Default for smaller screens */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            margin-bottom: 2rem; /* Space between rows */
+        }
+
+        .article-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 280px; /* Consistent minimum height for article and category cards */
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .article-card img {
+            width: 100%;
+            height: 90px; /* Reduced height for article images */
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 0.6rem;
+        }
+
+        .article-card h3 {
+            font-size: 1.1rem; /* Reduced font size for article titles */
+            margin-top: 0;
+            color: white;
+            min-height: 1.6em; /* Adjusted min-height for titles */
+            line-height: 1.2;
+        }
+
+        .article-card p {
+            font-size: 0.8rem; /* Reduced font size for article paragraphs */
+            color: #ccc;
+            flex-grow: 1;
+            margin-bottom: 0.6rem;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; /* Limit paragraph to 3 lines */
+            -webkit-box-orient: vertical;
+        }
+
+        .article-card .read-more {
+            display: inline-block;
+            background-color: #ff9800;
+            color: white;
+            padding: 0.3rem 0.7rem; /* Reduced padding for article buttons */
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 0.6rem;
+        }
+
+        .article-card .read-more:hover {
+            background-color: #e68900;
+        }
+        
+        .newsletter-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-top: 3rem;
+        }
+
+        .newsletter-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .newsletter-section p {
+            font-size: 1.1rem;
+            color: #ddd;
+            margin-bottom: 2rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .newsletter-form input[type="email"] {
+            padding: 0.8rem 1.2rem;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 350px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            outline: none;
+        }
+
+        .newsletter-form input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .newsletter-form button {
+            background-color: #ff9800;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #e68900;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .slogan {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: white;
+            font-weight: 500;
+        }
+
+        .credit {
+            color: #ddd;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile-specific Bottom Navigation Bar */
+        #bottom-nav {
+            display: none; /* Hidden by default, shown on mobile */
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1001; /* Higher than header's z-index */
+            padding: 5px 0;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px); /* For Safari */
+            justify-content: space-around;
+            align-items: center;
+            height: 60px; /* Fixed height for bottom nav */
+            box-sizing: border-box;
+            border-top-left-radius: 15px; /* Rounded corners for app-like feel */
+            border-top-right-radius: 15px;
+        }
+
+        #bottom-nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.7rem;
+            padding: 5px;
+            border-radius: 8px;
+            transition: color 0.3s, background-color 0.3s;
+            flex: 1; /* Distribute items evenly */
+            max-width: 80px; /* Limit width of each item */
+            min-height: 50px; /* Ensure sufficient touch target size */
+            justify-content: center;
+        }
+
+        #bottom-nav a.active-bottom, #bottom-nav a:hover {
+            color: #ff9800;
+            background-color: rgba(255, 152, 0, 0.1); /* Light highlight on active/hover */
+        }
+
+        #bottom-nav a i {
+            font-size: 1.2rem;
+            margin-bottom: 3px;
+        }
+
+        /* Custom Modal Styling for Alerts */
+        .custom-message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Center the modal */
+            background-color: rgba(0, 0, 0, 0.9); /* Darker overlay */
+            color: white;
+            padding: 30px; /* More padding */
+            border-radius: 12px; /* Slightly more rounded */
+            z-index: 1000;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); /* Stronger shadow */
+            font-family: 'Inter', sans-serif;
+            max-width: 90%; /* Responsive width */
+            box-sizing: border-box;
+            animation: fadeIn 0.3s ease-out; /* Smooth fade-in */
+            touch-action: none; /* Prevent scrolling behind the modal */
+        }
+
+        .custom-message-box p {
+            margin: 0 0 15px 0;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        .custom-message-box strong {
+            color: #ffcc80; /* Highlight email */
+        }
+
+        .custom-message-box button {
+            margin-top: 20px; /* More margin */
+            padding: 10px 25px; /* Larger button */
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 8px; /* More rounded button */
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .custom-message-box button:hover {
+            background-color: #e68900;
+            transform: translateY(-2px); /* Slight lift effect */
+        }
+
+        /* Pagination Styles (Added from article2.html) */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+
+        .pagination-list {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 0.5rem;
+        }
+
+        .pagination-item a, 
+        .pagination-item span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .pagination-item a {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .pagination-item a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .pagination-item .current {
+            background: #ff9800;
+            color: white;
+        }
+
+        .pagination-item .prev-next {
+            width: auto;
+            padding: 0 15px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            position: relative;
+            opacity: 0;
+            transition: 1s all ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px; /* Adjust based on header height */
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                transition: all 0.3s ease;
+                z-index: 99;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links a {
+                width: 80%;
+                text-align: center;
+                display: block;
+                margin: 0 auto;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .newsletter-form input[type="email"] {
+                max-width: 90%;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr; /* 1 column on mobile */
+            }
+
+            /* Show bottom navigation on mobile */
+            #bottom-nav {
+                display: flex;
+            }
+
+            /* Adjust main padding for bottom nav */
+            main {
+                padding-bottom: 80px;
+            }
+
+            /* Pagination responsive adjustments */
+            .pagination-list {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 991px) {
+            .articles-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .articles-grid {
+                grid-template-columns: repeat(4, 1fr); /* 4 columns on larger screens */
+            }
+        }
+
+        .hidden-strip {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">SstocksS</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="article.html">Blog</a></li>
+                    <li><a href="disclaimer.html">Disclaimer</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <div class="container">
+            <div class="main-content-area">
+                <div class="content-area">
+                    <section class="market-basics">
+                        <h2 class="section-title reveal">Option Basics | ऑप्शनची मूलतत्त्वे</h2>
+                        
+                        <!-- Pagination Top -->
+                        <div class="pagination">
+                            <ul class="pagination-list">
+                                <li class="pagination-item"><a href="options-basics.html" class="prev-next">Previous</a></li>
+                                <li class="pagination-item"><a href="options-basics.html">1</a></li>
+                                <li class="pagination-item"><span class="current">2</span></li>
+                                <li class="pagination-item"><a href="#" class="prev-next">Next</a></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Row 1 -->
+                        <div class="articles-grid reveal">
+                            <!-- Article Card 1 -->
+                            <div class="article-card">
+                                <img src="hidden-mystery-of-option-premium.webp" alt="hidden-mystery-of-option-premium">
+                                <h3>ऑप्शन प्रीमियमचा लपलेला रहस्यमयी खेळ.</h3>
+                                <p>ऑप्शन प्रीमियममधील हा रहस्यमय खेळच अनेक ट्रेडर्सना रातोरात करोडपती किंवा कंगाल बनवतो! या अदृश्य खेळाचं गुपित जाणून घेणंच हे यशाचं खरं शस्त्र आहे.</p>
+                                <a href="hidden-mystery-of-option-premium.html" class="read-more">Read More</a>
+                            </div>
+                            <!-- Article Card 2 -->
+                            <div class="article-card">
+                                <img src="basic-step-in-trading-you-must-not-forget.webp" alt="basic-step-in-trading-you-must-not-forget">
+                                <h3>ही बेसिक स्टेप विसरलात तर प्रत्येक ट्रेड तुमच्याविरोधात जाईल.</h3>
+                                <p>ऑप्शन ट्रेडिंग मधील ही बेसिक स्टेप विसरलात तर प्रत्येक ट्रेडमध्ये तुमचा पराभव हॊणार हे नक्की, आणि ही बेसिक स्टेप शिकलात तर गेम तुमच्या बाजूने होणार हे देखील नक्की.</p>
+                                <a href="basic-step-in-trading-you-must-not-forget.html" class="read-more">Read More</a>
+                            </div>
+                            <!-- Article Card 3 -->
+                            <div class="article-card">
+                                <img src="comming-soon.webp" alt="Article Thumbnail">
+                                <h3>लवकरच येत आहोत | Coming soon</h3>
+                                <p>आम्ही लवकरच काहीतरी खास घेऊन येत आहोत! नवीन अपडेट्स, रोमांचक माहिती आणि उत्तम अनुभवांसाठी तयार राहा. भेटूया लवकरच!</p>
+                                <a href="comming-soon.html" class="read-more">Read More</a>
+                            </div>
+                            <!-- Article Card 4 -->
+                             <div class="article-card">
+                            <div class="article-card hidden-strip">
+                                <img src="comming-soon.webp" alt="Article Thumbnail">
+                                <h3>लवकरच येत आहोत | Coming soon</h3>
+                                <p>आम्ही लवकरच काहीतरी खास घेऊन येत आहोत! नवीन अपडेट्स, रोमांचक माहिती आणि उत्तम अनुभवांसाठी तयार राहा. भेटूया लवकरच!</p>
+                                <a href="comming-soon.html" class="read-more">Read More</a>
+                            </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Row 2 -->
+                        <div class="articles-grid reveal">
+                            <!-- Article Card 1 -->
+                            <div class="article-card">
+                            <div class="article-card hidden-strip">
+                                <img src="comming-soon.webp" alt="Article Thumbnail">
+                                <h3>लवकरच येत आहोत | Coming soon</h3>
+                                <p>आम्ही लवकरच काहीतरी खास घेऊन येत आहोत! नवीन अपडेट्स, रोमांचक माहिती आणि उत्तम अनुभवांसाठी तयार राहा. भेटूया लवकरच!</p>
+                                <a href="comming-soon.html" class="read-more">Read More</a>
+                            </div>
+                            </div>
+                            <!-- Article Card 2 -->
+                            <div class="article-card">
+                            <div class="article-card hidden-strip">
+                                <img src="comming-soon.webp" alt="Article Thumbnail">
+                                <h3>लवकरच येत आहोत | Coming soon</h3>
+                                <p>आम्ही लवकरच काहीतरी खास घेऊन येत आहोत! नवीन अपडेट्स, रोमांचक माहिती आणि उत्तम अनुभवांसाठी तयार राहा. भेटूया लवकरच!</p>
+                                <a href="comming-soon.html" class="read-more">Read More</a>
+                            </div>
+                            </div>
+                            <!-- Article Card 3 -->
+                            <div class="article-card">
+                            <div class="article-card hidden-strip">
+                                <img src="comming-soon.webp" alt="Article Thumbnail">
+                                <h3>लवकरच येत आहोत | Coming soon</h3>
+                                <p>आम्ही लवकरच काहीतरी खास घेऊन येत आहोत! नवीन अपडेट्स, रोमांचक माहिती आणि उत्तम अनुभवांसाठी तयार राहा. भेटूया लवकरच!</p>
+                                <a href="comming-soon.html" class="read-more">Read More</a>
+                            </div>
+                            </div>
+                            <!-- Article Card 4 -->
+                            <div class="article-card">
+                            <div class="article-card hidden-strip">
+                                <img src="comming-soon.webp" alt="Article Thumbnail">
+                                <h3>लवकरच येत आहोत | Coming soon</h3>
+                                <p>आम्ही लवकरच काहीतरी खास घेऊन येत आहोत! नवीन अपडेट्स, रोमांचक माहिती आणि उत्तम अनुभवांसाठी तयार राहा. भेटूया लवकरच!</p>
+                                <a href="comming-soon.html" class="read-more">Read More</a>
+                            </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Row 3 -->
+                        <div class="articles-grid reveal">
+                            <!-- Article Card 1 -->
+                            <div class="article-card">
+                            <div class="article-card hidden-strip">
+                                <img src="comming-soon.webp" alt="Article Thumbnail">
+                                <h3>लवकरच येत आहोत | Coming soon</h3>
+                                <p>आम्ही लवकरच काहीतरी खास घेऊन येत आहोत! नवीन अपडेट्स, रोमांचक माहिती आणि उत्तम अनुभवांसाठी तयार राहा. भेटूया लवकरच!</p>
+                                <a href="comming-soon.html" class="read-more">Read More</a>
+                            </div>
+                            </div>
+                            <!-- Article Card 2 -->
+                            <div class="article-card">
+                            <div class="article-card hidden-strip">
+                                <img src="comming-soon.webp" alt="Article Thumbnail">
+                                <h3>लवकरच येत आहोत | Coming soon</h3>
+                                <p>आम्ही लवकरच काहीतरी खास घेऊन येत आहोत! नवीन अपडेट्स, रोमांचक माहिती आणि उत्तम अनुभवांसाठी तयार राहा. भेटूया लवकरच!</p>
+                                <a href="comming-soon.html" class="read-more">Read More</a>
+                            </div>
+                            </div>
+                            <!-- Article Card 3 -->
+                            <div class="article-card">
+                            <div class="article-card hidden-strip">
+                                <img src="comming-soon.webp" alt="Article Thumbnail">
+                                <h3>लवकरच येत आहोत | Coming soon</h3>
+                                <p>आम्ही लवकरच काहीतरी खास घेऊन येत आहोत! नवीन अपडेट्स, रोमांचक माहिती आणि उत्तम अनुभवांसाठी तयार राहा. भेटूया लवकरच!</p>
+                                <a href="comming-soon.html" class="read-more">Read More</a>
+                            </div>
+                            </div>
+                            <!-- Article Card 4 -->
+                            <div class="article-card">
+                            <div class="article-card hidden-strip">
+                                <img src="comming-soon.webp" alt="Article Thumbnail">
+                                <h3>लवकरच येत आहोत | Coming soon</h3>
+                                <p>आम्ही लवकरच काहीतरी खास घेऊन येत आहोत! नवीन अपडेट्स, रोमांचक माहिती आणि उत्तम अनुभवांसाठी तयार राहा. भेटूया लवकरच!</p>
+                                <a href="comming-soon.html" class="read-more">Read More</a>
+                            </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Row 4 -->
+                        <div class="articles-grid reveal">
+                            <!-- Article Card 1 -->
+                            <div class="article-card">
+                            <div class="article-card hidden-strip">
+                                <img src="comming-soon.webp" alt="Article Thumbnail">
+                                <h3>लवकरच येत आहोत | Coming soon</h3>
+                                <p>आम्ही लवकरच काहीतरी खास घेऊन येत आहोत! नवीन अपडेट्स, रोमांचक माहिती आणि उत्तम अनुभवांसाठी तयार राहा. भेटूया लवकरच!</p>
+                                <a href="comming-soon.html" class="read-more">Read More</a>
+                            </div>
+                            </div>
+                            <!-- Article Card 2 -->
+                            <div class="article-card">
+                            <div class="article-card hidden-strip">
+                                <img src="comming-soon.webp" alt="Article Thumbnail">
+                                <h3>लवकरच येत आहोत | Coming soon</h3>
+                                <p>आम्ही लवकरच काहीतरी खास घेऊन येत आहोत! नवीन अपडेट्स, रोमांचक माहिती आणि उत्तम अनुभवांसाठी तयार राहा. भेटूया लवकरच!</p>
+                                <a href="comming-soon.html" class="read-more">Read More</a>
+                            </div>
+                            </div>
+                            <!-- Article Card 3 -->
+                            <div class="article-card">
+                            <div class="article-card hidden-strip">
+                                <img src="comming-soon.webp" alt="Article Thumbnail">
+                                <h3>लवकरच येत आहोत | Coming soon</h3>
+                                <p>आम्ही लवकरच काहीतरी खास घेऊन येत आहोत! नवीन अपडेट्स, रोमांचक माहिती आणि उत्तम अनुभवांसाठी तयार राहा. भेटूया लवकरच!</p>
+                                <a href="comming-soon.html" class="read-more">Read More</a>
+                            </div>
+                            </div>
+                            <!-- Article Card 4 -->
+                            <div class="article-card">
+                            <div class="article-card hidden-strip">
+                                <img src="comming-soon.webp" alt="Article Thumbnail">
+                                <h3>लवकरच येत आहोत | Coming soon</h3>
+                                <p>आम्ही लवकरच काहीतरी खास घेऊन येत आहोत! नवीन अपडेट्स, रोमांचक माहिती आणि उत्तम अनुभवांसाठी तयार राहा. भेटूया लवकरच!</p>
+                                <a href="comming-soon.html" class="read-more">Read More</a>
+                            </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Row 5 -->
+                        <div class="articles-grid reveal">
+                            <!-- Article Card 1 -->
+                            <div class="article-card">
+                            <div class="article-card hidden-strip">
+                                <img src="comming-soon.webp" alt="Article Thumbnail">
+                                <h3>लवकरच येत आहोत | Coming soon</h3>
+                                <p>आम्ही लवकरच काहीतरी खास घेऊन येत आहोत! नवीन अपडेट्स, रोमांचक माहिती आणि उत्तम अनुभवांसाठी तयार राहा. भेटूया लवकरच!</p>
+                                <a href="comming-soon.html" class="read-more">Read More</a>
+                            </div>
+                            </div>
+                            <!-- Article Card 2 -->
+                            <div class="article-card">
+                            <div class="article-card hidden-strip">
+                                <img src="comming-soon.webp" alt="Article Thumbnail">
+                                <h3>लवकरच येत आहोत | Coming soon</h3>
+                                <p>आम्ही लवकरच काहीतरी खास घेऊन येत आहोत! नवीन अपडेट्स, रोमांचक माहिती आणि उत्तम अनुभवांसाठी तयार राहा. भेटूया लवकरच!</p>
+                                <a href="comming-soon.html" class="read-more">Read More</a>
+                            </div>
+                            </div>
+                            <!-- Article Card 3 -->
+                            <div class="article-card">
+                            <div class="article-card hidden-strip">
+                                <img src="comming-soon.webp" alt="Article Thumbnail">
+                                <h3>लवकरच येत आहोत | Coming soon</h3>
+                                <p>आम्ही लवकरच काहीतरी खास घेऊन येत आहोत! नवीन अपडेट्स, रोमांचक माहिती आणि उत्तम अनुभवांसाठी तयार राहा. भेटूया लवकरच!</p>
+                                <a href="comming-soon.html" class="read-more">Read More</a>
+                            </div>
+                            </div>
+                            <!-- Article Card 4 -->
+                            <div class="article-card">
+                            <div class="article-card hidden-strip">
+                                <img src="comming-soon.webp" alt="Article Thumbnail">
+                                <h3>लवकरच येत आहोत | Coming soon</h3>
+                                <p>आम्ही लवकरच काहीतरी खास घेऊन येत आहोत! नवीन अपडेट्स, रोमांचक माहिती आणि उत्तम अनुभवांसाठी तयार राहा. भेटूया लवकरच!</p>
+                                <a href="comming-soon.html" class="read-more">Read More</a>
+                            </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Pagination Bottom -->
+                        <div class="pagination">
+                            <ul class="pagination-list">
+                                <li class="pagination-item"><a href="options-basics.html" class="prev-next">Previous</a></li>
+                                <li class="pagination-item"><a href="options-basics.html">1</a></li>
+                                <li class="pagination-item"><span class="current">2</span></li>
+                                <li class="pagination-item"><a href="#" class="prev-next">Next</a></li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section reveal">
+        <div class="container">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Stay updated with the latest insights and strategies in options trading.</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p class="slogan">"Empowering Traders with Knowledge"</p>
+                <p class="credit">© 2023 SstocksS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav id="bottom-nav">
+        <a href="index.html">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="article.html">
+            <i class="fas fa-book-open"></i>
+            <span>Articals</span>
+        </a>
+        <a href="Ideas.html">
+            <i class="fas fa-lightbulb"></i>
+            <span>Ideas</span>
+        </a>
+        <a href="data-analyzer.html">
+            <i class="fas fa-chart-area"></i>
+            <span>Analyzer</span>
+        </a>
+        <a href="contact-us.html">
+            <i class="fas fa-envelope"></i>
+            <span>Contact Us</span>
+        </a>
+    </nav>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Newsletter Form Submission
+        const newsletterForm = document.getElementById('newsletterForm');
+        
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get the email input value
+            const emailInput = this.querySelector('input[type="email"]');
+            const email = emailInput.value.trim();
+            
+            if (email) {
+                // Create a custom modal message
+                const modal = document.createElement('div');
+                modal.className = 'custom-message-box';
+                modal.innerHTML = `
+                    <p>Thank you for subscribing to our newsletter!<br>
+                    We've sent a confirmation email to <strong>${email}</strong>.</p>
+                    <button onclick="this.parentElement.remove()">OK</button>
+                `;
+                
+                // Add the modal to the page
+                document.body.appendChild(modal);
+                
+                // Clear the input
+                emailInput.value = '';
+            }
+        });
+
+        // Scroll Reveal Animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+        
+        window.addEventListener('scroll', reveal);
+        // Initial call to reveal elements on page load
+        reveal();
+    </script>
+</body>
+</html>

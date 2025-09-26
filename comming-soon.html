@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SstocksS | Content Coming Soon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans Devanagari', Arial, sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+            width: 100%;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s;
+        }
+        
+        .logo:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+            width: 100%;
+            padding-bottom: 80px;
+        }
+        
+        .main-content-area {
+            display: flex;
+            gap: 2rem;
+            width: 100%;
+        }
+        
+        .content-area {
+            flex: 3;
+            min-width: 0;
+        }
+        
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 3rem 2rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+        }
+        
+        .hero-text {
+            max-width: 800px;
+        }
+        
+        .hero-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .hero-text p {
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            color: #ddd;
+        }
+        
+        .countdown-container {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            width: 100%;
+            max-width: 600px;
+        }
+        
+        .countdown-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffcc80;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .countdown-item {
+            text-align: center;
+            min-width: 80px;
+        }
+        
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        
+        .countdown-ended {
+            font-size: 1.5rem;
+            color: #ffcc80;
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .button-container {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #ff9800;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+        
+        .cta-button:hover {
+            background-color: #e68900;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #ff9800;
+            border-radius: 2px;
+        }
+        
+        /* Updated Newsletter Section */
+        .newsletter-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-top: 3rem;
+        }
+        
+        .newsletter-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .newsletter-section p {
+            font-size: 1.1rem;
+            color: #ddd;
+            margin-bottom: 2rem;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input[type="email"] {
+            padding: 0.8rem 1.2rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            width: 100%;
+            max-width: 350px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form input[type="email"]:hover,
+        .newsletter-form input[type="email"]:focus {
+            border-color: #ff9800;
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+        
+        .newsletter-form input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .newsletter-form button {
+            background-color: #ff9800;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #e68900;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Sidebar Styles */
+        .sidebar {
+            flex: 1;
+            min-width: 280px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            order: 2;
+        }
+        
+        .sidebar-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #ffcc80;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 0.5rem;
+        }
+        
+        .social-share-title {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #ffcc80;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 0.5rem;
+        }
+        
+        .social-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: space-between;
+        }
+        
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: calc(25% - 0.4rem);
+            padding: 8px 0;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            font-size: 0;
+            transition: all 0.3s;
+        }
+        
+        .social-btn i {
+            font-size: 1rem;
+        }
+        
+        .social-btn.facebook { background: #3b5998; }
+        .social-btn.facebook:hover { background: #344e86; }
+        .social-btn.instagram { background: #e1306c; }
+        .social-btn.instagram:hover { background: #c13584; }
+        .social-btn.pinterest { background: #bd081c; }
+        .social-btn.pinterest:hover { background: #a30718; }
+        .social-btn.youtube { background: #ff0000; }
+        .social-btn.youtube:hover { background: #e60000; }
+        
+        .subscription-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subscription-section h3 {
+            font-size: 1.1rem;
+            color: #ffcc80;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 0.5rem;
+        }
+        
+        .subscription-section form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .subscription-section input[type="email"] {
+            padding: 10px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .subscription-section input[type="email"]:hover,
+        .subscription-section input[type="email"]:focus {
+            border-color: #ff9800;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .subscription-section input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .subscription-section button {
+            background: #ff9800;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .subscription-section button:hover {
+            background: #e68900;
+            transform: translateY(-2px);
+        }
+        
+        .subscription-section p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 1rem;
+            text-align: center;
+        }
+        
+        /* Fixed Popular Posts Section */
+        .popular-posts-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .popular-posts-section .post-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .popular-posts-section .post-list li {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .popular-posts-section .post-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        /* Fixed image size */
+        .popular-posts-section .post-list img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 5px;
+            flex-shrink: 0;
+        }
+        
+        .popular-posts-section .post-list a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            flex-grow: 1;
+        }
+        
+        .popular-posts-section .post-list a:hover {
+            color: #ffcc80;
+            text-decoration: underline;
+        }
+        
+        .view-more {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            padding: 8px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            color: #ff9800;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .view-more:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #e68900;
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .slogan {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: white;
+            font-weight: 500;
+        }
+        
+        .credit {
+            color: #ddd;
+            font-size: 0.9rem;
+        }
+        
+        /* Mobile-specific Bottom Navigation Bar */
+        #bottom-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1001;
+            padding: 5px 0;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            justify-content: space-around;
+            align-items: center;
+            height: 60px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+        
+        #bottom-nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.7rem;
+            padding: 5px;
+            border-radius: 8px;
+            transition: color 0.3s, background-color 0.3s;
+            flex: 1;
+            max-width: 80px;
+            min-height: 50px;
+            justify-content: center;
+        }
+        
+        #bottom-nav a.active-bottom, #bottom-nav a:hover {
+            color: #ff9800;
+            background-color: rgba(255, 152, 0, 0.1);
+        }
+        
+        #bottom-nav a i {
+            font-size: 1.2rem;
+            margin-bottom: 3px;
+        }
+        
+        /* Custom Modal Styling for Alerts */
+        .custom-message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            z-index: 1000;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+            font-family: 'Inter', sans-serif;
+            max-width: 90%;
+            animation: fadeIn 0.3s ease-out;
+            touch-action: none;
+        }
+        
+        .custom-message-box p {
+            margin: 0 0 15px 0;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+        
+        .custom-message-box strong {
+            color: #ffcc80;
+        }
+        
+        .custom-message-box button {
+            margin-top: 20px;
+            padding: 10px 25px;
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        
+        .custom-message-box button:hover {
+            background-color: #e68900;
+            transform: translateY(-2px);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Scroll Reveal Animation */
+        .reveal {
+            position: relative;
+            opacity: 0;
+            transition: 1s all ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                transition: all 0.3s ease;
+                z-index: 99;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 1rem 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-links a {
+                width: 80%;
+                text-align: center;
+                display: block;
+                margin: 0 auto;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero-content {
+                padding: 1.5rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .countdown-number {
+                font-size: 2rem;
+            }
+            
+            .main-content-area {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                order: -1;
+                min-width: unset;
+            }
+            
+            .social-btn {
+                width: calc(33.33% - 0.4rem);
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .newsletter-form input[type="email"] {
+                max-width: 90%;
+            }
+            
+            /* Show bottom navigation on mobile */
+            #bottom-nav {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">SstocksS</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="article.html">Blog</a></li>
+                    <li><a href="disclaimer.html">Disclaimer</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                </ul>
+                <div class="hamburger">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="main-content-area">
+                <div class="content-area">
+                    <section class="hero">
+                        <div class="hero-content">
+                            <div class="hero-text reveal">
+                                <h1>Exciting New Content Coming Soon!</h1>
+                                <p>We're working hard to bring you valuable insights and strategies for option trading. Our team is preparing something special that will help you navigate the markets with more confidence.</p>
+                                
+                                <div class="countdown-container reveal">
+                                    <div class="countdown-title">Content Launch In:</div>
+                                    <div class="countdown">
+                                        <div class="countdown-item">
+                                            <div class="countdown-number" id="days">07</div>
+                                            <div class="countdown-label">Days</div>
+                                        </div>
+                                        <div class="countdown-item">
+                                            <div class="countdown-number" id="hours">12</div>
+                                            <div class="countdown-label">Hours</div>
+                                        </div>
+                                        <div class="countdown-item">
+                                            <div class="countdown-number" id="minutes">45</div>
+                                            <div class="countdown-label">Minutes</div>
+                                        </div>
+                                        <div class="countdown-item">
+                                            <div class="countdown-number" id="seconds">30</div>
+                                            <div class="countdown-label">Seconds</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <p>In the meantime, explore our existing articles or subscribe to be the first to know when this content goes live!</p>
+                                
+                                <div class="button-container">
+                                    <a href="article.html" class="cta-button">Browse Articles</a>
+                                    <a href="index.html" class="cta-button">Return Home</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="stay-updated">
+                        <h2 class="section-title reveal">Get Notified When We Launch</h2>
+                        <div class="newsletter-section reveal">
+                            <p>Subscribe to our newsletter to receive exclusive options trading strategies, market updates, and expert tips directly to your inbox.</p>
+                            <form class="newsletter-form" id="newsletterForm">
+                                <input type="email" placeholder="Enter your email address" required>
+                                <button type="submit">Notify Me</button>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Sidebar Content -->
+                <div class="sidebar">
+                    <!-- Social Media Share Buttons -->
+                    <div class="social-share">
+                        <div class="social-share-title">Share Our Site</div>
+                        <div class="social-buttons">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.sstockss.com/" target="_blank" class="social-btn facebook" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/" target="_blank" class="social-btn instagram" aria-label="Share on Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://pinterest.com/pin/create/button/?url=https://www.sstockss.com/&media=https://www.sstockss.com/ImageData/sstockss_Img.jpg&description=Options%20Master:%20Your%20Guide%20to%20Option%20Trading" target="_blank" class="social-btn pinterest" aria-label="Share on Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                            <a href="https://www.youtube.com/" target="_blank" class="social-btn youtube" aria-label="Visit our YouTube channel"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Subscription Options -->
+                    <div class="subscription-section">
+                        <h3 class="sidebar-title">Subscribe for Updates</h3>
+                        <form id="sidebarSubscriptionForm">
+                            <input type="email" placeholder="Your Email Address" required aria-label="Email for subscription">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                        <p>Get notified when new content is published!</p>
+                    </div>
+
+                    <!-- Popular Posts Section -->
+                    <div class="popular-posts-section">
+                        <h3 class="sidebar-title">Popular Posts</h3>
+                        <ul class="post-list">
+                            <li>
+                                <img src="understand-stock-market-basics.webp" alt="understand-stock-market-basics">
+                                <a href="understand-stock-market-basics.html">चुकीचे पाऊल नकोच । यासाठी शेअर मार्केटची मूलभूत संकल्पना समजून घ्यावीच लागेल.</a>
+                            </li>
+                            <li>
+                                <img src="options-trading-myths-exposed.webp" alt="options-trading-myths-exposed">
+                                <a href="options-trading-myths-exposed.html">ऑप्शन ट्रेडिंग मधील, अफवा ज्यावर विश्वास ठेवणे तुम्हाला थांबवावेच लागेल.</a>
+                            </li>
+                            <li>
+                                <img src="why-options-trading-is-not-risky.webp" alt="why-options-trading-is-not-risky">
+                                <a href="why-options-trading-is-not-risky.html">ऑप्शन ट्रेडिंग तुम्हाला वाटते तेवढे धोकादायक का नाही?</a>
+                            </li>
+                        </ul>
+                        <a href="article.html" class="view-more">View More Articles</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mobile-specific Bottom Navigation Bar -->
+    <div id="bottom-nav">
+        <a href="index.html">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="article.html">
+            <i class="fas fa-book-open"></i>
+            <span>Articles</span>
+        </a>
+        <a href="Ideas.html">
+            <i class="fas fa-lightbulb"></i>
+            <span>Ideas</span>
+        </a>
+        <a href="data-analyzer.html">
+            <i class="fas fa-chart-area"></i>
+            <span>Analyzer</span>
+        </a>
+        <a href="contact-us.html">
+            <i class="fas fa-envelope"></i>
+            <span>Contact Us</span>
+        </a>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p class="slogan">Empowering your options trading journey with knowledge and clarity.</p>
+                <p class="credit">@ 2025 SstocksS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle (for hamburger menu)
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Countdown Timer
+        function updateCountdown() {
+            // Set the launch date (replace with your actual launch date)
+            const launchDate = new Date('December 25, 2025 00:00:00');
+            
+            const now = new Date();
+            const difference = launchDate - now;
+            
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            } else {
+                // Timer has ended
+                document.querySelector('.countdown').innerHTML = '<div class="countdown-ended">Content is now live!</div>';
+            }
+        }
+        
+        // Initialize and update countdown every second
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Scroll Reveal Animation Function
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            for (let i = 0; i < reveals.length; i++) {
+                const element = reveals[i];
+                const windowHeight = window.innerHeight;
+                const revealTop = element.getBoundingClientRect().top;
+                const revealPoint = 150;
+                
+                if (revealTop < windowHeight - revealPoint) {
+                    if (!element.classList.contains('active')) {
+                        element.classList.add('active');
+                    }
+                } else {
+                    if (element.classList.contains('active')) {
+                        element.classList.remove('active');
+                    }
+                }
+            }
+        }
+        
+        window.addEventListener('scroll', reveal);
+        reveal();
+
+        // Function to display custom message box
+        function showCustomMessageBox(message, email) {
+            const messageBox = document.createElement('div');
+            messageBox.classList.add('custom-message-box');
+            messageBox.innerHTML = `
+                <p>${message}</p>
+                ${email ? `<p>तुम्ही या ईमेलवर अपडेट्स प्राप्त कराल: <strong>${email}</strong></p>` : ''}
+                <button>बंद करा</button>
+            `;
+            document.body.appendChild(messageBox);
+            
+            messageBox.querySelector('button').addEventListener('click', () => {
+                document.body.removeChild(messageBox);
+            });
+        }
+
+        // Newsletter Subscription Form Functionality
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = this.querySelector('input[type="email"]');
+            const email = emailInput.value;
+            
+            if (email) {
+                showCustomMessageBox("सदस्यता घेतल्याबद्दल धन्यवाद! नवीन सामग्री लाँच झाल्यावर आम्ही तुम्हाला कळवू.", email);
+                emailInput.value = '';
+            }
+        });
+
+        // Sidebar Subscription Form Functionality
+        document.getElementById('sidebarSubscriptionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = this.querySelector('input[type="email"]');
+            const email = emailInput.value;
+            
+            if (email) {
+                showCustomMessageBox("सदस्यता घेतल्याबद्दल धन्यवाद! नवीन सामग्री लाँच झाल्यावर आम्ही तुम्हाला कळवू.", email);
+                emailInput.value = '';
+            }
+        });
+    </script>
+</body>
+</html>

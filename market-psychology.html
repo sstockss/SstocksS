@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:title" content="Market Psychology | मार्केट सायकॉलॉजी | SstocksS">
+<meta property="og:description" content="Understand market psychology and investor behavior. Learn how emotions, biases, and sentiment impact trading decisions to gain an edge in the markets.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.sstockss.com/market-psychology.html">
+<meta property="og:image" content="https://www.sstockss.com/ImageData/market_psychology.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="SstocksS">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Market Psychology | मार्केट सायकॉलॉजी | SstocksS">
+<meta name="twitter:description" content="Learn the secrets of market psychology. Discover how emotions, biases, and sentiment influence trading decisions for smarter investing.">
+<meta name="twitter:image" content="https://www.sstockss.com/ImageData/market_psychology.jpg">
+<meta name="twitter:site" content="@sstockssBlog">
+
+<meta name="author" content="SstocksS">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.sstockss.com/market-psychology.html" />
+
+<!-- SEO Meta -->
+<meta name="description" content="Explore market psychology in trading. Learn how emotions, biases, and investor sentiment affect decision-making and improve trading performance.">
+<meta name="keywords" content="market psychology, trading psychology, investor behavior, trading emotions, behavioral finance, cognitive biases, sentiment analysis, decision making in trading, मार्केट सायकॉलॉजी, ट्रेडिंग सायकॉलॉजी, निवेशक भावनाएँ, ट्रेडिंग निर्णय">
+
+<title>Market Psychology | मार्केट सायकॉलॉजी | SstocksS</title>
+
+<link rel="icon" type="image/ico" sizes="96x96" href="ImageData/favicon.ico">
+
+<!-- Font Awesome for social icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Web App Manifest for PWA functionality -->
+<link rel="manifest" href="manifest.json">
+
+    <style>
+        /* Base styles from index.html for consistent look and feel */
+        body {
+            font-family: 'Noto Sans Devanagari', Arial, sans-serif; /* Added Noto Sans Devanagari for Marathi */
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box; /* Include padding in width calculation */
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+            width: 100%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        .logo:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-links a.active {
+            background-color: #ff9800;
+        }
+
+        .nav-links a.active:hover {
+            background-color: #e68900;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin: 0;
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+            width: 100%;
+            box-sizing: border-box;
+            padding-bottom: 80px; /* Space for fixed bottom nav */
+        }
+        
+        /* New: Main content area for articles */
+        .main-content-area {
+            display: flex;
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #ff9800;
+            border-radius: 2px;
+        }
+
+        .articles-grid {
+            display: grid;
+            gap: 2rem;
+            /* Default for smaller screens */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            margin-bottom: 2rem; /* Space between rows */
+        }
+
+        .article-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 280px; /* Consistent minimum height for article and category cards */
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .article-card img {
+            width: 100%;
+            height: 90px; /* Reduced height for article images */
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 0.6rem;
+        }
+
+        .article-card h3 {
+            font-size: 1.1rem; /* Reduced font size for article titles */
+            margin-top: 0;
+            color: white;
+            min-height: 1.6em; /* Adjusted min-height for titles */
+            line-height: 1.2;
+        }
+
+        .article-card p {
+            font-size: 0.8rem; /* Reduced font size for article paragraphs */
+            color: #ccc;
+            flex-grow: 1;
+            margin-bottom: 0.6rem;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; /* Limit paragraph to 3 lines */
+            -webkit-box-orient: vertical;
+        }
+
+        .article-card .read-more {
+            display: inline-block;
+            background-color: #ff9800;
+            color: white;
+            padding: 0.3rem 0.7rem; /* Reduced padding for article buttons */
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 0.6rem;
+        }
+
+        .article-card .read-more:hover {
+            background-color: #e68900;
+        }
+        
+        .newsletter-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-top: 3rem;
+        }
+
+        .newsletter-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .newsletter-section p {
+            font-size: 1.1rem;
+            color: #ddd;
+            margin-bottom: 2rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .newsletter-form input[type="email"] {
+            padding: 0.8rem 1.2rem;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 350px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            outline: none;
+        }
+
+        .newsletter-form input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .newsletter-form button {
+            background-color: #ff9800;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #e68900;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .slogan {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: white;
+            font-weight: 500;
+        }
+
+        .credit {
+            color: #ddd;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile-specific Bottom Navigation Bar */
+        #bottom-nav {
+            display: none; /* Hidden by default, shown on mobile */
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1001; /* Higher than header's z-index */
+            padding: 5px 0;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px); /* For Safari */
+            justify-content: space-around;
+            align-items: center;
+            height: 60px; /* Fixed height for bottom nav */
+            box-sizing: border-box;
+            border-top-left-radius: 15px; /* Rounded corners for app-like feel */
+            border-top-right-radius: 15px;
+        }
+
+        #bottom-nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.7rem;
+            padding: 5px;
+            border-radius: 8px;
+            transition: color 0.3s, background-color 0.3s;
+            flex: 1; /* Distribute items evenly */
+            max-width: 80px; /* Limit width of each item */
+            min-height: 50px; /* Ensure sufficient touch target size */
+            justify-content: center;
+        }
+
+        #bottom-nav a.active-bottom, #bottom-nav a:hover {
+            color: #ff9800;
+            background-color: rgba(255, 152, 0, 0.1); /* Light highlight on active/hover */
+        }
+
+        #bottom-nav a i {
+            font-size: 1.2rem;
+            margin-bottom: 3px;
+        }
+
+        /* Custom Modal Styling for Alerts */
+        .custom-message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Center the modal */
+            background-color: rgba(0, 0, 0, 0.9); /* Darker overlay */
+            color: white;
+            padding: 30px; /* More padding */
+            border-radius: 12px; /* Slightly more rounded */
+            z-index: 1000;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); /* Stronger shadow */
+            font-family: 'Inter', sans-serif;
+            max-width: 90%; /* Responsive width */
+            box-sizing: border-box;
+            animation: fadeIn 0.3s ease-out; /* Smooth fade-in */
+            touch-action: none; /* Prevent scrolling behind the modal */
+        }
+
+        .custom-message-box p {
+            margin: 0 0 15px 0;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        .custom-message-box strong {
+            color: #ffcc80; /* Highlight email */
+        }
+
+        .custom-message-box button {
+            margin-top: 20px; /* More margin */
+            padding: 10px 25px; /* Larger button */
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 8px; /* More rounded button */
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .custom-message-box button:hover {
+            background-color: #e68900;
+            transform: translateY(-2px); /* Slight lift effect */
+        }
+
+        /* Pagination Styles (Added from article2.html) */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+
+        .pagination-list {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 0.5rem;
+        }
+
+        .pagination-item a, 
+        .pagination-item span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .pagination-item a {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .pagination-item a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .pagination-item .current {
+            background: #ff9800;
+            color: white;
+        }
+
+        .pagination-item .prev-next {
+            width: auto;
+            padding: 0 15px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            position: relative;
+            opacity: 0;
+            transition: 1s all ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px; /* Adjust based on header height */
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                transition: all 0.3s ease;
+                z-index: 99;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links a {
+                width: 80%;
+                text-align: center;
+                display: block;
+                margin: 0 auto;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .newsletter-form input[type="email"] {
+                max-width: 90%;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr; /* 1 column on mobile */
+            }
+
+            /* Show bottom navigation on mobile */
+            #bottom-nav {
+                display: flex;
+            }
+
+            /* Adjust main padding for bottom nav */
+            main {
+                padding-bottom: 80px;
+            }
+
+            /* Pagination responsive adjustments */
+            .pagination-list {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 991px) {
+            .articles-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .articles-grid {
+                grid-template-columns: repeat(4, 1fr); /* 4 columns on larger screens */
+            }
+        }
+
+        .hidden-strip {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">SstocksS</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="article.html">Blog</a></li>
+                    <li><a href="disclaimer.html">Disclaimer</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <div class="container">
+            <div class="main-content-area">
+                <div class="content-area">
+                    <section class="market-basics">
+                        <h2 class="section-title reveal">Market Psychology | मार्केट सायकॉलॉजी</h2>
+                        
+                        <!-- Pagination Top -->
+                        <div class="pagination">
+                            <ul class="pagination-list">
+                                <li class="pagination-item"><a href="#" class="prev-next">Previous</a></li>
+                                <li class="pagination-item"><span class="current">1</span></li>
+                                <li class="pagination-item"><a href="technical-analysis2.html">2</a></li>
+                                <li class="pagination-item"><a href="technical-analysis2.html" class="prev-next">Next</a></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Row 1 -->
+                        <div class="articles-grid reveal">
+                            <!-- Article Card 1 -->
+                            <div class="article-card">
+                                <img src="avoid-fomo-stock-market.webp" alt="avoid-fomo-stock-market">
+                                <h3>FOMO (Fear of Missing Out) हा मानसिक आजार तुम्हाला शेअर मार्केटमध्ये नुकसानदायक आहे.</h3>
+                                <p>शेअर मार्केटमध्ये तुम्ही सतत घाबरत असाल तर समजून जा की, FOMO तुमचे निर्णय झपाट्याने नुकसानाकडे ढकलत आहे. त्यावर तात्काळ मात करणे अत्यंत आवश्यक आहे.</p>
+                                <a href="avoid-fomo-stock-market.html" class="read-more">Read More</a>
+                            </div>
+                            <!-- Article Card 2 -->
+                            <div class="article-card">
+                                <img src="how-to-control-greed-fear.webp" alt="how-to-control-greed-fear">
+                                <h3>लोभ आणि भीती यावर नियंत्रण मिळवण्याचे 5 शक्तिशाली टिप्स.</h3>
+                                <p>तुमच्या मनावर लोभ आणि भीतीचे वर्चस्व असेल तर तुमचा प्रत्येक निर्णय हा धोकादायक होत आहे. यावर विजय मिळविण्यासाठी या 5 ट्रिक चे अनुसरण केल्यास तुमची मानसिकता नक्कीच बदलेल.</p>
+                                <a href="how-to-control-greed-fear.html" class="read-more">Read More</a>
+                            </div>
+                            <!-- Article Card 3 -->
+                            <div class="article-card">
+                                <img src="emotions-hurt-trading.webp" alt="emotions-hurt-trading">
+                                <h3>तुमच्या ट्रेडिंग निर्णयांवर तुमच्या भावना कशा नकारात्मक परिणाम करतात?</h3>
+                                <p>तुमच्या भावनांमुळे तुमच्या निर्णयांवर वाईट परिणाम होत असतात. अर्थात यावर प्रभावशाली उपाययोजना करणे गरजेचे आहे, जे तुमच्या ट्रेडिंग सामर्थ्याला पुन्हा जागृत करतील.</p>
+                                <a href="emotions-hurt-trading.html" class="read-more">Read More</a>
+                            </div>
+                            <!-- Article Card 4 -->
+                            <div class="article-card">
+                                <img src="confirmation-bias-trap.webp" alt="confirmation-bias-trap">
+                                <h3>Confirmation Bias हा मानसिक सापळा तुम्हाला चुकीचे निर्णय घ्यायला लावतो.</h3>
+                                <p>तुमचा मेंदू तुमच्याशी खोटं बोलत आहे आणि तुम्हाला कळही नाही. Confirmation Bias हे एक भयानक सत्य आहे जे तुमच्या जीवनातील सर्वात मोठ्या चुका करवून घेते.</p>
+                                <a href="confirmation-bias-trap.html" class="read-more">Read More</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Row 2 -->
+                        <div class="articles-grid reveal">
+                            <!-- Article Card 1 -->
+                            <div class="article-card">
+                                <img src="how-to-stay-calm-trading.webp" alt="how-to-stay-calm-trading">
+                                <h3>ट्रेडिंग मध्ये लॉस झाल्यावर शांत कसे रहावे, यासाठीचे तंत्र तुम्हाला माहिती असायलाच हवे.</h3>
+                                <p>तुमच्या भावनांपेक्षा मोठा मित्र आणि मोठा शत्रू कोणताच नाही, आणि त्यावर ताबा मिळवणं म्हणजे खरी असाधारण कला. स्टॉक मार्केटच्या लाल स्क्रीनवरही अढळ शांतता राखण्याची गुप्त सूत्रे ज्याला कळली, तोच यशस्वी ट्रेडर होऊ शकतो.</p>
+                                <a href="how-to-stay-calm-trading.html" class="read-more">Read More</a>
+                            </div>
+                            <!-- Article Card 2 -->
+                            <div class="article-card">
+                                <img src="why-you-need-market-discipline.webp" alt="why-you-need-market-discipline">
+                                <h3>मार्केटमध्ये शिस्त का महत्त्वाची आहे? या मागचे कारण कदाचित तुम्हाला माहिती देखील नसेल.</h3>
+                                <p>तुम्हाला जर का अजूनही मार्केटमध्ये शिस्तीची खरी शक्ती माहिती नसेल तर तुम्ही एक मोठी चूक करत आहात. येथे फक्त तांत्रिक विश्लेषण नाही तर ट्रेडिंग शिस्त देखील अधिक प्रभावीपणे काम करते.</p>
+                                <a href="why-you-need-market-discipline.html" class="read-more">Read More</a>
+                            </div>
+                            <!-- Article Card 3 -->
+                            <div class="article-card">
+                                <img src="how-herd-mentality-loses-money.webp" alt="how-herd-mentality-loses-money">
+                                <h3>Herd Mentality मधील या चुकीमुळेच 99% लोक पैसे गमावतात.</h3>
+                                <p>Herd Mentality मधील एक भयानक चूक तुमच्या सर्व नफ्यावर पाणी सोडते, हे जेवढ्या लवकर समजेल तेवढ्या लवकर तुम्ही या मानसिक सापळ्यातून बाहेर पडाल.</p>
+                                <a href="how-herd-mentality-loses-money.html" class="read-more">Read More</a>
+                            </div>
+                            <!-- Article Card 4 -->
+                            <div class="article-card">
+                                <img src="how-to-beat-analysis-paralysis.webp" alt="how-to-beat-analysis-paralysis">
+                                <h3>Analysis Paralysis । ट्रेडिंगमध्ये विचारांचा अतिरेक कसा बनतो अडथळा?</h3>
+                                <p>Analysis Paralysis हा अदृश्य शत्रू तुमच्या सर्व संधींना नष्ट करतो, येथे विचारांच्या अतिरेकामुळे तुमची सर्व योग्य निर्णयक्षमता बधित होते. या मानसिक अडथळ्यावर मात करण्यासाठी काही नियमांचे पालन करणे आवश्यक बनते.</p>
+                                <a href="how-to-beat-analysis-paralysis.html" class="read-more">Read More</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Row 3 -->
+                        <div class="articles-grid reveal">
+                            <!-- Article Card 1 -->
+                            <div class="article-card">
+                                <img src="patience-trading-trick.webp" alt="patience-trading-trick">
+                                <h3>ट्रेडिंगमध्ये संयम ठेवणं अवघड वाटत असेल तरीही ही ट्रिक तुमचं नशीब पलटवेल!</h3>
+                                <p>शेअर बाजारामध्ये संयम न ठेवल्यामुळे 90% ट्रेडर्स पैसे गमावतात. संयम हे तुमचे सर्वात शक्तिशाली ट्रेडिंग हत्यार आहे ज्याची किंमत तुम्हाला माहिती नाही.</p>
+                                <a href="patience-trading-trick.html" class="read-more">Read More</a>
+                            </div>
+                            <!-- Article Card 2 -->
+                            <div class="article-card">
+                                <img src="how-to-conquer-trading-ego.webp" alt="how-to-conquer-trading-ego">
+                                <h3>यशस्वी व्हायचंय तर आधी स्वतःच्या Ego ला हरवा, हाच आहे यशातील मुख्य अडथळा.</h3>
+                                <p>जर तुम्ही आपल्या Ego शी झुंज दिली नाही, तर तुम्ही कधीही खरं यश मिळवू शकणार नाही. ही एकच भावनिक क्रांती आहे जी तुमचे आयुष्य बदलू शकते.</p>
+                                <a href="how-to-conquer-trading-ego.html" class="read-more">Read More</a>
+                            </div>
+                            <!-- Article Card 3 -->
+                            <div class="article-card">
+                                <img src="anchoring-bias-trading.webp" alt="anchoring-bias-trading">
+                                <h3>ट्रेडिंगमध्ये हुशार असूनही अपयश का? Anchoring Bias हा मानसिक दोष आहे कारणीभूत.</h3>
+                                <p>तुमची बुद्धिमत्ता एका विशिष्ट मानसिक अडथळ्यामुळे निरुपयोगी ठरते. Anchoring Bias हा घातक दोष तुम्हाला चुकीच्या माहितीवर अडकवून ठेवतो. यावर मात करण्यासाठी आवश्यकता आहे ती एका शक्तिशाली रणनीतीची, जी तुमच्या ट्रेडिंग निर्णयांमध्ये आत्मविश्वास आणि अचूकता निर्माण करेल.</p>
+                                <a href="anchoring-bias-trading.html" class="read-more">Read More</a>
+                            </div>
+                            <!-- Article Card 4 -->
+                            <div class="article-card">
+                                <img src="stop-recency-bias-trading.webp" alt="stop-recency-bias-trading">
+                                <h3>Recency Bias मेंदूची ही खेळी ट्रेडिंगमध्ये पुन्हा-पुन्हा तीच चूक करण्यास भाग पाडते.</h3>
+                                <p>Recency Bias जी अलीकडील घटनांवर अतिरिक्त भर देऊन काम करते. यामुळे तुम्ही वारंवार एकाच प्रकारच्या चुकीकडे ढकलले जातात. अर्थात या घातक खेळीमुळे तुम्ही अयशस्वी पॅटर्नमध्ये अडकता.</p>
+                                <a href="stop-recency-bias-trading.html" class="read-more">Read More</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Row 4 -->
+                        <div class="articles-grid reveal">
+                            <!-- Article Card 1 -->
+                            <div class="article-card">
+                                <img src="stop-gamblers-mindset.webp" alt="stop-gamblers-mindset">
+                                <h3>नुकसान थांबवायचंय तर Gambler’s Mindset आजच थांबायला हवे.</h3>
+                                <p>Gambler’s Mindset ही घातक मानसिकता तुम्हाला कधी जबरदस्त नुकसान करेल ते कळणार देखील नाही. या मानसिकतेवर मात केल्याशिवाय तुम्ही कधीही यशस्वी होऊ शकत नाही.</p>
+                                <a href="stop-gamblers-mindset.html" class="read-more">Read More</a>
+                            </div>
+                            <!-- Article Card 2 -->
+                            <div class="article-card">
+                                <img src="how-to-handle-market-reversal.webp" alt="how-to-handle-market-reversal">
+                                <h3>ट्रेडिंगमध्ये मार्केट उलटं जातंय? हार न मानता स्वतःवर भरोसा ठेवा!</h3>
+                                <p>मार्केटच्या उलट्या वाटचालीमुळे बहुतेक ट्रेडर्स आपला आत्मविश्वास गमावतात. ही गोष्ट मोठ्या ट्रेडर्सना आधीच माहिती असते. म्हणून स्वतःवर तसेच स्वतःच्या रणनीतीवर प्रत्येक ट्रेडरला अढळ विश्वास असायलाच हवा.</p>
+                                <a href="how-to-handle-market-reversal.html" class="read-more">Read More</a>
+                            </div>
+                            <!-- Article Card 3 -->
+                            <div class="article-card">
+                                <img src="secret-of-successful-traders.webp" alt="secret-of-successful-traders">
+                                <h3>यशस्वी ट्रेडर्स कसा घेतात परफेक्ट निर्णय? स्मार्ट ट्रेडिंगसाठी System 1 आणि System 2 थिंकिंगचं रहस्य.</h3>
+                                <p>मेंदूच्या दुहेरी प्रक्रियेचे ज्ञान, System 1 आणि System 2 थिंकिंगचे हे रहस्य तुमचे निर्णय अचूक करू शकते. या दुहेरी प्रक्रियेचे रहस्य नाही जाणले, तर तुम्ही कधीही परफेक्ट निर्णय घेऊ शकणार नाही.</p>
+                                <a href="secret-of-successful-traders.html" class="read-more">Read More</a>
+                            </div>
+                            <!-- Article Card 4 -->
+                            <div class="article-card">
+                                <img src="why-you-need-a-trading-plan.webp" alt="why-you-need-a-trading-plan">
+                                <h3>ट्रेडिंग प्लॅनशिवाय यश? शक्यच नाही!</h3>
+                                <p>जर तुमच्याकडे ट्रेडिंग प्लॅन नसेल, तर तुम्ही ट्रेडिंगमध्ये कधीही यशस्वी होऊ शकणार नाही. एक क्रांतिकारक योजना तुमच्या ट्रेडिंगचे संपूर्ण चित्र बदलू शकते, यावर विश्वास ठेवावाच लागेल.</p>
+                                <a href="why-you-need-a-trading-plan.html" class="read-more">Read More</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Row 5 -->
+                        <div class="articles-grid reveal">
+                            <!-- Article Card 1 -->
+                            <div class="article-card">
+                                <img src="avoid-overconfidence-trading.webp" alt="avoid-overconfidence-trading">
+                                <h3>Overconfidence का घातक आहे? ही एकच सवय तुमचं ट्रेडिंग उद्ध्वस्त करू शकते!</h3>
+                                <p>Overconfidence तुमच्या निर्णयांना गोंधळात टाकते, या एकाच सवयीवर मात करण्यासाठी या प्रभावशाली टिप्स वापरून तुम्ही तुमच्या ट्रेडिंगमध्ये प्रचंड बदल घडवून आणू शकता.</p>
+                                <a href="avoid-overconfidence-trading.html" class="read-more">Read More</a>
+                            </div>
+                            <!-- Article Card 2 -->
+                            <div class="article-card">
+                                <img src="outcome-bias-mental-trap.webp" alt="outcome-bias-mental-trap">
+                                <h3>योग्य निर्णय असूनही का वाटतं चूक केली? Outcome Bias समजून घ्या.</h3>
+                                <p>Outcome Bias च्या या गुपित प्रभावाने सर्वोत्तम ट्रेडर्स देखील भ्रमित होतात. निकालावरून निर्णय तपासण्याची ही घातक चूक तुम्हाला भावनिक रूपाने नष्ट करते. आणि ही मानसिकता तुमच्या योग्य निर्णयालासुद्धा चुकीचं ठरवते.</p>
+                                <a href="outcome-bias-mental-trap.html" class="read-more">Read More</a>
+                            </div>
+                            <!-- Article Card 3 -->
+                            <div class="article-card">
+                            <div class="article-card hidden-strip">
+                                <img src="comming-soon.webp" alt="Article Thumbnail">
+                                <h3>लवकरच येत आहोत | Coming soon</h3>
+                                <p>आम्ही लवकरच काहीतरी खास घेऊन येत आहोत! नवीन अपडेट्स, रोमांचक माहिती आणि उत्तम अनुभवांसाठी तयार राहा. भेटूया लवकरच!</p>
+                                <a href="comming-soon.html" class="read-more">Read More</a>
+                            </div>
+                            </div>
+                            <!-- Article Card 4 -->
+                            <div class="article-card">
+                            <div class="article-card hidden-strip">
+                                <img src="comming-soon.webp" alt="Article Thumbnail">
+                                <h3>लवकरच येत आहोत | Coming soon</h3>
+                                <p>आम्ही लवकरच काहीतरी खास घेऊन येत आहोत! नवीन अपडेट्स, रोमांचक माहिती आणि उत्तम अनुभवांसाठी तयार राहा. भेटूया लवकरच!</p>
+                                <a href="comming-soon.html" class="read-more">Read More</a>
+                            </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Pagination Bottom -->
+                        <div class="pagination">
+                            <ul class="pagination-list">
+                                <li class="pagination-item"><a href="#" class="prev-next">Previous</a></li>
+                                <li class="pagination-item"><span class="current">1</span></li>
+                                <li class="pagination-item"><a href="technical-analysis2.html">2</a></li>
+                                <li class="pagination-item"><a href="technical-analysis2.html" class="prev-next">Next</a></li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section reveal">
+        <div class="container">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Stay updated with the latest insights and strategies in options trading.</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p class="slogan">"Empowering Traders with Knowledge"</p>
+                <p class="credit">© 2023 SstocksS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav id="bottom-nav">
+        <a href="index.html">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="article.html">
+            <i class="fas fa-book-open"></i>
+            <span>Articals</span>
+        </a>
+        <a href="Ideas.html">
+            <i class="fas fa-lightbulb"></i>
+            <span>Ideas</span>
+        </a>
+        <a href="data-analyzer.html">
+            <i class="fas fa-chart-area"></i>
+            <span>Analyzer</span>
+        </a>
+        <a href="contact-us.html">
+            <i class="fas fa-envelope"></i>
+            <span>Contact Us</span>
+        </a>
+    </nav>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Newsletter Form Submission
+        const newsletterForm = document.getElementById('newsletterForm');
+        
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get the email input value
+            const emailInput = this.querySelector('input[type="email"]');
+            const email = emailInput.value.trim();
+            
+            if (email) {
+                // Create a custom modal message
+                const modal = document.createElement('div');
+                modal.className = 'custom-message-box';
+                modal.innerHTML = `
+                    <p>Thank you for subscribing to our newsletter!<br>
+                    We've sent a confirmation email to <strong>${email}</strong>.</p>
+                    <button onclick="this.parentElement.remove()">OK</button>
+                `;
+                
+                // Add the modal to the page
+                document.body.appendChild(modal);
+                
+                // Clear the input
+                emailInput.value = '';
+            }
+        });
+
+        // Scroll Reveal Animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+        
+        window.addEventListener('scroll', reveal);
+        // Initial call to reveal elements on page load
+        reveal();
+    </script>
+</body>
+</html>
