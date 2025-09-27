@@ -1,151 +1,43 @@
-<!DOCTYPE html>
-<html lang="mr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>मध्यभागी असलेले कंटेंट (Centered Content)</title>
-    <!-- Tailwind CSS Load करण्यासाठी स्क्रिप्ट -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* फॉन्ट सेट करणे */
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        /* Flexbox वापरून पूर्ण कंटेंट मध्यभागी आणण्यासाठी CSS */
-        .full-page-center {
-            /* 100vh म्हणजे संपूर्ण स्क्रीनची उंची */
-            min-height: 100vh; 
-            
-            /* Flexbox ॲक्टिव्हेट करा */
-            display: flex;
-            
-            /* कंटेन्ट आडव्या दिशेने (Horizontal) मध्यभागी आणा */
-            justify-content: center;
-            
-            /* कंटेन्ट उभ्या दिशेने (Vertical) मध्यभागी आणा */
-            align-items: center;
-            
-            /* पृष्ठभूमीचा रंग */
-            background-color: #0f172a; /* slate-900 */
-        }
-        
-        /* कंटेन्ट बॉक्सला स्टाईल देण्यासाठी */
-        .content-box {
-            /* जास्तीत जास्त रुंदी सेट करा */
-            max-width: 90%; 
-            padding: 2.5rem; /* p-10 */
-            background-color: #1e293b; /* slate-800 */
-            border-radius: 1rem; /* rounded-xl */
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
-        
-        /* हेडिंग आणि लिंक्सला स्टाईल देण्यासाठी */
-        .content-box h1, .content-box h2 {
-            margin-bottom: 0.5rem;
-            color: #f8fafc; /* slate-50 */
-        }
-        .content-box p {
-            color: #94a3b8; /* slate-400 */
-            margin-bottom: 1.5rem;
-        }
-        .icon-link {
-             /* आयकॉनला थोडी जागा आणि गडद सीमा द्या */
-            margin: 0 0.5rem; 
-            padding: 0.25rem;
-            border-radius: 0.5rem;
-            transition: transform 0.2s;
-        }
-        .icon-link:hover {
-            transform: scale(1.1);
-        }
-        .social-icons img {
-             /* सोशल आयकॉनला थोडी मोठी जागा द्या */
-             margin: 0 0.4rem;
-        }
-        .stats-image {
-             /* GitHub Stats इमेजला थोडी जागा द्या */
-             margin: 1.5rem 0;
-        }
-    </style>
-</head>
-<body>
-
-<!-- हा कंटेनर Flexbox वापरून सर्व कंटेंट पेजच्या मध्यभागी ठेवतो -->
-<div class="full-page-center">
-    
-    <!-- मुख्य कंटेंट बॉक्स -->
-    <div class="content-box">
-        
-        <!-- तुमचा पहिला भाग -->
-        <h1 class="text-5xl font-extrabold text-white">SstocksS</h1>
-        <p class="text-xl text-indigo-400 mb-8">www.sstockss.com</p>
-        <h2 class="text-2xl font-semibold text-gray-200 mb-6">व्यापक कार्यक्षमतेसाठी विशेष तंत्रिक भाषा आणि साधनांचा वापर</h2>
-        
-        <!-- आयकॉन सेक्शन -->
-        <p class="flex justify-center flex-wrap gap-4 mb-10">
-            <!-- मूळ आयकॉन स्ट्रक्चर, फक्त अतिरिक्त `center` टॅग्ज काढले आहेत -->
-            <a target="_blank" href="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" class="icon-link">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="42" height="42" />
-            </a>
-            <a target="_blank" href="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" class="icon-link">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="42" height="42" />
-            </a>
-            <a target="_blank" href="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" class="icon-link">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="42" height="42" />
-            </a>
-            <a target="_blank" href="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" class="icon-link">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="42" height="42" />
-            </a>
-            <a target="_blank" href="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" class="icon-link">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="42" height="42" />
-            </a>
-            <a target="_blank" href="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" class="icon-link">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="42" height="42" />
-            </a>
-            <a target="_blank" href="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original-wordmark.svg" class="icon-link">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original-wordmark.svg" alt="dotnet" width="42" height="42" />
-            </a>
-            <a target="_blank" href="https://www.vectorlogo.zone/logos/ifttt/ifttt-ar21.svg" class="icon-link">
-                <img src="https://www.vectorlogo.zone/logos/ifttt/ifttt-ar21.svg" alt="ifttt" width="42" height="42" />
-            </a>
-        </p>
-
-        <!-- Recent Posts Section -->
-        <h2 class="text-xl font-semibold text-gray-200 border-t pt-6 border-gray-700 mt-6">✒️ Recent Posts</h2>
-        <ul class="text-left list-disc list-inside text-blue-300 mx-auto w-fit mt-4 mb-8">
-            <li class="mb-2"><a target="_blank" href="www.bharat369.com" class="hover:text-blue-200">GitHub मध्ये लॉग इन करा: तुमच्या GitHub खात्यात (Account) यूजरनेम आणि पासवर्ड वापरून लॉग इन करा.</a></li>
-        </ul>
-
-        <!-- Where to find me Section -->
-        <h2 class="text-xl font-semibold text-gray-200">⚡️ Where to find me</h2>
-        <p class="social-icons flex justify-center flex-wrap mt-4 mb-6">
-            <a target="_blank" href="https://x.com/@bharat" class="icon-link">
-                <img src="https://img.shields.io/badge/twitter-x?style=for-the-badge&logo=x&logoColor=white&color=%230f1419" alt="twitter" />
-            </a>
-            <a target="_blank" href="https://www.facebook.com/bharatfb" class="icon-link">
-                <img src="https://img.shields.io/badge/facebook-logo?style=for-the-badge&logo=facebook&logoColor=white&color=%230866ff" alt="facebook" />
-            </a>
-            <a target="_blank" href="https://www.instagram.com/bharatinstagram" class="icon-link">
-                <img src="https://img.shields.io/badge/instagram-logo?style=for-the-badge&logo=instagram&logoColor=white&color=%23F35369" alt="instagram" />
-            </a>
-            <a target="_blank" href="https://www.youtube.com/BbharatT" class="icon-link">
-                <img src="https://img.shields.io/badge/youtube-logo?style=for-the-badge&logo=youtube&logoColor=white&color=%23cc0000" alt="youtube" />
-            </a>
-        </p>
-
-        <!-- GitHub Stats Images -->
-        <p class="flex flex-col items-center">
-            <img class="stats-image max-w-full h-auto" src="https://github-readme-stats.vercel.app/api?username=Bharat&show_icons=true&locale=en&theme=dark" alt="Bharat GitHub Stats" />
-            <img class="stats-image max-w-full h-auto" src="https://github-readme-streak-stats.herokuapp.com/?user=Bharat&theme=dark" alt="Bharat GitHub Streak" />
-            <img class="stats-image max-w-full h-auto" src="https://github-readme-stats.vercel.app/api/top-langs?username=Bharat&show_icons=true&locale=en&layout=compact&theme=dark" alt="Bharat Top Languages" />
-            <a href="https://github.com/ryo-ma/github-profile-trophy">
-                <img class="stats-image max-w-full h-auto" src="https://github-profile-trophy.vercel.app/?username=Bharat" alt="Bharat GitHub Trophies" />
-            </a>
-        </p>
-    </div>
-</div>
-
-</body>
-</html>
+<h1>SstocksS</h1>
+<p style="text-align: justify;">SstocksS हे केवळ लेख (articles) नाहीत; हा ऑप्शन ट्रेडिंगच्या यशाचा नकाशा (Success Blueprint) आहे! आम्ही येथे बाजारातील विविध रणनीती आणि सीक्रेट्स उघड करतो, जे तुम्हाला इतर 90% ट्रेडर्सपेक्षा पुढे ठेवतील. धोका (Risk) कसा नियंत्रित करायचा आणि प्रत्येक ट्रेंडमधून नफा कसा मिळवायचा? यांसारख्या प्रश्नांची तर्कशुद्ध आणि शैक्षणिक उत्तरे शोधण्यासाठी आजच SstocksS शी जोडून घ्या आणि तुमच्या पोर्टफोलिओचे नियंत्रण स्वतःच्या हाती घ्या!</p>
+<h2>आमच्या प्रणालींसाठी आवश्यक असलेले विशेष भाषिक प्रोटोकॉल्स आणि डेव्हलपमेंट टूल्स.</h2>
+<p><a target="_blank" href="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" style="display: inline-block;"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="42" height="42" /></a>
+<a target="_blank" href="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" style="display: inline-block;"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="42" height="42" /></a>
+<a target="_blank" href="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" style="display: inline-block;"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="42" height="42" /></a>
+<a target="_blank" href="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" style="display: inline-block;"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="42" height="42" /></a>
+<a target="_blank" href="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" style="display: inline-block;"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="42" height="42" /></a>
+<a target="_blank" href="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" style="display: inline-block;"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="42" height="42" /></a>
+<a target="_blank" href="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" style="display: inline-block;"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="42" height="42" /></a>
+<a target="_blank" href="https://www.vectorlogo.zone/logos/ifttt/ifttt-ar21.svg" style="display: inline-block;"><img src="https://www.vectorlogo.zone/logos/ifttt/ifttt-ar21.svg" alt="ifttt" width="42" height="42" /></a></p>
+<h2>SstocksS चे अखंडित ज्ञान देणारे कंटेंट</h2>
+<p style="text-align: justify;">90% रिटेल ट्रेडर बाजारात पैसा का गमावतात? कारण त्यांच्याकडे <strong>गुंतागुंतीच्या ऑप्शन स्ट्रॅटेजीजचे अचूक ज्ञान</strong> आणि जोखीम व्यवस्थापनाची शिस्त नसते. SstocksS तुम्हाला त्याच 90% लोकांच्या गर्दीतून बाहेर काढून यशस्वी 10% ट्रेडर्सच्या गटात सामील होण्यासाठी आवश्यक असलेले गुप्त ज्ञान प्रदान करते.</p>
+<h3>SstocksS: ज्ञानाधिष्ठित आणि व्यावसायिक दृष्टीकोन (Knowledge-Based & Professional Approach)</h3>
+<p style="text-align: justify;">SstocksS हे केवळ एक लेख संग्रह नाही; हे <strong>ऑप्शन ट्रेडिंगच्या तत्त्वांवर (Principles)</strong> आणि <strong>डेटा चालित विश्लेषणावर (Data-Driven Analysis)</strong> आधारित असलेले एक शैक्षणिक संशोधनाचे ठिकाण आहे. आम्ही शेअर बाजाराला जुगार न मानता, एक <strong>शिस्तबद्ध, उच्च-प्रणालीयुक्त (High-Systemized)</strong> व्यवसाय म्हणून कसे पाहावे, हे शिकवतो.</p>
+<h3>येथे मिळणाऱ्या ज्ञानाचे महत्त्वपूर्ण आधारस्तंभ (Critical Pillars of Knowledge):</h3>
+<strong>अचूक आणि प्रगत रणनीतींचा सखोल अभ्यास (In-Depth Study of Advanced Strategies)</strong>
+<ol class="box-numbers">
+  <li><strong>स्ट्रॅटेजी डिसेक्शन (Strategy Dissection):</strong> Iron Condor, Butterfly, Ratio Spreads आणि Synthetic Positions यांसारख्या प्रगत ऑप्शन स्ट्रॅटेजीजचे आम्ही सोप्या मराठीत विच्छेदन (dissection) करतो. बाजारातील प्रत्येक परिस्थितीसाठी (Bullish, Bearish, Range-bound) कोणती स्ट्रॅटेजी उपयुक्त आहे, हे शिकवतो.</li>
+  <li><strong>इन-ॲक्शन विश्लेषण (In-Action Analysis):</strong> केवळ सिद्धांत नाही, तर प्रत्यक्ष चार्ट आणि वास्तविक बाजारातील आकडेवारीवर आधारित स्ट्रॅटेजीची अंमलबजावणी (Implementation) आणि त्यांचे संभाव्य परिणाम स्पष्ट केले जातात.</li>
+</ol>
+<strong>जोखीम व्यवस्थापन (Risk Management) आणि भांडवल सुरक्षा (Capital Safety):</strong>
+<ol class="box-numbers">
+  <li><strong>भांडवल संरक्षण:</strong> तुमचा नफा आणि मूळ भांडवल (Capital) कसे सुरक्षित ठेवायचे, हे ट्रेडिंगमध्ये सर्वोच्च प्राधान्य आहे. आम्ही स्टॉप-लॉसचे अचूक विज्ञान आणि पोझिशन साईझिंगचे नियम शिकवतो, जे तुमच्या पोर्टफोलिओला अस्थिरतेपासून वाचवतात.</li>
+  <li><strong>मानसिक शिस्त:</strong> ट्रेडिंग सायकोलॉजी हा यशाचा ५०% भाग आहे. भीती आणि लोभ (Fear and Greed) यांच्यावर नियंत्रण मिळवून, भावनामुक्त निर्णय घेण्यासाठीचे व्यावसायिक तंत्रज्ञान (Psychological Techniques) पुरवले जाते.</li>
+</ol>
+<strong>सीक्रेट ट्रिक्स आणि बाजार वेळेचे तंत्र (Secret Timing Techniques):</strong>
+<ol>
+   <li><strong>टिप्स आणि ट्रिक्स:</strong> एंट्री आणि एक्झिट टाईमिंग सुधारण्यासाठी Price Action, Volume Analysis आणि Open Interest (OI) ॲनालिसिसच्या अति-गुप्त पद्धती उघड करणे.</li>
+    <li><strong>बाजाराचे रहस्य:</strong> ऑप्शनच्या प्रीमियम (Premium) मध्ये होणारे बदल आणि ते ठरवणारे घटक (उदा. Volatility, Theta Decay) कसे कार्य करतात, याचे गणितीय (Mathematical) आणि तर्कशुद्ध स्पष्टीकरण.</li>
+</ol>
+<h3>तुमचे नियंत्रण स्थापित करा (Establish Your Control)</h3>
+<p style="text-align: justify;">SstocksS सह जोडून घेऊन, तुम्ही ट्रेडिंगचा मास्टर होण्यासाठी आवश्यक असलेले <strong>प्रत्येक धोरण आणि शैक्षणिक ज्ञान</strong> मिळवा. तसेच इतरांच्या टिपांवर अवलंबून राहणे थांबवा आणि तुमच्या पोर्टफोलिओचे नियंत्रण स्वतःच्या हाती घ्या.</p>
+<p><strong>जर तुम्ही बाजारातील संधींसाठी तयार असाल</strong>strong>, तर SstocksS चे ज्ञानाचे प्रवेशद्वार आहे तुमच्यासाठी खुले आहे!</p>
+<h2>आमचे डिजिटल हब (Digital Hub)</h2>
+<p><a target="_blank" href="https://x.com/@social_sstockss" style="display: inline-block;"><img src="https://img.shields.io/badge/twitter-x?style=for-the-badge&logo=x&logoColor=white&color=%230f1419" alt="twitter" /></a>
+<a target="_blank" href="https://www.facebook.com/bharatfacebook" style="display: inline-block;"><img src="https://img.shields.io/badge/facebook-logo?style=for-the-badge&logo=facebook&logoColor=white&color=%230866ff" alt="facebook" /></a>
+<a target="_blank" href="https://www.instagram.com/bharatinstagram" style="display: inline-block;"><img src="https://img.shields.io/badge/instagram-logo?style=for-the-badge&logo=instagram&logoColor=white&color=%23F35369" alt="instagram" /></a>
+<a target="_blank" href="https://www.youtube.com/bharat369" style="display: inline-block;"><img src="https://img.shields.io/badge/youtube-logo?style=for-the-badge&logo=youtube&logoColor=white&color=%23cc0000" alt="youtube" /></a></p>
+<p><img align="center" src="https://github-readme-stats.vercel.app/api?username=Bharat&show_icons=true&locale=en" alt="Bharat" /></p>
+<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=Bharat&" alt="Bharat" /></p>
+<p><img src="https://github-readme-stats.vercel.app/api/top-langs?username=Bharat&show_icons=true&locale=en&layout=compact" alt="Bharat" /></p>
+<p><a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=Bharat" alt="Bharat" /></a></p>
