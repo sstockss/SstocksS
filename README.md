@@ -31,7 +31,7 @@
 </ol>
 <h3>तुमचे नियंत्रण स्थापित करा (Establish Your Control)</h3>
 <p style="text-align: justify;">SstocksS सह जोडून घेऊन, तुम्ही ट्रेडिंगचा मास्टर होण्यासाठी आवश्यक असलेले <strong>प्रत्येक धोरण आणि शैक्षणिक ज्ञान</strong> मिळवा. तसेच इतरांच्या टिपांवर अवलंबून राहणे थांबवा आणि तुमच्या पोर्टफोलिओचे नियंत्रण स्वतःच्या हाती घ्या.</p>
-<p><strong>जर तुम्ही बाजारातील संधींसाठी तयार असाल</strong>strong>, तर SstocksS चे ज्ञानाचे प्रवेशद्वार आहे तुमच्यासाठी खुले आहे!</p>
+<p><strong>जर तुम्ही बाजारातील संधींसाठी तयार असाल</strong>, तर SstocksS चे ज्ञानाचे प्रवेशद्वार आहे तुमच्यासाठी खुले आहे!</p>
 <h2>आमचे डिजिटल हब (Digital Hub)</h2>
 <p><a target="_blank" href="https://x.com/@social_sstockss" style="display: inline-block;"><img src="https://img.shields.io/badge/twitter-x?style=for-the-badge&logo=x&logoColor=white&color=%230f1419" alt="twitter" /></a>
 <a target="_blank" href="https://www.facebook.com/bharatfacebook" style="display: inline-block;"><img src="https://img.shields.io/badge/facebook-logo?style=for-the-badge&logo=facebook&logoColor=white&color=%230866ff" alt="facebook" /></a>
