@@ -22,7 +22,7 @@
 <strong>जोखीम व्यवस्थापन (Risk Management) आणि भांडवल सुरक्षा (Capital Safety):</strong>
 <ol class="box-numbers">
   <li><strong>भांडवल संरक्षण:</strong> तुमचा नफा आणि मूळ भांडवल (Capital) कसे सुरक्षित ठेवायचे, हे ट्रेडिंगमध्ये सर्वोच्च प्राधान्य आहे. आम्ही स्टॉप-लॉसचे अचूक विज्ञान आणि पोझिशन साईझिंगचे नियम शिकवतो, जे तुमच्या पोर्टफोलिओला अस्थिरतेपासून वाचवतात.</li>
-  <li><strong>मानसिक शिस्त:</strong> ट्रेडिंग सायकोलॉजी हा यशाचा ५०% भाग आहे. भीती आणि लोभ (Fear and Greed) यांच्यावर नियंत्रण मिळवून, भावनामुक्त निर्णय घेण्यासाठीचे व्यावसायिक तंत्रज्ञान (Psychological Techniques) पुरवले जाते.</li>
+  <li><strong>मानसिक शिस्त:</strong> ट्रेडिंग सायकोलॉजी हा यशाचा 50% भाग आहे. भीती आणि लोभ (Fear and Greed) यांच्यावर नियंत्रण मिळवून, भावनामुक्त निर्णय घेण्यासाठीचे व्यावसायिक तंत्रज्ञान (Psychological Techniques) पुरवले जाते.</li>
 </ol>
 <strong>सीक्रेट ट्रिक्स आणि बाजार वेळेचे तंत्र (Secret Timing Techniques):</strong>
 <ol>
@@ -37,7 +37,4 @@
 <a target="_blank" href="https://www.facebook.com/bharatfacebook" style="display: inline-block;"><img src="https://img.shields.io/badge/facebook-logo?style=for-the-badge&logo=facebook&logoColor=white&color=%230866ff" alt="facebook" /></a>
 <a target="_blank" href="https://www.instagram.com/bharatinstagram" style="display: inline-block;"><img src="https://img.shields.io/badge/instagram-logo?style=for-the-badge&logo=instagram&logoColor=white&color=%23F35369" alt="instagram" /></a>
 <a target="_blank" href="https://www.youtube.com/bharat369" style="display: inline-block;"><img src="https://img.shields.io/badge/youtube-logo?style=for-the-badge&logo=youtube&logoColor=white&color=%23cc0000" alt="youtube" /></a></p>
-<p><img align="center" src="https://github-readme-stats.vercel.app/api?username=Bharat&show_icons=true&locale=en" alt="Bharat" /></p>
-<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=Bharat&" alt="Bharat" /></p>
-<p><img src="https://github-readme-stats.vercel.app/api/top-langs?username=Bharat&show_icons=true&locale=en&layout=compact" alt="Bharat" /></p>
-<p><a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=Bharat" alt="Bharat" /></a></p>
+
