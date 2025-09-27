@@ -2,6 +2,8 @@
     <h1>SstocksS</h1>
     <p>www.sstockss.com</p>
     <h2>व्यापक कार्यक्षमतेसाठी विशेष तंत्रिक भाषा आणि साधनांचा वापर</h2>
+</center>
+<center>
     <p>
         <a target="_blank" href="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" style="display: inline-block;">
             <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="42" height="42" />
