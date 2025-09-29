@@ -637,13 +637,13 @@
             margin-top: 0; 
             margin-bottom: 15px; 
             font-size: 1.4rem;
-            color: #ffffff;
+            color: #2c3e50;
             font-weight: 600;
         ">What's your favorite type of content on our blog?</h3>
         
         <p style="
             margin-bottom: 20px; 
-            color: #ffffff; 
+            color: #7f8c8d; 
             font-size: 0.95rem;
             line-height: 1.5;
         ">Join <span id="totalVotes">124</span> other readers who have already voted. Select your preference below:</p>
@@ -666,8 +666,8 @@
             onclick="vote(0)">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                     <div>
-                        <span style="font-weight: bold; margin-right: 8px; color: #ffffff;">A)</span> 
-                        <span style="color: #ffffff;">In-depth tutorials and how-to guides</span>
+                        <span style="font-weight: bold; margin-right: 8px; color: #2c3e50;">A)</span> 
+                        <span style="color: #2c3e50;">In-depth tutorials and how-to guides</span>
                     </div>
                     <span id="optionPercent0" style="
                         background-color: #ecf0f1; 
@@ -706,8 +706,8 @@
             onclick="vote(1)">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                     <div>
-                        <span style="font-weight: bold; margin-right: 8px; color: #ffffff;">B)</span> 
-                        <span style="color: #ffffff;">Industry news and trends</span>
+                        <span style="font-weight: bold; margin-right: 8px; color: #2c3e50;">B)</span> 
+                        <span style="color: #2c3e50;">Industry news and trends</span>
                     </div>
                     <span id="optionPercent1" style="
                         background-color: #ecf0f1; 
@@ -746,8 +746,8 @@
             onclick="vote(2)">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                     <div>
-                        <span style="font-weight: bold; margin-right: 8px; color: #ffffff;">C)</span> 
-                        <span style="color: #ffffff;">Product reviews and comparisons</span>
+                        <span style="font-weight: bold; margin-right: 8px; color: #2c3e50;">C)</span> 
+                        <span style="color: #2c3e50;">Product reviews and comparisons</span>
                     </div>
                     <span id="optionPercent2" style="
                         background-color: #ecf0f1; 
@@ -802,11 +802,87 @@
         </div>
     </div>
 
+    <!-- Email Collection Popup -->
+    <div id="emailPopup" style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+    ">
+        <div style="
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 90%;
+            box-sizing: border-box;
+        ">
+            <h3 style="
+                margin-top: 0;
+                margin-bottom: 15px;
+                color: #2c3e50;
+                font-weight: 600;
+            ">Almost done!</h3>
+            <p style="
+                margin-bottom: 20px;
+                color: #7f8c8d;
+                font-size: 0.95rem;
+                line-height: 1.5;
+            ">Please provide your email to complete your vote:</p>
+            
+            <form id="emailForm" onsubmit="submitEmail(event)">
+                <input type="email" id="userEmail" required style="
+                    width: 100%;
+                    padding: 12px 15px;
+                    border: 1px solid #e0e0e0;
+                    border-radius: 6px;
+                    font-size: 0.95rem;
+                    box-sizing: border-box;
+                    margin-bottom: 15px;
+                    transition: border-color 0.3s ease;
+                " placeholder="Enter your email address" onfocus="this.style.borderColor='#3498db'" onblur="this.style.borderColor='#e0e0e0'">
+                
+                <div style="display: flex; justify-content: flex-end; gap: 10px;">
+                    <button type="button" onclick="closeEmailPopup()" style="
+                        padding: 10px 20px;
+                        background-color: #ecf0f1;
+                        color: #7f8c8d;
+                        border: none;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        font-size: 0.9rem;
+                        transition: background-color 0.3s ease;
+                    " onmouseover="this.style.backgroundColor='#dfe6e9'" onmouseout="this.style.backgroundColor='#ecf0f1'">Cancel</button>
+                    
+                    <button type="submit" style="
+                        padding: 10px 20px;
+                        background-color: #3498db;
+                        color: white;
+                        border: none;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        font-size: 0.9rem;
+                        font-weight: 600;
+                        transition: background-color 0.3s ease;
+                    " onmouseover="this.style.backgroundColor='#2980b9'" onmouseout="this.style.backgroundColor='#3498db'">Submit Survey</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script>
         // Initialize with pre-existing results (29%, 33%, 28%)
         let votes = [36, 41, 35]; // Votes corresponding to percentages
         let totalVotes = 112; // Total votes before user participation
         let hasVoted = false;
+        let selectedOptionIndex = null;
         
         function vote(optionIndex) {
             if (hasVoted) {
@@ -814,8 +890,32 @@
                 return;
             }
             
+            selectedOptionIndex = optionIndex;
+            showEmailPopup();
+        }
+        
+        function showEmailPopup() {
+            document.getElementById('emailPopup').style.display = 'flex';
+        }
+        
+        function closeEmailPopup() {
+            document.getElementById('emailPopup').style.display = 'none';
+            document.getElementById('emailForm').reset();
+        }
+        
+        function submitEmail(event) {
+            event.preventDefault();
+            
+            const emailInput = document.getElementById('userEmail');
+            const email = emailInput.value.trim();
+            
+            if (!validateEmail(email)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+            
             // Record the vote
-            votes[optionIndex]++;
+            votes[selectedOptionIndex]++;
             totalVotes++;
             hasVoted = true;
             
@@ -844,12 +944,50 @@
             }
             
             // Highlight the user's selection
-            const selectedOption = document.getElementById(`option${optionIndex}`);
+            const selectedOption = document.getElementById(`option${selectedOptionIndex}`);
             selectedOption.style.backgroundColor = '#f0f7ff';
             selectedOption.style.borderColor = '#3498db';
             
             // Show thank you message
             document.getElementById('thankYouMessage').style.display = 'block';
+            
+            // Submit email to Google Sheets
+            submitToGoogleSheets(email, selectedOptionIndex);
+            
+            // Close the popup
+            closeEmailPopup();
+            
+            // Show confirmation message
+            alert("Your vote has been recorded, the data will be updated soon.");
+        }
+        
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+        
+        function submitToGoogleSheets(email, optionIndex) {
+            // Replace with your Google Apps Script Web App URL
+            const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
+            
+            // Prepare form data
+            const formData = new FormData();
+            formData.append('email', email);
+            formData.append('vote', optionIndex);
+            formData.append('timestamp', new Date().toISOString());
+            
+            // Submit to Google Sheets via Google Apps Script
+            fetch(scriptURL, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                console.log('Success:', response);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Even if Google Sheets submission fails, the vote is still recorded locally
+            });
         }
     </script>
 </body>
@@ -1350,5 +1488,6 @@ function toggleAnswer(answerId) {
 </body>
 
 </html>
+
 
 
