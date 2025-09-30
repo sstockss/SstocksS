@@ -552,47 +552,49 @@
 
 <body>
     <div style="margin: 20px 0; font-family: Arial, sans-serif;">
-        <table style="width: 100%; border-collapse: collapse; margin: 15px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-            <thead>
-                <tr>
-                    <th style="width: 25%; background-color: rgba(13, 71, 161, 0); color: white; padding: 12px 15px; text-align: left; border: 1px solid #ddd; font-weight: bold;">वैशिष्ट्य</th>
-                    <th style="width: 37.5%; background-color: rgba(13, 71, 161, 0); color: white; padding: 12px 15px; text-align: left; border: 1px solid #ddd; font-weight: bold;">स्टॉक मार्केट</th>
-                    <th style="width: 37.5%; background-color: rgba(13, 71, 161, 0); color: white; padding: 12px 15px; text-align: left; border: 1px solid #ddd; font-weight: bold;">स्टॉक एक्सचेंज</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr style="background-color: rgba(13, 71, 161, 0);">
-                    <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;"><strong>व्याख्या</strong></td>
-                    <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;">स्टॉक मार्केटच्या संकल्पनेमध्ये स्टॉक एक्सचेंजसोबतच इतर वित्तीय साधनांची देवाणघेवाण देखील अंतर्भूत असते.</td>
-                    <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;">स्टॉक एक्सचेंज ही एक संस्था आहे जिथे गुंतवणूकदार हे सिक्युरिटीजच्या खरेदी आणि विक्रीचा व्यापार करतात.</td>
-                </tr>
-                <tr style="background-color: rgba(13, 71, 161, 0);">
-                    <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;"><strong>स्वरूप</strong></td>
-                    <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;">विस्तृत प्रणाली जेथे स्टॉक एक्सचेंज, दलाल आणि गुंतवणूकदार महत्त्वाची भूमिका बजावतात.</td>
-                    <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;">एक विशिष्ट मंच ज्या ठिकाणी स्टॉक्सच्या खरेदी आणि विक्रीसंबंधी व्यापार होतो.</td>
-                </tr>
-                <tr style="background-color: rgba(13, 71, 161, 0);">
-                    <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;"><strong>उदाहरणे</strong></td>
-                    <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;">भारतीय स्टॉक मार्केट</td>
-                    <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;">बॉम्बे स्टॉक एक्सचेंज (BSE), नॅशनल स्टॉक एक्सचेंज (NSE)</td>
-                </tr>
-                <tr style="background-color: rgba(13, 71, 161, 0);">
-                    <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;"><strong>कार्य</strong></td>
-                    <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;">गुंतवणूकदारांना व्यापाराची संधी उपलब्ध करून देणे आणि कंपन्यांना भांडवल उभारणी करण्यासाठी मदत करणे.</td>
-                    <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;">व्यापारासाठी गुंतवणूकदारांना मंच उपलब्ध करून देणे.</td>
-                </tr>
-                <tr style="background-color: rgba(13, 71, 161, 0);">
-                    <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;"><strong>नियमन</strong></td>
-                    <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;">व्यापक नियामक चौकटीत कार्य करते.</td>
-                    <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;">स्वतःचे नियम आणि नियमन असते, जे सेबी सारख्या नियामकांद्वारे नियंत्रित केले जातात.</td>
-                </tr>
-                <tr style="background-color: rgba(13, 71, 161, 0);">
-                    <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;"><strong>सहभागी</strong></td>
-                    <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;">गुंतवणूकदार, कंपन्या, दलाल, नियामक इ.</td>
-                    <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;">सूचीबद्ध कंपन्या, रजिस्टर्ड दलाल, व्यापारी.</td>
-                </tr>
-            </tbody>
-        </table>
+        <div style="overflow-x: auto;">
+            <table style="width: 100%; min-width: 600px; border-collapse: collapse; margin: 15px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                <thead>
+                    <tr>
+                        <th style="width: 25%; background-color: rgba(13, 71, 161, 0); color: white; padding: 12px 15px; text-align: left; border: 1px solid #ddd; font-weight: bold;">वैशिष्ट्य</th>
+                        <th style="width: 37.5%; background-color: rgba(13, 71, 161, 0); color: white; padding: 12px 15px; text-align: left; border: 1px solid #ddd; font-weight: bold;">स्टॉक मार्केट</th>
+                        <th style="width: 37.5%; background-color: rgba(13, 71, 161, 0); color: white; padding: 12px 15px; text-align: left; border: 1px solid #ddd; font-weight: bold;">स्टॉक एक्सचेंज</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: rgba(13, 71, 161, 0);">
+                        <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;"><strong>व्याख्या</strong></td>
+                        <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;">स्टॉक मार्केटच्या संकल्पनेमध्ये स्टॉक एक्सचेंजसोबतच इतर वित्तीय साधनांची देवाणघेवाण देखील अंतर्भूत असते.</td>
+                        <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;">स्टॉक एक्सचेंज ही एक संस्था आहे जिथे गुंतवणूकदार हे सिक्युरिटीजच्या खरेदी आणि विक्रीचा व्यापार करतात.</td>
+                    </tr>
+                    <tr style="background-color: rgba(13, 71, 161, 0);">
+                        <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;"><strong>स्वरूप</strong></td>
+                        <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;">विस्तृत प्रणाली जेथे स्टॉक एक्सचेंज, दलाल आणि गुंतवणूकदार महत्त्वाची भूमिका बजावतात.</td>
+                        <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;">एक विशिष्ट मंच ज्या ठिकाणी स्टॉक्सच्या खरेदी आणि विक्रीसंबंधी व्यापार होतो.</td>
+                    </tr>
+                    <tr style="background-color: rgba(13, 71, 161, 0);">
+                        <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;"><strong>उदाहरणे</strong></td>
+                        <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;">भारतीय स्टॉक मार्केट</td>
+                        <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;">बॉम्बे स्टॉक एक्सचेंज (BSE), नॅशनल स्टॉक एक्सचेंज (NSE)</td>
+                    </tr>
+                    <tr style="background-color: rgba(13, 71, 161, 0);">
+                        <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;"><strong>कार्य</strong></td>
+                        <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;">गुंतवणूकदारांना व्यापाराची संधी उपलब्ध करून देणे आणि कंपन्यांना भांडवल उभारणी करण्यासाठी मदत करणे.</td>
+                        <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;">व्यापारासाठी गुंतवणूकदारांना मंच उपलब्ध करून देणे.</td>
+                    </tr>
+                    <tr style="background-color: rgba(13, 71, 161, 0);">
+                        <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;"><strong>नियमन</strong></td>
+                        <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;">व्यापक नियामक चौकटीत कार्य करते.</td>
+                        <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;">स्वतःचे नियम आणि नियमन असते, जे सेबी सारख्या नियामकांद्वारे नियंत्रित केले जातात.</td>
+                    </tr>
+                    <tr style="background-color: rgba(13, 71, 161, 0);">
+                        <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;"><strong>सहभागी</strong></td>
+                        <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;">गुंतवणूकदार, कंपन्या, दलाल, नियामक इ.</td>
+                        <td style="padding: 10px 15px; border: 1px solid #ddd; vertical-align: top;">सूचीबद्ध कंपन्या, रजिस्टर्ड दलाल, व्यापारी.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <script>
@@ -1496,6 +1498,7 @@ function toggleAnswer(answerId) {
 </body>
 
 </html>
+
 
 
 
