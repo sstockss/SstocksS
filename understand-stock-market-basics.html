@@ -553,11 +553,19 @@
         src="Image/stock-market-vs-stock-exchange.webp" 
         alt="stock-market-vs-stock-exchange" 
         style="
-            border-radius: 10px;
-            max-width: 60%;  /* ही ओळ सर्वात महत्त्वाची आहे */
-            height: auto;     /* ही ओळ आस्पेक्ट रेशिओ (aspect ratio) राखते */
-            display: block;   /* मध्यभागी संरेखित करण्यासाठी मदत करते */
-            margin: 0 auto;   /* 'text-align: center' नसतानाही मध्यभागी संरेखित करते */
+            clip-path: ellipse(45% 40% at 50% 50%);
+               polygon(50% 0%, 100% 30%, 80% 90%, 20% 90%, 0% 30%); */
+            
+            /* border-radius: 50%; */ 
+            
+            transition: all 1s ease-in-out; 
+            
+            max-width: 90%;
+            width: 450px;
+            height: auto;
+            
+            display: block;  
+            margin: 0 auto;  
         "
     >
 </div>
@@ -1561,6 +1569,7 @@ function toggleAnswer(answerId) {
 </body>
 
 </html>
+
 
 
 
