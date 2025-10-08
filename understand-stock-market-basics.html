@@ -1263,8 +1263,8 @@ margin: 0 auto; /* 'text-align: center' नसतानाही मध्यभ
                  onclick="toggleAnswer('answer1')">
                 ➕ स्टॉक मार्केट मध्ये गुंतवणूक कशी करावी?
             </div>
-            <div id="answer1" style="padding: 15px; display: none;">
-                स्टॉक मार्केट मध्ये गुंतवणूक करण्यासाठी डीमॅट अकाउंट उघडणे आवश्यक आहे. ब्रोकर निवडा, रिसर्च करा आणि नंतर गुंतवणूक करा.
+            <div id="answer1" style="padding: 15px; display: none; text-align: justify;">
+                स्टॉक मार्केटमध्ये गुंतवणूक सुरु करण्यासाठी आधी गुंतवणुकीची उद्दिष्टये निश्चित करणे गरचेचे आहे. स्वतःची जोखीम स्वीकारण्याची क्षमता ओळखा, संशोधन करून चांगल्या शेअर्सची निवड करा आणि डिमॅट खाते उघडून नियमितपणे गुंतवणूक करा. गुंतवणूक करताना ती विविधीकरणासह शिस्तबद्ध पद्धतीने करणे महत्वाचे आहे.
             </div>
         </div>
 
@@ -1287,7 +1287,7 @@ margin: 0 auto; /* 'text-align: center' नसतानाही मध्यभ
                  onmouseover="this.style.backgroundColor='#f0f0f0'" 
                  onmouseout="this.style.backgroundColor='transparent'"
                  onclick="toggleAnswer('answer3')">
-                ➕ नवशिक्यांसाठी कोणते स्टॉक्स उत्तम आहेत?
+                ➕ शेअर खरेदी-विक्रीसाठी डिमॅट (Demat) आणि ट्रेडिंग खाते (Trading Account) का आवश्यक असते? 
             </div>
             <div id="answer3" style="padding: 15px; display: none;">
                 नवशिक्यांनी लार्ज-कॅप कंपन्यांचे स्टॉक्स, ब्लू-चिप स्टॉक्स किंवा इंडेक्स फंड्स मधून सुरुवात करावी.
@@ -1301,6 +1301,19 @@ margin: 0 auto; /* 'text-align: center' नसतानाही मध्यभ
                  onmouseout="this.style.backgroundColor='transparent'"
                  onclick="toggleAnswer('answer4')">
                 ➕ गुंतवणुकीवर कर भरणे आवश्यक आहे का?
+            </div>
+            <div id="answer4" style="padding: 15px; display: none;">
+                होय, स्टॉक मार्केट मधून झालेल्या नफ्यावर कॅपिटल गेन्स टॅक्स भरावा लागतो. लाँग-टर्म आणि शॉर्ट-टर्म गेन्सवर वेगवेगळे दर लागू होतात.
+            </div>
+        </div>
+
+		<!-- FAQ 5 -->
+        <div style="border: 1px solid #ddd; margin-bottom: 10px; border-radius: 5px;">
+            <div style="padding: 15px; cursor: pointer; font-weight: bold; transition: background-color 0.3s;" 
+                 onmouseover="this.style.backgroundColor='#f0f0f0'" 
+                 onmouseout="this.style.backgroundColor='transparent'"
+                 onclick="toggleAnswer('answer4')">
+                ➕ गुंतवणूक (Investment) आणि ट्रेडिंग (Trading) यातील मुख्य फरक काय आहे?
             </div>
             <div id="answer4" style="padding: 15px; display: none;">
                 होय, स्टॉक मार्केट मधून झालेल्या नफ्यावर कॅपिटल गेन्स टॅक्स भरावा लागतो. लाँग-टर्म आणि शॉर्ट-टर्म गेन्सवर वेगवेगळे दर लागू होतात.
@@ -1592,6 +1605,7 @@ function toggleAnswer(answerId) {
 </body>
 
 </html>
+
 
 
 
