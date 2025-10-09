@@ -48,27 +48,49 @@
   "@graph": [
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "url": "https://www.sstockss.com/",
-  "name": "SstocksS",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://www.sstockss.com/#q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
-},
+      "@type": "WebSite",
+      "@id": "https://www.sstockss.com/#website",
+      "name": "SstocksS",
+      "url": "https://www.sstockss.com",
+      "description": "इथे मिळणारं ज्ञान हे अफवांवर नाही, तर खऱ्या पारदर्शक आणि नि:पक्ष माहितीवर आधारित आहे, जी माहिती तुम्हाला मार्केटमध्ये खेळ बदलण्याची शक्ती देते!",
+      "inLanguage": "mr-IN",
+      "publisher": {
+        "@id": "https://www.sstockss.com/#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.sstockss.com/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
 {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "@id": "https://www.sstockss.com/index.html",
-  "url": "https://www.sstockss.com/index.html",
-  "name": "SstocksS - Learn Options Trading and Market Analysis",
-  "description": "SstocksS provides expert insights, education, and strategies for options trading, stock analysis, and investment success.",
-  "inLanguage": "mr-IN",
-  "isPartOf": {
-    "@type": "WebSite",
-    "url": "https://www.sstockss.com/"
-  }
+      "@type": "WebPage",
+      "@id": "https://www.sstockss.com/index.html",
+      "url": "https://www.sstockss.com/index.html",
+      "name": "SstocksS - Learn Options Trading and Market Analysis",
+      "description": "SstocksS provides expert insights, education, and strategies for options trading, stock analysis, and investment success.",
+      "inLanguage": "mr-IN",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.sstockss.com/#website",
+        "url": "https://www.sstockss.com/",
+        "name": "sstockss",
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://www.sstockss.com/#organization",
+          "name": "sstockss",
+          "url": "https://www.sstockss.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.sstockss.com/Index/sstockss.webp",
+            "width": 600,
+            "height": 60
+          	}
+    	}
+    }
 },
 {
   "@context": "https://schema.org",
@@ -1509,6 +1531,7 @@
 </body>
 
 </html>
+
 
 
 
