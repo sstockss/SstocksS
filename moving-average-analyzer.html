@@ -1,0 +1,1885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Primary Meta Tags -->
+    <title>Moving Average Crossover Analyzer | SstocksS</title>
+    <meta name="title" content="Stock Moving Average Crossover Analyzer | SstocksS">
+    <meta name="description" content="Analyze stock data, calculate moving averages and detect crossover events. Upload your CSV data for analysis.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.sstockss.com/moving-average-analyzer.html">
+    <meta property="og:title" content="Moving Average Crossover Analyzer | SstocksS">
+    <meta property="og:description" content="Analyze stock data, calculate moving averages and detect crossover events. Upload your CSV data for analysis.">
+    <meta property="og:image" content="https://www.sstockss.com/Image/moving-average-analyzer.webp">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.sstockss.com/moving-average-analyzer.html">
+    <meta name="twitter:title" content="Moving Average Crossover Analyzer | SstocksS">
+    <meta name="twitter:description" content="Analyze stock data, calculate moving averages and detect crossover events. Upload your CSV data for analysis.">
+    <meta name="twitter:image" content="https://www.sstockss.com/Image/moving-average-analyzer.webp">
+
+    <!-- Canonical URL -->
+    <meta name="author" content="SstocksS">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.sstockss.com/moving-average-analyzer.html">
+    
+    <meta name="keywords" content="stock analysis, moving average, crossover, stock data analysis, technical analysis">
+    <title>Moving Average Crossover Analyzer | SstocksS</title>
+    <link rel="icon" type="image/ico" sizes="96x96" href="Image/favicon.ico">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://www.xl-factor.com/stock-moving-average-analyzer.html#webpage",
+          "url": "https://www.xl-factor.com/stock-moving-average-analyzer.html",
+          "name": "Stock Moving Average Crossover Analyzer | XL-Factor",
+          "description": "Analyze stock data, calculate moving averages and detect crossover events. Upload your CSV data for analysis.",
+          "isPartOf": {
+            "@id": "https://www.xl-factor.com/#website"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.xl-factor.com/ImageData/stock-moving-average-analyzer.png"
+          },
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "XL-Factor",
+                "item": "https://www.xl-factor.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Stock Analysis"
+              }
+            ]
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "XL-Factor Stock Analysis Tool",
+          "operatingSystem": "Web-based",
+          "applicationCategory": "BusinessApplication",
+          "featureList": [
+            "Free stock analysis",
+            "Moving average calculation",
+            "Crossover detection",
+            "CSV data upload",
+            "No registration required"
+          ],
+          "offers": {
+            "@type": "Offer",
+            "price": "0.00",
+            "priceCurrency": "USD"
+          },
+          "brand": {
+            "@id": "https://www.xl-factor.com/#organization"
+          }
+        },
+        {
+          "@type": "HowTo",
+          "name": "How to Analyze Stock Data",
+          "description": "Step-by-step guide on how to analyze stock data using XL-Factor's stock analysis tool.",
+          "totalTime": "PT5M",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "name": "Upload CSV File",
+              "itemListElement": {
+                "@type": "HowToDirection",
+                "text": "Open your web browser and navigate to https://www.xl-factor.com/stock-moving-average-analyzer.html. Click the 'Choose CSV Files' button."
+              }
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Configure Analysis Settings",
+              "itemListElement": {
+                "@type": "HowToDirection",
+                "text": "Select symbol, time range and moving average periods."
+              }
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Start Analysis",
+              "itemListElement": {
+                "@type": "HowToDirection",
+                "text": "Click the 'Analyze Data' button."
+              }
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Download Results",
+              "itemListElement": {
+                "@type": "HowToDirection",
+                "text": "After analysis is complete, click 'Export Crossovers' to download CSV file."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.xl-factor.com/stock-moving-average-analyzer.html#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is the XL-Factor Stock Analysis Tool free to use?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, our Stock Analysis Tool is completely free. There are no limitations or hidden costs."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What CSV formats does this tool support?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The tool supports standard CSV format. Expected headers: Date, Open, High, Low, Close, Volume, Symbol."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How many files can I analyze?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "There is no specific limit on the number of files. However, processing time may increase with a larger number of files."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How secure is this stock analysis process?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The file analysis process is handled directly in your browser. Your files are not uploaded to our servers, ensuring your data remains secure."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need to create an account to analyze stock data?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No, you do not need to create an account. You can use the Stock Analysis Tool without any registration."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        /* Base styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+            width: 100%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        .logo:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-links a.active {
+            background-color: #ff9800;
+        }
+
+        .nav-links a.active:hover {
+            background-color: #e68900;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Main Content */
+        main {
+            padding: 2rem 0;
+            width: 100%;
+        }
+
+        .tool-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 2rem 1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: #ff9800;
+        }
+
+        /* Converter Tool Styles */
+        .converter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .converter-box {
+            flex: 2;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+        }
+
+        .file-upload {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .file-upload-label {
+            display: inline-block;
+            padding: 12px 24px;
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .file-upload-label:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .file-upload-label:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        .file-info {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+
+        .file-list {
+            margin-top: 1rem;
+            max-height: 150px;
+            overflow-y: auto;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .file-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+        }
+
+        .file-item:last-child {
+            border-bottom: none;
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            margin: 1.5rem 0;
+            overflow: hidden;
+            display: none;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(to right, #ff9800, #ff5722);
+            border-radius: 5px;
+            transition: width 0.5s ease;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: 2px solid white;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: transparent;
+            color: white;
+            width: 100%;
+            max-width: 200px;
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .loading {
+            position: relative;
+            pointer-events: none;
+        }
+        .loading:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Analysis Controls */
+        .analysis-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            width: 100%;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .control-label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .select, .input {
+            padding: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .select:focus, .input:focus {
+            outline: none;
+            border-color: #ff9800;
+            box-shadow: 0 0 0 2px rgba(255, 152, 0, 0.2);
+        }
+
+        .ma-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            width: 100%;
+        }
+
+        .ma-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+
+        .ma-checkbox input {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Data Display */
+        .data-display {
+            margin-top: 1.5rem;
+            width: 100%;
+        }
+
+        .data-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+        }
+
+        .data-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #ffcc80;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+        }
+
+        th {
+            background-color: rgba(255, 152, 0, 0.2);
+            font-weight: 600;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        th:hover {
+            background-color: rgba(255, 152, 0, 0.3);
+        }
+
+        tr:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .bullish {
+            color: #4ade80;
+            font-weight: 600;
+        }
+
+        .bearish {
+            color: #f87171;
+            font-weight: 600;
+        }
+
+        /* Help Section */
+        .help-section {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+        }
+
+        .tab-container {
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        .tab-buttons {
+            display: flex;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 1rem;
+            width: 100%;
+        }
+
+        .tab-btn {
+            padding: 10px 15px;
+            background: transparent;
+            border: none;
+            color: #ddd;
+            cursor: pointer;
+            font-weight: bold;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .tab-btn.active {
+            color: #ff9800;
+        }
+
+        .tab-btn.active:after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #ff9800;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 10px 0;
+            color: #ddd;
+            width: 100%;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            color: #ffcc80;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .faq-answer {
+            margin-top: 0.5rem;
+            display: none;
+            font-size: 0.9rem;
+        }
+
+        .faq-answer.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .video-link {
+            display: block;
+            margin-top: 1rem;
+            color: #ff9800;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .video-link:hover {
+            color: #e68900;
+            text-decoration: underline;
+        }
+
+        .video-icon {
+            margin-right: 5px;
+        }
+
+        /* Ad Container */
+        .ad-container {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .ad-placeholder {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 40px 15px;
+            border-radius: 5px;
+            color: #ddd;
+            font-style: italic;
+            margin: 0 auto;
+            max-width: 100%;
+            box-sizing: border-box;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+            width: 100%;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .slogan {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: white;
+            font-weight: 500;
+        }
+
+        .credit {
+            color: #ddd;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                transition: all 0.3s ease;
+                z-index: 99;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 0.8rem 0;
+                width: 90%;
+            }
+
+            .nav-links a {
+                width: 100%;
+                text-align: center;
+                padding: 12px;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .converter-container {
+                flex-direction: column;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                max-width: 100%;
+            }
+            
+            .file-upload-label {
+                max-width: 100%;
+            }
+            
+            .tool-section {
+                padding: 1.5rem 0.5rem;
+            }
+            
+            .converter-box, .help-section {
+                padding: 1rem;
+            }
+            
+            .analysis-controls {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            position: relative;
+            opacity: 0;
+            transition: 1s all ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">SstocksS</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="About-Us.html">About Us</a></li>
+                    <li><a href="Tools.html">Tools</a></li>
+                    <li><a href="Disclaimer.html">Disclaimer</a></li>
+                    <li><a href="Privacy-Policy.html">Privacy Policy</a></li>
+                    <li><a href="Terms-of-Service.html">Terms of Service</a></li>
+                    <li><a href="Contact-Us.html">Contact Us</a></li>
+                </ul>
+                <div class="hamburger">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="tool-section reveal">
+                <h1 class="section-title">Moving Average Crossover Analyzer</h1>
+                <p style="text-align: center; margin-bottom: 2rem;">Analyze stock data, calculate moving averages and detect crossover events. Upload your CSV data for analysis!</p>
+
+                <div class="converter-container">
+                    <div class="converter-box">
+                        <div class="ad-container">
+                            <div class="ad-placeholder">AdMob Advertisement Space</div>
+                        </div>
+
+                        <div class="file-upload">
+                            <label for="fileInput" class="file-upload-label">Choose CSV Files</label>
+                            <input type="file" id="fileInput" accept=".csv" multiple>
+                            <div class="file-info" id="fileInfo">No files selected</div>
+                            <div class="file-list" id="fileList"></div>
+                        </div>
+
+                        <div class="analysis-controls">
+                            <div class="control-group">
+                                <label class="control-label" for="symbolSelect">Symbol</label>
+                                <select class="select" id="symbolSelect"></select>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="timeRange">Time Range</label>
+                                <select class="select" id="timeRange">
+                                    <option value="all">All</option>
+                                    <option value="1m">1 Month</option>
+                                    <option value="3m">3 Months</option>
+                                    <option value="6m">6 Months</option>
+                                    <option value="1y">1 Year</option>
+                                </select>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="customMA">Custom MA Period</label>
+                                <input type="number" class="input" id="customMA" placeholder="e.g. 75, 100" min="1">
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">&nbsp;</label>
+                                <button class="btn" id="addMA">Add MA</button>
+                            </div>
+                        </div>
+
+                        <div class="ma-controls" id="maControls">
+                            <!-- MA checkboxes will be added here dynamically -->
+                        </div>
+
+                        <div class="progress-container" id="progressContainer">
+                            <div class="progress-bar" id="progressBar"></div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button class="btn" id="analyzeBtn">Analyze Data</button>
+                            <button class="btn" id="exportCrossoversBtn" disabled>Export Crossovers</button>
+                            <button class="btn" id="resetBtn">Reset</button>
+                        </div>
+
+                        <div class="data-display" id="dataDisplay" style="display: none;">
+                            <div class="data-section">
+                                <h2 class="data-title">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/>
+                                    </svg>
+                                    Data Summary
+                                </h2>
+                                <div id="dataSummary"></div>
+                            </div>
+
+                            <div class="data-section">
+                                <h2 class="data-title">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                                    </svg>
+                                    Crossover Events
+                                </h2>
+                                <div class="table-container">
+                                    <table id="crossoversTable">
+                                        <thead>
+                                            <tr>
+                                                <th data-sort="date">Date</th>
+                                                <th data-sort="symbol">Symbol</th>
+                                                <th data-sort="type">Type</th>
+                                                <th data-sort="ma1">MA 1</th>
+                                                <th data-sort="ma2">MA 2</th>
+                                                <th data-sort="price">Price</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="crossoversBody">
+                                            <!-- Crossover data will be added here dynamically -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ad-container">
+                            <div class="ad-placeholder">AdMob Advertisement Space</div>
+                        </div>
+                    </div>
+
+                    <div class="help-section">
+                        <h2>How to Use This Tool</h2>
+                        <div class="tab-container">
+                            <div class="tab-buttons">
+                                <button class="tab-btn active" data-tab="instructions">Instructions</button>
+                                <button class="tab-btn" data-tab="faq">FAQ</button>
+                                <button class="tab-btn" data-tab="resources">Video</button>
+                            </div>
+
+                            <div class="tab-content active" id="instructions">
+                                <p>1. Click "Choose CSV Files" to select one or more CSV files</p>
+                                <p>2. Select symbol, time range and moving average periods</p>
+                                <p>3. Click "Analyze Data" to start the analysis process</p>
+                                <p>4. After analysis is complete, click "Export Crossovers" to download CSV file</p>
+                                <p>5. Use "Reset" to clear all files and start over</p>
+                            </div>
+
+                            <div class="tab-content" id="faq">
+                                <div class="faq-item">
+                                    <div class="faq-question">What CSV formats does this tool support?<span>+</span></div>
+                                    <div class="faq-answer">The tool supports standard CSV format. Expected headers: Date, Open, High, Low, Close, Volume, Symbol.</div>
+                                </div>
+
+                                <div class="faq-item">
+                                    <div class="faq-question">Is there a file size limit?<span>+</span></div>
+                                    <div class="faq-answer">The current limit is 10MB per file. For larger files, consider splitting your data.</div>
+                                </div>
+
+                                <div class="faq-item">
+                                    <div class="faq-question">How are moving averages calculated?<span>+</span></div>
+                                    <div class="faq-answer">Simple Moving Average (SMA) = average of last n Close values.</div>
+                                </div>
+                            </div>
+
+                            <div class="tab-content" id="resources">
+                                <p>Learn more about stock analysis:</p>
+                                <a href="https://www.youtube.com/watch?v=xxxxxx" class="video-link" target="_blank">
+                                    <span class="video-icon">▶</span> Stock Analysis Tutorial
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p class="slogan">Experience stock analysis like never before with our blazing-fast, free analyzer.</p>
+                <p class="credit">@ 2025 Designed by XL-Factor</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // App state
+        const state = {
+            stockData: [],
+            symbols: [],
+            currentSymbol: '',
+            movingAverages: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50],
+            activeMAs: [5, 10, 20, 50],
+            crossoverEvents: [],
+            currentTheme: 'light'
+        };
+
+        // DOM elements
+        const elements = {
+            fileInput: document.getElementById('fileInput'),
+            fileInfo: document.getElementById('fileInfo'),
+            fileList: document.getElementById('fileList'),
+            analyzeBtn: document.getElementById('analyzeBtn'),
+            exportCrossoversBtn: document.getElementById('exportCrossoversBtn'),
+            resetBtn: document.getElementById('resetBtn'),
+            progressContainer: document.getElementById('progressContainer'),
+            progressBar: document.getElementById('progressBar'),
+            symbolSelect: document.getElementById('symbolSelect'),
+            timeRange: document.getElementById('timeRange'),
+            customMA: document.getElementById('customMA'),
+            addMA: document.getElementById('addMA'),
+            maControls: document.getElementById('maControls'),
+            dataDisplay: document.getElementById('dataDisplay'),
+            dataSummary: document.getElementById('dataSummary'),
+            crossoversTable: document.getElementById('crossoversTable'),
+            crossoversBody: document.getElementById('crossoversBody'),
+            hamburger: document.querySelector('.hamburger'),
+            navLinks: document.querySelector('.nav-links')
+        };
+
+        // Initialize the app
+        function init() {
+            setupEventListeners();
+            renderMAControls();
+        }
+
+        // Set up event listeners
+        function setupEventListeners() {
+            // Mobile Navigation Toggle
+            elements.hamburger.addEventListener('click', () => {
+                elements.navLinks.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    elements.navLinks.classList.remove('active');
+                });
+            });
+
+            // File upload
+            elements.fileInput.addEventListener('change', handleFileUpload);
+
+            // Analysis controls
+            elements.symbolSelect.addEventListener('change', handleSymbolChange);
+            elements.timeRange.addEventListener('change', updateAnalysis);
+            elements.addMA.addEventListener('click', addCustomMA);
+            elements.analyzeBtn.addEventListener('click', analyzeData);
+            elements.exportCrossoversBtn.addEventListener('click', exportCrossoversAsCSV);
+            elements.resetBtn.addEventListener('click', resetAnalyzer);
+
+            // Table sorting
+            document.querySelectorAll('#crossoversTable th[data-sort]').forEach(th => {
+                th.addEventListener('click', () => sortTable(th.dataset.sort));
+            });
+
+            // Tab functionality
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const tabId = btn.getAttribute('data-tab');
+
+                    // Remove active class from all buttons and contents
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+
+                    // Add active class to clicked button and corresponding content
+                    btn.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+
+            // FAQ functionality
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const isOpen = answer.classList.contains('show');
+
+                    // Close all answers first
+                    document.querySelectorAll('.faq-answer').forEach(ans => {
+                        ans.classList.remove('show');
+                        ans.previousElementSibling.querySelector('span').textContent = '+';
+                    });
+
+                    // Toggle current answer if it wasn't open
+                    if (!isOpen) {
+                        answer.classList.add('show');
+                        question.querySelector('span').textContent = '-';
+                    }
+                });
+            });
+        }
+
+        // Handle file upload
+        function handleFileUpload(e) {
+            const files = e.target.files;
+            if (files.length) {
+                handleFiles(files);
+            }
+        }
+
+        // Process uploaded files
+        function handleFiles(files) {
+            showLoading('Processing files...');
+            
+            const fileReaders = [];
+            const newData = [];
+            
+            Array.from(files).forEach(file => {
+                if (file.type === 'text/csv' || file.name.endsWith('.csv')) {
+                    const reader = new FileReader();
+                    
+                    reader.onload = (e) => {
+                        try {
+                            const csvData = parseCSV(e.target.result);
+                            newData.push(...csvData);
+                        } catch (error) {
+                            showErrorMessage(`Error parsing file: ${file.name} - ${error.message}`);
+                        }
+                        
+                        // Check if all files are processed
+                        if (newData.length > 0 && fileReaders.every(r => r.readyState === FileReader.DONE)) {
+                            processStockData(newData);
+                        }
+                    };
+                    
+                    reader.onerror = () => {
+                        showErrorMessage(`Error reading file: ${file.name}`);
+                    };
+                    
+                    fileReaders.push(reader);
+                    reader.readAsText(file);
+                } else {
+                    showErrorMessage(`Invalid file type: ${file.name}. Please upload CSV files.`);
+                }
+            });
+        }
+
+        // Parse CSV data
+        function parseCSV(csvText) {
+            const lines = csvText.split('\n').filter(line => line.trim() !== '');
+            if (lines.length < 2) {
+                throw new Error('CSV file contains no data');
+            }
+            
+            const headers = lines[0].split(',').map(h => h.trim());
+            const requiredHeaders = ['Date', 'Open', 'High', 'Low', 'Close', 'Volume', 'Symbol'];
+            
+            // Check if required headers are present
+            const missingHeaders = requiredHeaders.filter(h => !headers.includes(h));
+            if (missingHeaders.length > 0) {
+                throw new Error(`Required headers missing: ${missingHeaders.join(', ')}`);
+            }
+            
+            const data = [];
+            const dateIndex = headers.indexOf('Date');
+            const openIndex = headers.indexOf('Open');
+            const highIndex = headers.indexOf('High');
+            const lowIndex = headers.indexOf('Low');
+            const closeIndex = headers.indexOf('Close');
+            const volumeIndex = headers.indexOf('Volume');
+            const symbolIndex = headers.indexOf('Symbol');
+            
+            for (let i = 1; i < lines.length; i++) {
+                const values = lines[i].split(',').map(v => v.trim());
+                
+                // Skip empty rows
+                if (values.length < headers.length || values.every(v => v === '')) {
+                    continue;
+                }
+                
+                // Parse date - handle different formats
+                let date = new Date(values[dateIndex]);
+                if (isNaN(date.getTime())) {
+                    // Try parsing with different formats
+                    const dateStr = values[dateIndex];
+                    if (dateStr.includes('/')) {
+                        date = new Date(dateStr.split('/').reverse().join('-'));
+                    } else if (dateStr.includes('-')) {
+                        date = new Date(dateStr);
+                    }
+                    
+                    if (isNaN(date.getTime())) {
+                        console.warn(`Invalid date format: ${values[dateIndex]}`);
+                        continue;
+                    }
+                }
+                
+                // Parse numeric values
+                const open = parseFloat(values[openIndex]);
+                const high = parseFloat(values[highIndex]);
+                const low = parseFloat(values[lowIndex]);
+                const close = parseFloat(values[closeIndex]);
+                const volume = parseInt(values[volumeIndex]);
+                const symbol = values[symbolIndex];
+                
+                // Skip rows with invalid numeric values
+                if (isNaN(open) || isNaN(high) || isNaN(low) || isNaN(close) || isNaN(volume)) {
+                    console.warn(`Invalid numeric values: ${values.join(', ')}`);
+                    continue;
+                }
+                
+                data.push({
+                    Date: date.toISOString().split('T')[0],
+                    Open: open,
+                    High: high,
+                    Low: low,
+                    Close: close,
+                    Volume: volume,
+                    Symbol: symbol
+                });
+            }
+            
+            // Remove duplicates based on Date and Symbol
+            const uniqueData = [];
+            const seen = new Set();
+            
+            data.forEach(item => {
+                const key = `${item.Date}-${item.Symbol}`;
+                if (!seen.has(key)) {
+                    seen.add(key);
+                    uniqueData.push(item);
+                }
+            });
+            
+            // Sort by date
+            uniqueData.sort((a, b) => new Date(a.Date) - new Date(b.Date));
+            
+            return uniqueData;
+        }
+
+        // Process stock data and update UI
+        function processStockData(data) {
+            if (data.length === 0) {
+                showErrorMessage('No valid data to process');
+                return;
+            }
+            
+            // Add new data to existing data
+            state.stockData = [...state.stockData, ...data];
+            
+            // Extract unique symbols
+            const symbols = [...new Set(state.stockData.map(item => item.Symbol))];
+            state.symbols = symbols;
+            
+            // Update symbol selector
+            updateSymbolSelector();
+            
+            // Show analysis sections
+            elements.dataDisplay.style.display = 'block';
+            
+            // Update file list
+            updateFileList();
+            
+            showSuccessMessage(`${data.length} data points successfully processed. ${symbols.length} symbols found: ${symbols.join(', ')}`);
+        }
+
+        // Update file list
+        function updateFileList() {
+            elements.fileList.innerHTML = '';
+            if (state.stockData.length === 0) {
+                elements.fileInfo.textContent = 'No files selected';
+                return;
+            }
+
+            // Group by symbol
+            const symbolCounts = {};
+            state.stockData.forEach(item => {
+                symbolCounts[item.Symbol] = (symbolCounts[item.Symbol] || 0) + 1;
+            });
+
+            elements.fileInfo.textContent = `${Object.keys(symbolCounts).length} symbols found`;
+
+            Object.entries(symbolCounts).forEach(([symbol, count]) => {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item';
+                fileItem.innerHTML = `
+                    <span>${symbol}</span>
+                    <span>${count} rows</span>
+                `;
+                elements.fileList.appendChild(fileItem);
+            });
+        }
+
+        // Update symbol selector
+        function updateSymbolSelector() {
+            elements.symbolSelect.innerHTML = '';
+            
+            state.symbols.forEach(symbol => {
+                const option = document.createElement('option');
+                option.value = symbol;
+                option.textContent = symbol;
+                elements.symbolSelect.appendChild(option);
+            });
+            
+            if (state.symbols.length > 0) {
+                state.currentSymbol = state.symbols[0];
+            }
+        }
+
+        // Handle symbol change
+        function handleSymbolChange() {
+            state.currentSymbol = elements.symbolSelect.value;
+            updateAnalysis();
+        }
+
+        // Render MA controls (checkboxes)
+        function renderMAControls() {
+            elements.maControls.innerHTML = '';
+            
+            state.movingAverages.forEach(period => {
+                const isActive = state.activeMAs.includes(period);
+                
+                const checkbox = document.createElement('div');
+                checkbox.className = 'ma-checkbox';
+                checkbox.innerHTML = `
+                    <input type="checkbox" id="ma-${period}" ${isActive ? 'checked' : ''}>
+                    <label for="ma-${period}">SMA ${period}</label>
+                `;
+                
+                checkbox.querySelector('input').addEventListener('change', (e) => {
+                    if (e.target.checked) {
+                        if (!state.activeMAs.includes(period)) {
+                            state.activeMAs.push(period);
+                        }
+                    } else {
+                        state.activeMAs = state.activeMAs.filter(p => p !== period);
+                    }
+                    updateAnalysis();
+                });
+                
+                elements.maControls.appendChild(checkbox);
+            });
+        }
+
+        // Add custom MA period
+        function addCustomMA() {
+            const period = parseInt(elements.customMA.value);
+            
+            if (isNaN(period) || period < 1) {
+                showErrorMessage('Please enter a valid MA period');
+                return;
+            }
+            
+            if (!state.movingAverages.includes(period)) {
+                state.movingAverages.push(period);
+                state.movingAverages.sort((a, b) => a - b);
+                
+                // Update UI
+                renderMAControls();
+                updateAnalysis();
+                
+                showSuccessMessage(`SMA ${period} successfully added`);
+                elements.customMA.value = '';
+            } else {
+                showErrorMessage(`SMA ${period} already exists`);
+            }
+        }
+
+        // Analyze data
+        function analyzeData() {
+            if (state.stockData.length === 0) {
+                alert('Please upload CSV files first');
+                return;
+            }
+            
+            elements.progressContainer.style.display = 'block';
+            elements.progressBar.style.width = '0%';
+            elements.analyzeBtn.disabled = true;
+            elements.analyzeBtn.classList.add('loading');
+            
+            try {
+                // Calculate moving averages and crossovers
+                calculateAllMovingAverages();
+                detectAllCrossovers();
+                
+                elements.progressBar.style.width = '100%';
+                elements.exportCrossoversBtn.disabled = false;
+                
+                // Update analysis display
+                updateAnalysis();
+                
+                showSuccessMessage('Analysis completed');
+            } catch (error) {
+                console.error('Error during analysis:', error);
+                alert('Error during analysis. Please check console.');
+            } finally {
+                elements.analyzeBtn.disabled = false;
+                elements.analyzeBtn.classList.remove('loading');
+            }
+        }
+
+        // Calculate moving averages for all symbols and periods
+        function calculateAllMovingAverages() {
+            state.symbols.forEach(symbol => {
+                const symbolData = state.stockData.filter(item => item.Symbol === symbol);
+                
+                state.movingAverages.forEach(period => {
+                    calculateMovingAverage(symbolData, period);
+                });
+            });
+        }
+
+        // Calculate moving average for a specific symbol and period
+        // SMA(n) = average of last n Close values
+        function calculateMovingAverage(data, period) {
+            if (data.length < period) {
+                console.warn(`Not enough data for MA(${period}). Minimum ${period} data points required.`);
+                return;
+            }
+            
+            for (let i = period - 1; i < data.length; i++) {
+                const slice = data.slice(i - period + 1, i + 1);
+                const sum = slice.reduce((acc, item) => acc + item.Close, 0);
+                const average = sum / period;
+                
+                if (!data[i].movingAverages) {
+                    data[i].movingAverages = {};
+                }
+                
+                data[i].movingAverages[period] = average;
+            }
+        }
+
+        // Detect crossovers for all MA pairs
+        function detectAllCrossovers() {
+            state.crossoverEvents = [];
+            
+            state.symbols.forEach(symbol => {
+                const symbolData = state.stockData.filter(item => item.Symbol === symbol);
+                
+                // Get all available MA periods for this symbol
+                const maPeriods = [...new Set(
+                    symbolData
+                        .filter(item => item.movingAverages)
+                        .flatMap(item => Object.keys(item.movingAverages))
+                        .map(Number)
+                )].sort((a, b) => a - b);
+                
+                // Check all possible pairs where ma1 < ma2
+                for (let i = 0; i < maPeriods.length; i++) {
+                    for (let j = i + 1; j < maPeriods.length; j++) {
+                        const ma1 = maPeriods[i];
+                        const ma2 = maPeriods[j];
+                        detectCrossoversForPair(symbolData, symbol, ma1, ma2);
+                    }
+                }
+            });
+            
+            // Sort crossovers by date
+            state.crossoverEvents.sort((a, b) => new Date(b.date) - new Date(a.date));
+        }
+
+        // Detect crossovers for a specific MA pair
+        function detectCrossoversForPair(data, symbol, ma1, ma2) {
+            for (let i = 1; i < data.length; i++) {
+                const current = data[i];
+                const previous = data[i-1];
+                
+                // Check if both MAs are available for both days
+                if (!current.movingAverages || !previous.movingAverages ||
+                    current.movingAverages[ma1] === undefined || current.movingAverages[ma2] === undefined ||
+                    previous.movingAverages[ma1] === undefined || previous.movingAverages[ma2] === undefined) {
+                    continue;
+                }
+                
+                const currentDiff = current.movingAverages[ma1] - current.movingAverages[ma2];
+                const previousDiff = previous.movingAverages[ma1] - previous.movingAverages[ma2];
+                
+                // Bullish crossover: MA1 crosses above MA2
+                if (previousDiff <= 0 && currentDiff > 0) {
+                    state.crossoverEvents.push({
+                        date: current.Date,
+                        symbol: symbol,
+                        type: 'bullish',
+                        ma1: ma1,
+                        ma2: ma2,
+                        price: current.Close
+                    });
+                }
+                // Bearish crossover: MA1 crosses below MA2
+                else if (previousDiff >= 0 && currentDiff < 0) {
+                    state.crossoverEvents.push({
+                        date: current.Date,
+                        symbol: symbol,
+                        type: 'bearish',
+                        ma1: ma1,
+                        ma2: ma2,
+                        price: current.Close
+                    });
+                }
+            }
+        }
+
+        // Update analysis display
+        function updateAnalysis() {
+            if (!state.currentSymbol || state.stockData.length === 0) {
+                return;
+            }
+            
+            const symbolData = state.stockData.filter(item => item.Symbol === state.currentSymbol);
+            
+            // Apply time range filter
+            const filteredData = filterDataByTimeRange(symbolData);
+            
+            if (filteredData.length === 0) {
+                showErrorMessage('No data available for selected time range');
+                return;
+            }
+            
+            // Update data summary
+            updateDataSummary(filteredData);
+            
+            // Update crossovers table
+            updateCrossoversTable();
+        }
+
+        // Filter data by selected time range
+        function filterDataByTimeRange(data) {
+            const now = new Date();
+            let startDate = new Date('1900-01-01'); // Default to all data
+            
+            switch (elements.timeRange.value) {
+                case '1m':
+                    startDate = new Date(now.getFullYear(), now.getMonth() - 1, now.getDate());
+                    break;
+                case '3m':
+                    startDate = new Date(now.getFullYear(), now.getMonth() - 3, now.getDate());
+                    break;
+                case '6m':
+                    startDate = new Date(now.getFullYear(), now.getMonth() - 6, now.getDate());
+                    break;
+                case '1y':
+                    startDate = new Date(now.getFullYear() - 1, now.getMonth(), now.getDate());
+                    break;
+                // 'all' is default
+            }
+            
+            return data.filter(item => new Date(item.Date) >= startDate);
+        }
+
+        // Update data summary
+        function updateDataSummary(data) {
+            if (data.length === 0) {
+                elements.dataSummary.innerHTML = '<p>No data available</p>';
+                return;
+            }
+            
+            const firstDate = new Date(data[0].Date).toLocaleDateString();
+            const lastDate = new Date(data[data.length - 1].Date).toLocaleDateString();
+            const minPrice = Math.min(...data.map(item => item.Low));
+            const maxPrice = Math.max(...data.map(item => item.High));
+            const currentPrice = data[data.length - 1].Close;
+            
+            // Calculate price change
+            const priceChange = data.length > 1 ? currentPrice - data[0].Close : 0;
+            const priceChangePercent = data.length > 1 ? (priceChange / data[0].Close * 100).toFixed(2) : 0;
+            
+            elements.dataSummary.innerHTML = `
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem;">
+                    <div>
+                        <strong>Symbol:</strong> ${state.currentSymbol}
+                    </div>
+                    <div>
+                        <strong>Dates:</strong> ${firstDate} - ${lastDate}
+                    </div>
+                    <div>
+                        <strong>Data Points:</strong> ${data.length}
+                    </div>
+                    <div>
+                        <strong>Current Price:</strong> ${currentPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    </div>
+                    <div>
+                        <strong>Minimum Price:</strong> ${minPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    </div>
+                    <div>
+                        <strong>Maximum Price:</strong> ${maxPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    </div>
+                    <div>
+                        <strong>Price Change:</strong> 
+                        <span style="color: ${priceChange >= 0 ? '#4ade80' : '#f87171'}">
+                            ${priceChange >= 0 ? '+' : ''}${priceChange.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} (${priceChangePercent}%)
+                        </span>
+                    </div>
+                    <div>
+                        <strong>Crossover Events:</strong> ${state.crossoverEvents.filter(e => e.symbol === state.currentSymbol).length}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Update crossovers table
+        function updateCrossoversTable() {
+            const tbody = elements.crossoversBody;
+            tbody.innerHTML = '';
+            
+            let eventsToShow = state.crossoverEvents;
+            
+            // Filter by current symbol if one is selected
+            if (state.currentSymbol) {
+                eventsToShow = eventsToShow.filter(event => event.symbol === state.currentSymbol);
+            }
+            
+            // Apply time range filter
+            eventsToShow = filterCrossoversByTimeRange(eventsToShow);
+            
+            if (eventsToShow.length === 0) {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td colspan="6" style="text-align: center;">No crossover events found</td>`;
+                tbody.appendChild(row);
+                return;
+            }
+            
+            eventsToShow.forEach(event => {
+                const row = document.createElement('tr');
+                
+                const date = new Date(event.date).toLocaleDateString();
+                const typeClass = event.type === 'bullish' ? 'bullish' : 'bearish';
+                const typeText = event.type === 'bullish' ? 'Bullish' : 'Bearish';
+                
+                row.innerHTML = `
+                    <td>${date}</td>
+                    <td>${event.symbol}</td>
+                    <td class="${typeClass}">${typeText}</td>
+                    <td>SMA ${event.ma1}</td>
+                    <td>SMA ${event.ma2}</td>
+                    <td>${event.price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+                `;
+                
+                tbody.appendChild(row);
+            });
+        }
+
+        // Filter crossovers by time range
+        function filterCrossoversByTimeRange(events) {
+            const now = new Date();
+            let startDate = new Date('1900-01-01'); // Default to all data
+            
+            switch (elements.timeRange.value) {
+                case '1m':
+                    startDate = new Date(now.getFullYear(), now.getMonth() - 1, now.getDate());
+                    break;
+                case '3m':
+                    startDate = new Date(now.getFullYear(), now.getMonth() - 3, now.getDate());
+                    break;
+                case '6m':
+                    startDate = new Date(now.getFullYear(), now.getMonth() - 6, now.getDate());
+                    break;
+                case '1y':
+                    startDate = new Date(now.getFullYear() - 1, now.getMonth(), now.getDate());
+                    break;
+                // 'all' is default
+            }
+            
+            return events.filter(event => new Date(event.date) >= startDate);
+        }
+
+        // Sort table by column
+        function sortTable(column) {
+            const tbody = elements.crossoversBody;
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            
+            // Skip if no data rows
+            if (rows.length === 0 || (rows.length === 1 && rows[0].querySelector('td').colSpan)) {
+                return;
+            }
+            
+            // Determine sort order (toggle between ascending and descending)
+            const currentOrder = tbody.getAttribute('data-sort-order') || 'asc';
+            const newOrder = currentOrder === 'asc' ? 'desc' : 'asc';
+            tbody.setAttribute('data-sort-order', newOrder);
+            
+            // Sort rows
+            rows.sort((a, b) => {
+                const aValue = a.querySelector(`td:nth-child(${getColumnIndex(column)})`).textContent;
+                const bValue = b.querySelector(`td:nth-child(${getColumnIndex(column)})`).textContent;
+                
+                let comparison = 0;
+                
+                switch (column) {
+                    case 'date':
+                        comparison = new Date(aValue) - new Date(bValue);
+                        break;
+                    case 'price':
+                        comparison = parseFloat(aValue.replace(/,/g, '')) - parseFloat(bValue.replace(/,/g, ''));
+                        break;
+                    default:
+                        comparison = aValue.localeCompare(bValue);
+                }
+                
+                return newOrder === 'asc' ? comparison : -comparison;
+            });
+            
+            // Re-append sorted rows
+            tbody.innerHTML = '';
+            rows.forEach(row => tbody.appendChild(row));
+        }
+
+        // Get column index for sorting
+        function getColumnIndex(column) {
+            const columns = {
+                'date': 1,
+                'symbol': 2,
+                'type': 3,
+                'ma1': 4,
+                'ma2': 5,
+                'price': 6
+            };
+            
+            return columns[column] || 1;
+        }
+
+        // Export crossovers as CSV
+        function exportCrossoversAsCSV() {
+            let eventsToExport = state.crossoverEvents;
+            
+            // Filter by current symbol if one is selected
+            if (state.currentSymbol) {
+                eventsToExport = eventsToExport.filter(event => event.symbol === state.currentSymbol);
+            }
+            
+            // Apply time range filter
+            eventsToExport = filterCrossoversByTimeRange(eventsToExport);
+            
+            if (eventsToExport.length === 0) {
+                showErrorMessage('No crossover events to export');
+                return;
+            }
+            
+            const headers = ['Date', 'Symbol', 'Type', 'MA 1', 'MA 2', 'Price'];
+            const csvContent = [
+                headers.join(','),
+                ...eventsToExport.map(event => [
+                    event.date,
+                    event.symbol,
+                    event.type === 'bullish' ? 'Bullish' : 'Bearish',
+                    `SMA ${event.ma1}`,
+                    `SMA ${event.ma2}`,
+                    event.price
+                ].join(','))
+            ].join('\n');
+            
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            
+            link.setAttribute('href', url);
+            link.setAttribute('download', `crossovers-${state.currentSymbol || 'all'}-${new Date().toISOString().split('T')[0]}.csv`);
+            link.style.visibility = 'hidden';
+            
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Reset analyzer
+        function resetAnalyzer() {
+            elements.fileInput.value = '';
+            state.stockData = [];
+            state.crossoverEvents = [];
+            elements.fileInfo.textContent = 'No files selected';
+            elements.fileList.innerHTML = '';
+            elements.exportCrossoversBtn.disabled = true;
+            elements.progressContainer.style.display = 'none';
+            elements.progressBar.style.width = '0%';
+            elements.dataDisplay.style.display = 'none';
+            elements.symbolSelect.innerHTML = '';
+            state.symbols = [];
+            state.currentSymbol = '';
+        }
+
+        // Utility functions for UI feedback
+        function showLoading(message) {
+            // You can implement a loading indicator here
+            console.log(message);
+        }
+
+        function showSuccessMessage(message) {
+            // You can implement a success message display here
+            console.log(message);
+        }
+
+        function showErrorMessage(message) {
+            // You can implement an error message display here
+            console.error(message);
+        }
+
+        // Scroll Reveal Animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const revealTop = reveals[i].getBoundingClientRect().top;
+                const revealPoint = 150;
+
+                if (revealTop < windowHeight - revealPoint) {
+                    reveals[i].classList.add('active');
+                } else {
+                    reveals[i].classList.remove('active');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', reveal);
+        window.addEventListener('load', reveal);
+
+        // Initialize the app when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+
+    <!-- AdMob Script (Placeholder - Replace with your actual AdMob code) -->
+    <script>
+        // This is a placeholder for AdMob implementation
+        // Replace with your actual AdMob script
+        document.addEventListener('DOMContentLoaded', function() {
+            // AdMob initialization would go here
+            console.log('AdMob would be initialized here');
+        });
+    </script>
+</body>
+</html>
