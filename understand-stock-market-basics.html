@@ -849,6 +849,36 @@
     </div>
 </div>
 
+	<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // कॉपी, कट आणि पेस्ट इव्हेंट्स ब्लॉक करा
+    ['copy', 'cut', 'paste'].forEach(function(event) {
+        document.addEventListener(event, function(e) {
+            e.preventDefault();
+            alert('हे कंटेंट कॉपी करण्यास परवानगी नाही!');
+        });
+    });
+    
+    // राइट-क्लिक ब्लॉक करा
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        alert('हे कंटेंट कॉपी करण्यास परवानगी नाही!');
+    });
+    
+    // टेक्स्ट सिलेक्शन ब्लॉक करा
+    document.addEventListener('selectstart', function(e) {
+        e.preventDefault();
+    });
+    
+    // कीबोर्ड शॉर्टकट ब्लॉक करा (Ctrl+C, Ctrl+A, इ.)
+    document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey && (e.key === 'c' || e.key === 'a' || e.key === 'x')) {
+            e.preventDefault();
+            alert('हे कंटेंट कॉपी करण्यास परवानगी नाही!');
+        }
+    });
+});
+</script>
 </body>
 						
 						<h3 style="text-decoration: underline; border-bottom: 2px solid #c1ff07; padding-bottom: 5px; color: #c1ff07;">शेअर बाजाराची व्याख्या</h3>
@@ -2132,6 +2162,7 @@ function toggleAnswer(answerId) {
 </body>
 
 </html>
+
 
 
 
