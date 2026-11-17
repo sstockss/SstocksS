@@ -1235,12 +1235,12 @@
 
                     <!-- Search Bar -->
                     <div class="search-bar-container">
-                        <h3 class="sidebar-title">Search Our Site</h3>
-                        <form id="searchForm" role="search">
-                            <input type="search" id="query" name="q" placeholder="Search articles ..." aria-label="Search through site content">
-                            <button type="submit">Search</button>
-                        </form>
-                    </div>
+    <h3 class="sidebar-title">Search Our Site</h3>
+    <form id="searchForm" action="search-results.html" method="GET" role="search">
+        <input type="search" id="query" name="q" placeholder="Search articles ..." aria-label="Search through site content" required>
+        <button type="submit">Search</button>
+    </form>
+</div>
 
                     <!-- Subscription Options -->
                     <div class="subscription-section">
@@ -1430,15 +1430,14 @@
             });
         });
 
-        // Search Bar Functionality (for sidebar search)
-        document.getElementById('searchForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const query = this.querySelector('input[type="search"]').value;
-            if (query) {
-                const site = "sstockss.com"; // Replace with your actual domain
-                window.open(`https://www.google.com/search?q=site:${site}+${encodeURIComponent(query)}`, '_blank');
-            }
-        });
+        // Search Bar Functionality (Redirects to search-results.html)
+document.getElementById('searchForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const query = this.querySelector('input[type="search"]').value.trim();
+    if (query) {
+        window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
+    }
+});
 
         // Function to display custom message box (instead of alert)
         function showCustomMessageBox(message, email) {
