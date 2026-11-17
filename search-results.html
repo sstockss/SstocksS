@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, follow">
+    <title>Search Results | SstocksS</title>
+    <link rel="icon" type="image/ico" sizes="96x96" href="ImageData/favicon.ico">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="manifest" href="manifest.json">
+
+    <style>
+        /* Exact Base Styles from index.html */
+        body {
+            font-family: 'Noto Sans Devanagari', Arial, sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        /* Exact Header & Navigation Styles from index.html */
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+            width: 100%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        .logo:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-links a.active {
+            background-color: #ff9800;
+        }
+
+        .nav-links a.active:hover {
+            background-color: #e68900;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin: 0;
+        }
+
+        /* Exact Main Content Layout from index.html */
+        main {
+            padding: 1rem 0;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            gap: 2rem;
+            padding-bottom: 40px;
+        }
+
+        .main-content-area {
+            display: flex;
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .content-area {
+            flex: 3;
+            min-width: 0;
+        }
+
+        /* Search Box Styling */
+        .search-header-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .search-header-box h1 {
+            font-size: 1.8rem;
+            margin: 0 0 1rem 0;
+            color: #ffcc80;
+        }
+
+        .main-search-form {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .main-search-form input[type="search"] {
+            flex-grow: 1;
+            padding: 10px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            min-width: 0;
+        }
+
+        .main-search-form input[type="search"]::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .main-search-form button {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            flex-shrink: 0;
+        }
+
+        .main-search-form button:hover {
+            background-color: #e68900;
+        }
+
+        .result-count {
+            margin-top: 12px;
+            font-size: 0.95rem;
+            color: #ddd;
+        }
+
+        /* Exact Articles Grid & Card Styles from index.html */
+        .articles-grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        @media (min-width: 992px) {
+            .articles-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .article-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 280px;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .article-card img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 0.6rem;
+        }
+
+        .category-badge {
+            display: inline-block;
+            background: rgba(255, 152, 0, 0.25);
+            color: #ffcc80;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            width: fit-content;
+        }
+
+        .article-card h3 {
+            font-size: 1.1rem;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: white;
+            min-height: 1.6em;
+            line-height: 1.2;
+        }
+
+        .article-card p {
+            font-size: 0.85rem;
+            color: #ccc;
+            flex-grow: 1;
+            margin-bottom: 0.6rem;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        .article-card .read-more {
+            display: inline-block;
+            background-color: #ff9800;
+            color: white;
+            padding: 0.4rem 0.7rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 0.6rem;
+        }
+
+        .article-card .read-more:hover {
+            background-color: #e68900;
+        }
+
+        /* No Results Box */
+        .no-results-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .no-results-box i {
+            font-size: 2.5rem;
+            color: #ffcc80;
+            margin-bottom: 1rem;
+        }
+
+        .no-results-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .no-results-box p {
+            color: #ddd;
+            margin-bottom: 1.5rem;
+        }
+
+        .fallback-google-btn {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .fallback-google-btn:hover {
+            background: #3e8e41;
+        }
+
+        /* Exact Sidebar Styles from index.html */
+        .sidebar {
+            flex: 1;
+            min-width: 280px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            order: 2;
+        }
+
+        .sidebar-title {
+            font-size: 1.2rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: #ffcc80;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .popular-posts-section, .category-section, .tools-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .popular-posts-section .post-list,
+        .category-section .category-list,
+        .tools-section .tools-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .popular-posts-section .post-list li,
+        .category-section .category-list li,
+        .tools-section .tools-list li {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .popular-posts-section .post-list li:last-child,
+        .category-section .category-list li:last-child,
+        .tools-section .tools-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .popular-posts-section .post-list img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 5px;
+            flex-shrink: 0;
+        }
+
+        .popular-posts-section .post-list a,
+        .category-section .category-list a,
+        .tools-section .tools-list a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            flex-grow: 1;
+        }
+
+        .popular-posts-section .post-list a:hover,
+        .category-section .category-list a:hover,
+        .tools-section .tools-list a:hover {
+            color: #ffcc80;
+            text-decoration: underline;
+        }
+
+        .view-more {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            padding: 8px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            color: #ff9800;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .view-more:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #e68900;
+        }
+
+        /* Exact Footer Styles from index.html */
+        footer {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 1rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .slogan {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: white;
+            font-weight: 500;
+        }
+
+        .credit {
+            color: #ddd;
+            font-size: 0.9rem;
+        }
+
+        /* Exact Mobile-specific Bottom Navigation Bar from index.html */
+        #bottom-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1001;
+            padding: 5px 0;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            justify-content: space-around;
+            align-items: center;
+            height: 60px;
+            box-sizing: border-box;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        #bottom-nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.7rem;
+            padding: 5px;
+            border-radius: 8px;
+            transition: color 0.3s, background-color 0.3s;
+            flex: 1;
+            max-width: 80px;
+            min-height: 50px;
+            justify-content: center;
+        }
+
+        #bottom-nav a.active-bottom, #bottom-nav a:hover {
+            color: #ff9800;
+            background-color: rgba(255, 152, 0, 0.1);
+        }
+
+        #bottom-nav a i {
+            font-size: 1.2rem;
+            margin-bottom: 3px;
+        }
+
+        /* Exact Responsive Rules from index.html */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                transition: all 0.3s ease;
+                z-index: 99;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links a {
+                width: 80%;
+                text-align: center;
+                display: block;
+                margin: 0 auto;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .main-content-area {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                order: 2;
+                min-width: unset;
+            }
+
+            .main-search-form {
+                flex-direction: column;
+            }
+
+            footer {
+                padding-bottom: 5rem; /* Space so bottom-nav doesn't cover footer credit */
+            }
+
+            #bottom-nav {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">SstocksS</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="article.html">Blog</a></li>
+                    <li><a href="disclaimer.html">Disclaimer</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                </ul>
+                <div class="hamburger">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="main-content-area">
+                <!-- Left Main Search Results Area -->
+                <div class="content-area">
+                    <div class="search-header-box">
+                        <h1 id="searchHeading">Search Articles</h1>
+                        <form id="pageSearchForm" class="main-search-form" role="search">
+                            <input type="search" id="pageSearchInput" name="q" placeholder="Search articles (मराठी / English)..." aria-label="Search through site content">
+                            <button type="submit">Search</button>
+                        </form>
+                        <div class="result-count" id="resultCount"></div>
+                    </div>
+
+                    <!-- Dynamic Results Container -->
+                    <div id="resultsContainer" class="articles-grid"></div>
+                </div>
+
+                <!-- Right Sidebar (Exact match with index.html) -->
+                <div class="sidebar">
+                    <!-- Popular Posts Section -->
+                    <div class="popular-posts-section">
+                        <h3 class="sidebar-title">Popular Posts</h3>
+                        <ul class="post-list">
+                            <li>
+                                <img src="investing-vs-trading-which-is-better.webp" alt="investing-vs-trading-which-is-better">
+                                <a href="investing-vs-trading-which-is-better.html">इन्व्हेस्टिंग की ट्रेडिंग? चुकीचा निर्णय तुम्हाला कंगाल करू शकतो!</a>
+                            </li>
+                            <li>
+                                <img src="without-this-skill-disaster-awaits.webp" alt="without-this-skill-disaster-awaits">
+                                <a href="without-this-skill-disaster-awaits.html">हे बेसिक स्किल समजून घेतले नाही तर समजून जा नुकसान तुमच्या दारात उभे आहे.</a>
+                            </li>
+                            <li>
+                                <img src="get-rich-quick-stock-market-trap.webp" alt="get-rich-quick-stock-market-trap">
+                                <a href="get-rich-quick-stock-market-trap.html">शेअर बाजारात जलद श्रीमंत होण्याच्या अफवेमागे लपलेले घातक जाळे.</a>
+                            </li>
+                            <li>
+                                <img src="time-value-options-trading-secret.webp" alt="time-value-options-trading-secret">
+                                <a href="time-value-options-trading-secret.html">ऑप्शन ट्रेडिंग मधील टाईम व्हॅल्यूचे रहस्य जे तुम्ही कधीच विसरू शकणार नाही.</a>
+                            </li>
+                            <li>
+                                <img src="is-options-trading-gambling.webp" alt="is-options-trading-gambling">
+                                <a href="is-options-trading-gambling.html">ऑप्शन ट्रेडिंग हे जुगारापेक्षा वेगळे का नाही?</a>
+                            </li>
+                        </ul>
+                        <a href="article.html" class="view-more">View More Popular Posts</a>
+                    </div>
+
+                    <!-- Category Section -->
+                    <div class="category-section">
+                        <h3 class="sidebar-title">Categories</h3>
+                        <ul class="category-list">
+                            <li><a href="market-basics.html">Market Basics</a></li>
+                            <li><a href="options-basics.html">Options Basics</a></li>
+                            <li><a href="terms-in-stock-market.html">Terms in Stock Market</a></li>
+                            <li><a href="option-greeks.html">Option Greeks</a></li>
+                            <li><a href="technical-analysis.html">Technical Analysis</a></li>
+                            <li><a href="risk-management.html">Risk Management</a></li>
+                            <li><a href="option-strategies.html">Option Strategies</a></li>
+                            <li><a href="market-psychology.html">Market Psychology</a></li>
+                            <li><a href="ideas.html">Ideas</a></li>
+                        </ul>
+                        <a href="#" class="view-more">View More Categories</a>
+                    </div>
+
+                    <!-- Tools Section -->
+                    <div class="tools-section">
+                        <h3 class="sidebar-title">Data Analyzer</h3>
+                        <ul class="tools-list">
+                            <li><a href="#">Option Calculator</a></li>
+                            <li><a href="#">IV Calculator</a></li>
+                            <li><a href="#">Strategy Builder</a></li>
+                            <li><a href="#">Payoff Diagram Tool</a></li>
+                        </ul>
+                        <a href="#" class="view-more">View All Tools</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Exact Mobile Bottom Navigation Bar from index.html -->
+    <div id="bottom-nav">
+        <a href="index.html">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="article.html">
+            <i class="fas fa-book-open"></i>
+            <span>Articals</span>
+        </a>
+        <a href="Ideas.html">
+            <i class="fas fa-lightbulb"></i>
+            <span>Ideas</span>
+        </a>
+        <a href="data-analyzer.html">
+            <i class="fas fa-chart-area"></i>
+            <span>Analyzer</span>
+        </a>
+        <a href="contact-us.html">
+            <i class="fas fa-envelope"></i>
+            <span>Contact Us</span>
+        </a>
+    </div>
+
+    <!-- Exact Footer from index.html -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p class="slogan">Empowering your options trading journey with knowledge and clarity.</p>
+                <p class="credit">@ 2027 SstocksS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle (for hamburger menu)
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Articles Database (Marathi + English Keywords)
+        const articlesDatabase = [
+            {
+                title: "चुकीचे पाऊल नकोच । यासाठी शेअर मार्केटची मूलभूत संकल्पना समजून घ्यावीच लागेल.",
+                description: "एका चुकीच्या निर्णयामुळे ट्रेडर्सचे सर्वस्व पणाला लागू शकते. अशा आर्थिक विध्वंसापासून स्वतःला वाचविण्यासाठी शेअर मार्केटची मूलभूत माहिती असायलाच हवी.",
+                url: "understand-stock-market-basics.html",
+                image: "understand-stock-market-basics.webp",
+                category: "Market Basics",
+                keywords: "share market basics, stock market basics, शेअर मार्केट, मूलभूत संकल्पना, गुंतवणूक, beginners"
+            },
+            {
+                title: "ऑप्शन ट्रेडिंग मधील, अफवा ज्यावर विश्वास ठेवणे तुम्हाला थांबवावेच लागेल.",
+                description: "ऑप्शन ट्रेडिंगमधील घातक अफवा तुमचे धन संपवू शकते. हा बाजारातील तुमचा सर्वात मोठा शत्रू आहे. याकडे डोळेझाक न करता, स्वतःला संरक्षित करा.",
+                url: "options-trading-myths-exposed.html",
+                image: "options-trading-myths-exposed.webp",
+                category: "Options Basics",
+                keywords: "option trading myths, ऑप्शन ट्रेडिंग, अफवा, options trading, फसवणाऱ्या गोष्टी"
+            },
+            {
+                title: "ऑप्शन ट्रेडिंग तुम्हाला वाटते तेवढे धोकादायक का नाही?",
+                description: "ऑप्शन ट्रेडिंग मधील एक गहन सत्य जे नक्कीच तुमचा विचार बदलेल, आणि तुमचे संपूर्ण ट्रेडिंग करिअर बदलणारे हे सत्य देखील उघड करेल.",
+                url: "why-options-trading-is-not-risky.html",
+                image: "why-options-trading-is-not-risky.webp",
+                category: "Risk Management",
+                keywords: "is option trading risky, जोखिम व्यवस्थापन, ऑप्शन ट्रेडिंग धोका, risk management, options trading"
+            },
+            {
+                title: "इन्व्हेस्टिंग की ट्रेडिंग? चुकीचा निर्णय तुम्हाला कंगाल करू शकतो!",
+                description: "गुंतवणूक आणि ट्रेडिंग यातील नेमका फरक समजून घ्या. तुमच्या स्वभावाला आणि भांडवलाला काय योग्य आहे हे जाणून घ्या.",
+                url: "investing-vs-trading-which-is-better.html",
+                image: "investing-vs-trading-which-is-better.webp",
+                category: "Market Basics",
+                keywords: "investing vs trading, इन्व्हेस्टिंग, ट्रेडिंग, गुंतवणूक, फरक"
+            },
+            {
+                title: "हे बेसिक स्किल समजून घेतले नाही तर समजून जा नुकसान तुमच्या दारात उभे आहे.",
+                description: "मार्केटमध्ये टिकून राहण्यासाठी आवश्यक असलेले सर्वात महत्त्वाचे कौशल्य आणि सायकोलॉजी.",
+                url: "without-this-skill-disaster-awaits.html",
+                image: "without-this-skill-disaster-awaits.webp",
+                category: "Market Psychology",
+                keywords: "trading skill, market psychology, सायकोलॉजी, नुकसान, बेसिक स्किल"
+            },
+            {
+                title: "शेअर बाजारात जलद श्रीमंत होण्याच्या अफवेमागे लपलेले घातक जाळे.",
+                description: "झटपट श्रीमंत होण्याच्या नादात अनेक ट्रेडर्स आपले भांडवल गमावतात. या सापळ्यातून कसे वाचावे?",
+                url: "get-rich-quick-stock-market-trap.html",
+                image: "get-rich-quick-stock-market-trap.webp",
+                category: "Market Psychology",
+                keywords: "get rich quick, जलद श्रीमंत, सापळा, शेअर बाजार, trap"
+            },
+            {
+                title: "ऑप्शन ट्रेडिंग मधील टाईम व्हॅल्यूचे रहस्य जे तुम्ही कधीच विसरू शकणार नाही.",
+                description: "Theta decay आणि टाईम व्हॅल्यू ऑप्शन प्रीमियमवर कसा परिणाम करतात याचे सखोल विश्लेषण.",
+                url: "time-value-options-trading-secret.html",
+                image: "time-value-options-trading-secret.webp",
+                category: "Option Greeks",
+                keywords: "time value, theta decay, option greeks, टाईम व्हॅल्यू, प्रीमियम, ऑप्शन ग्रीक्स"
+            },
+            {
+                title: "ऑप्शन ट्रेडिंग हे जुगारापेक्षा वेगळे का नाही?",
+                description: "बिना अभ्यासाचे ट्रेडिंग आणि जुगार यात काय साम्य आहे आणि ते व्यावसायिक पद्धतीने कसे करावे.",
+                url: "is-options-trading-gambling.html",
+                image: "is-options-trading-gambling.webp",
+                category: "Options Basics",
+                keywords: "gambling, जुगार, ऑप्शन ट्रेडिंग, options trading"
+            }
+        ];
+
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name) || "";
+        }
+
+        function performSearch(query) {
+            const cleanQuery = query.trim().toLowerCase();
+            const resultsContainer = document.getElementById('resultsContainer');
+            const searchHeading = document.getElementById('searchHeading');
+            const resultCount = document.getElementById('resultCount');
+            const searchInput = document.getElementById('pageSearchInput');
+
+            searchInput.value = query;
+
+            if (!cleanQuery) {
+                searchHeading.textContent = "All Articles";
+                resultCount.textContent = `एकूण ${articlesDatabase.length} आर्टिकल्स उपलब्ध आहेत.`;
+                renderArticles(articlesDatabase);
+                return;
+            }
+
+            searchHeading.innerHTML = `Search Results for: "<span style="color: white;">${escapeHTML(query)}</span>"`;
+
+            const matchedArticles = articlesDatabase.filter(article => {
+                const searchableText = `${article.title} ${article.description} ${article.category} ${article.keywords}`.toLowerCase();
+                return searchableText.includes(cleanQuery);
+            });
+
+            if (matchedArticles.length > 0) {
+                resultCount.textContent = `"${query}" साठी ${matchedArticles.length} आर्टिकल्स सापडले आहेत.`;
+                resultsContainer.className = "articles-grid";
+                renderArticles(matchedArticles);
+            } else {
+                resultCount.textContent = `0 परिणाम सापडले.`;
+                resultsContainer.className = "";
+                resultsContainer.innerHTML = `
+                    <div class="no-results-box">
+                        <i class="fas fa-search-minus"></i>
+                        <h3>क्षमस्व! "${escapeHTML(query)}" साठी कोणतेही आर्टिकल सापडले नाही.</h3>
+                        <p>कृपया वेगळा कीवर्ड वापरून पहा (उदा. Option Trading, शेअर मार्केट, Risk Management, Greeks).</p>
+                        <a href="https://www.google.com/search?q=site:sstockss.com+${encodeURIComponent(query)}" target="_blank" class="fallback-google-btn">
+                            Google वर SstocksS मध्ये शोधा
+                        </a>
+                    </div>
+                `;
+            }
+        }
+
+        function renderArticles(articles) {
+            const resultsContainer = document.getElementById('resultsContainer');
+            resultsContainer.innerHTML = articles.map(article => `
+                <div class="article-card">
+                    <div>
+                        <img src="${article.image}" alt="${escapeHTML(article.title)}" onerror="this.src='ImageData/sstockss_Img.jpg'">
+                        <span class="category-badge">${escapeHTML(article.category)}</span>
+                        <h3>${escapeHTML(article.title)}</h3>
+                        <p>${escapeHTML(article.description)}</p>
+                    </div>
+                    <a href="${article.url}" class="read-more">Read More</a>
+                </div>
+            `).join('');
+        }
+
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, tag => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+            }[tag]));
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const initialQuery = getQueryParameter('q');
+            performSearch(initialQuery);
+        });
+
+        document.getElementById('pageSearchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const newQuery = document.getElementById('pageSearchInput').value;
+            const newUrl = `${window.location.pathname}?q=${encodeURIComponent(newQuery)}`;
+            window.history.pushState({ path: newUrl }, '', newUrl);
+            performSearch(newQuery);
+        });
+    </script>
+</body>
+</html>
