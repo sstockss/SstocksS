@@ -1211,10 +1211,33 @@
                         <div class="newsletter-section reveal">
                             <h2>Stay Updated with Our Latest Insights!</h2>
                             <p>Subscribe to our newsletter to receive exclusive options trading strategies, market updates, and expert tips directly to your inbox.</p>
-                            <form class="newsletter-form" id="newsletterForm">
-                                <input type="email" placeholder="Enter your email address" required>
-                                <button type="submit">Subscribe Now</button>
-                            </form>
+                            
+<form class="newsletter-form" id="newsletterForm">
+
+    <!-- Web3Forms Access Key -->
+    <input type="hidden" name="access_key" value="abece205-581c-4d02-b9ae-06eddf266687">
+
+    <!-- Email Subject -->
+    <input type="hidden" name="subject" value="New Newsletter Subscription - SstocksS">
+
+    <!-- Website Name -->
+    <input type="hidden" name="from_name" value="SstocksS Website">
+
+    <!-- Spam Protection -->
+    <input type="checkbox" name="botcheck" style="display:none;">
+
+    <!-- Email Input -->
+    <input
+        type="email"
+        name="email"
+        placeholder="Enter your email address"
+        required
+    >
+
+    <button type="submit">Subscribe Now</button>
+
+</form>
+
                         </div>
                     </section>
 
@@ -1245,10 +1268,34 @@
                     <!-- Subscription Options -->
                     <div class="subscription-section">
                         <h3 class="sidebar-title">Subscribe for Updates</h3>
-                        <form id="sidebarSubscriptionForm">
-                            <input type="email" placeholder="Your Email Address" required aria-label="Email for subscription">
-                            <button type="submit">Subscribe</button>
-                        </form>
+                        
+<form id="sidebarSubscriptionForm">
+
+    <!-- Web3Forms Access Key -->
+    <input type="hidden" name="access_key" value="abece205-581c-4d02-b9ae-06eddf266687">
+
+    <!-- Email Subject -->
+    <input type="hidden" name="subject" value="New Sidebar Subscription - SstocksS">
+
+    <!-- Website Name -->
+    <input type="hidden" name="from_name" value="SstocksS Website">
+
+    <!-- Spam Protection -->
+    <input type="checkbox" name="botcheck" style="display:none;">
+
+    <!-- Email Input -->
+    <input
+        type="email"
+        name="email"
+        placeholder="Your Email Address"
+        required
+        aria-label="Email for subscription"
+    >
+
+    <button type="submit">Subscribe</button>
+
+</form>
+
                         <p>Get new articles and updates directly to your inbox!</p>
                     </div>
 
@@ -1456,29 +1503,134 @@ document.getElementById('searchForm').addEventListener('submit', function(e) {
             });
         }
 
-        // Newsletter Subscription Form Functionality (for main section)
-        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const emailInput = this.querySelector('input[type="email"]');
-            const email = emailInput.value;
+        
+// Custom Message Box Function
+function showCustomMessageBox(message, email = '') {
+    const messageBox = document.createElement('div');
+    messageBox.classList.add('custom-message-box');
 
-            if (email) {
-                showCustomMessageBox("सदस्यता घेतल्याबद्दल धन्यवाद!", email);
-                emailInput.value = ''; // Clear the input field
+    const messageText = document.createElement('p');
+    messageText.textContent = message;
+    messageBox.appendChild(messageText);
+
+    if (email) {
+        const emailText = document.createElement('p');
+        emailText.textContent =
+            'तुम्ही या ईमेलवर अपडेट्स प्राप्त कराल: ';
+
+        const emailStrong = document.createElement('strong');
+        emailStrong.textContent = email;
+
+        emailText.appendChild(emailStrong);
+        messageBox.appendChild(emailText);
+    }
+
+    const closeButton = document.createElement('button');
+    closeButton.type = 'button';
+    closeButton.textContent = 'बंद करा';
+
+    closeButton.addEventListener('click', () => {
+        messageBox.remove();
+    });
+
+    messageBox.appendChild(closeButton);
+    document.body.appendChild(messageBox);
+}
+
+
+// Web3Forms Subscription Handler
+async function submitSubscriptionForm(form) {
+
+    const emailInput = form.querySelector('input[name="email"]');
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    const email = emailInput.value.trim();
+
+    if (!email) {
+        emailInput.focus();
+        return;
+    }
+
+    // Prevent repeated submissions
+    if (submitButton.disabled) return;
+
+    const originalButtonText = submitButton.textContent;
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'Please Wait...';
+
+    try {
+
+        const formData = new FormData(form);
+        const formObject = Object.fromEntries(formData.entries());
+
+        const response = await fetch(
+            'https://api.web3forms.com/submit',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(formObject)
             }
-        });
+        );
 
-        // Sidebar Subscription Form Functionality (newly added)
-        document.getElementById('sidebarSubscriptionForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const emailInput = this.querySelector('input[type="email"]');
-            const email = emailInput.value;
+        const result = await response.json();
 
-            if (email) {
-                showCustomMessageBox("सदस्यता घेतल्याबद्दल धन्यवाद!", email);
-                emailInput.value = ''; // Clear the input field
-            }
-        });
+        if (response.ok && result.success === true) {
+
+            showCustomMessageBox(
+                'सदस्यता घेतल्याबद्दल धन्यवाद!',
+                email
+            );
+
+            form.reset();
+
+        } else {
+
+            console.error('Web3Forms Error:', result);
+
+            showCustomMessageBox(
+                'क्षमस्व! सदस्यता नोंदवता आली नाही. कृपया पुन्हा प्रयत्न करा.'
+            );
+        }
+
+    } catch (error) {
+
+        console.error('Subscription Error:', error);
+
+        showCustomMessageBox(
+            'Internet Connection किंवा Server मध्ये समस्या आहे. कृपया पुन्हा प्रयत्न करा.'
+        );
+
+    } finally {
+
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+    }
+}
+
+
+// Main Newsletter Form
+document.getElementById('newsletterForm')
+    .addEventListener('submit', function(e) {
+
+        e.preventDefault();
+        submitSubscriptionForm(this);
+
+    });
+
+
+// Sidebar Subscription Form
+document.getElementById('sidebarSubscriptionForm')
+    .addEventListener('submit', function(e) {
+
+        e.preventDefault();
+        submitSubscriptionForm(this);
+
+    });
+
 
         // Pull-to-refresh functionality
         let pullStartY = 0;
