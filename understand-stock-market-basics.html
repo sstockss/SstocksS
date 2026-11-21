@@ -1169,118 +1169,203 @@ margin: 0 auto; /* 'text-align: center' नसतानाही मध्यभ
         </div>
     </div>
 
-    <script>
-        // Initialize with pre-existing results (29%, 33%, 28%)
-        let votes = [36, 41, 35]; // Votes corresponding to percentages
-        let totalVotes = 112; // Total votes before user participation
-        let hasVoted = false;
+    <!-- Firebase Realtime Database integration: HTML/CSS above remains unchanged -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+        import { getDatabase, ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js";
+        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+
+        // 1) येथे तुमच्या Firebase Project ची Configuration भरा.
+        const firebaseConfig = {
+              apiKey: "AIzaSyCeLYLEO3WRWq1nXenafePuFmiHfNsUbls",
+  authDomain: "realtime-database-deb02.firebaseapp.com",
+  databaseURL: "https://realtime-database-deb02-default-rtdb.firebaseio.com",
+  projectId: "realtime-database-deb02",
+  storageBucket: "realtime-database-deb02.firebasestorage.app",
+  messagingSenderId: "112445434336",
+  appId: "1:112445434336:web:84f6874619143aa6bfe385",
+  measurementId: "G-KMV8RBRTZZ"
+        };
+
+        // 2) प्रत्येक Poll साठी वेगळा pollId ठेवा.
+        const POLL_ID = "stockMarketFear";
+        const INITIAL_COUNTS = [36, 41, 35];
+        const INITIAL_TOTAL = 112;
+        const pollRefPath = `polls/${POLL_ID}`;
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const auth = getAuth(app);
+        const pollRef = ref(db, pollRefPath);
+
         let selectedOptionIndex = null;
-        
+        let hasVoted = localStorage.getItem(`voted_${POLL_ID}`) === "yes";
+        let firebaseReady = false;
+
+        // Email प्रत्यक्ष database key म्हणून न ठेवता SHA-256 hash वापरतो.
+        async function makeEmailKey(email) {
+            const normalized = email.trim().toLowerCase();
+            const bytes = new TextEncoder().encode(normalized);
+            const digest = await crypto.subtle.digest("SHA-256", bytes);
+            return Array.from(new Uint8Array(digest))
+                .map(byte => byte.toString(16).padStart(2, "0")).join("");
+        }
+
+        function updatePollUI(data) {
+            if (!data) return;
+            const counts = [0, 1, 2].map(i => Number(data.counts?.[i] || 0));
+            const total = Number(data.totalVotes || 0);
+
+            document.getElementById("totalVotes").textContent = total;
+            document.getElementById("newTotalVotes").textContent = total;
+
+            for (let i = 0; i < 3; i++) {
+                const percentage = total > 0 ? Math.round((counts[i] / total) * 100) : 0;
+                document.getElementById(`optionPercent${i}`).textContent = `${percentage}%`;
+                document.getElementById(`optionBar${i}`).style.width = `${percentage}%`;
+            }
+        }
+
+        function showVotedState(optionIndex = null) {
+            hasVoted = true;
+            localStorage.setItem(`voted_${POLL_ID}`, "yes");
+            for (let i = 0; i < 3; i++) {
+                const option = document.getElementById(`option${i}`);
+                option.style.cursor = "default";
+                option.classList.add("voted");
+                option.style.borderColor = "#e0e0e0";
+                option.style.boxShadow = "none";
+                option.onmouseover = null;
+                option.onmouseout = null;
+            }
+            if (optionIndex !== null) {
+                const selectedOption = document.getElementById(`option${optionIndex}`);
+                selectedOption.style.backgroundColor = "#f0f7ff";
+                selectedOption.style.borderColor = "#3498db";
+            }
+            document.getElementById("thankYouMessage").style.display = "block";
+        }
+
+        // Firebase सुरू करा आणि सर्व वापरकर्त्यांना live poll results दाखवा.
+        async function initializePoll() {
+            try {
+                await signInAnonymously(auth);
+                // Database रिकामा असल्यास मूळ JavaScript मधील प्रारंभिक आकडे एकदाच सेट करा.
+                await runTransaction(pollRef, current => {
+                    if (current === null) {
+                        return { counts: INITIAL_COUNTS, totalVotes: INITIAL_TOTAL, votes: {} };
+                    }
+                    return current;
+                }, { applyLocally: false });
+                firebaseReady = true;
+                onValue(pollRef, snapshot => {
+                    updatePollUI(snapshot.val());
+                }, error => {
+                    console.error("Realtime Database read error:", error);
+                    alert("Poll data मिळवताना अडचण आली. कृपया पुन्हा प्रयत्न करा.");
+                });
+            } catch (error) {
+                console.error("Firebase initialization error:", error);
+                alert("Firebase कनेक्शन झाले नाही. Configuration आणि Anonymous Authentication तपासा.");
+            }
+        }
+
         function vote(optionIndex) {
+            if (!firebaseReady) {
+                alert("Poll सुरू होत आहे. कृपया काही क्षणांनी पुन्हा प्रयत्न करा.");
+                return;
+            }
             if (hasVoted) {
                 alert("You have already voted in this poll. Thank you for your participation!");
                 return;
             }
-            
+            if (![0, 1, 2].includes(optionIndex)) return;
             selectedOptionIndex = optionIndex;
             showEmailPopup();
         }
-        
+
         function showEmailPopup() {
-            document.getElementById('emailPopup').style.display = 'flex';
+            document.getElementById("emailPopup").style.display = "flex";
         }
-        
+
         function closeEmailPopup() {
-            document.getElementById('emailPopup').style.display = 'none';
-            document.getElementById('emailForm').reset();
+            document.getElementById("emailPopup").style.display = "none";
+            document.getElementById("emailForm").reset();
         }
-        
-        function submitEmail(event) {
+
+        function validateEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        async function submitEmail(event) {
             event.preventDefault();
-            
-            const emailInput = document.getElementById('userEmail');
-            const email = emailInput.value.trim();
-            
+            if (!firebaseReady || selectedOptionIndex === null) {
+                alert("Firebase कनेक्शन उपलब्ध नाही. कृपया पुन्हा प्रयत्न करा.");
+                return;
+            }
+
+            const email = document.getElementById("userEmail").value.trim().toLowerCase();
             if (!validateEmail(email)) {
                 alert("Please enter a valid email address.");
                 return;
             }
-            
-            // Record the vote
-            votes[selectedOptionIndex]++;
-            totalVotes++;
-            hasVoted = true;
-            
-            // Update the total votes display
-            document.getElementById('totalVotes').textContent = totalVotes;
-            document.getElementById('newTotalVotes').textContent = totalVotes;
-            
-            // Calculate and display updated percentages
-            for (let i = 0; i < 3; i++) {
-                const percentage = Math.round((votes[i] / totalVotes) * 100);
-                document.getElementById(`optionPercent${i}`).textContent = `${percentage}%`;
-                document.getElementById(`optionBar${i}`).style.width = `${percentage}%`;
+
+            const submitButton = document.querySelector('#emailForm button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.textContent = "Submitting...";
+
+            try {
+                const emailKey = await makeEmailKey(email);
+                const result = await runTransaction(pollRef, current => {
+                    // पहिल्यांदा database तयार होत असल्यास जुने आकडे initialize करा.
+                    if (current === null) {
+                        current = {
+                            counts: INITIAL_COUNTS,
+                            totalVotes: INITIAL_TOTAL,
+                            votes: {}
+                        };
+                    }
+                    current.counts = current.counts || INITIAL_COUNTS.slice();
+                    current.votes = current.votes || {};
+
+                    // एकाच normalized email hash वर दुसरे मत नोंदवू देऊ नका.
+                    if (current.votes[emailKey]) return;
+
+                    current.counts[selectedOptionIndex] = Number(current.counts[selectedOptionIndex] || 0) + 1;
+                    current.totalVotes = Number(current.totalVotes || 0) + 1;
+                    current.votes[emailKey] = {
+                        option: selectedOptionIndex,
+                        createdAt: new Date().toISOString()
+                    };
+                    return current;
+                }, { applyLocally: false });
+
+                if (!result.committed) {
+                    alert("या Email ID वरून आधीच मतदान झालेले आहे.");
+                    closeEmailPopup();
+                    return;
+                }
+
+                updatePollUI(result.snapshot.val());
+                showVotedState(selectedOptionIndex);
+                closeEmailPopup();
+                alert("Your vote has been recorded successfully. Thank you!");
+            } catch (error) {
+                console.error("Vote submission error:", error);
+                alert("मत नोंदवता आले नाही. कृपया पुन्हा प्रयत्न करा.");
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = "Submit Survey";
             }
-            
-            // Disable further voting and show thank you message
-            for (let i = 0; i < 3; i++) {
-                const option = document.getElementById(`option${i}`);
-                option.style.cursor = 'default';
-                option.classList.add('voted');
-                option.style.borderColor = '#e0e0e0';
-                option.style.boxShadow = 'none';
-                
-                // Remove hover effects
-                option.onmouseover = null;
-                option.onmouseout = null;
-            }
-            
-            // Highlight the user's selection
-            const selectedOption = document.getElementById(`option${selectedOptionIndex}`);
-            selectedOption.style.backgroundColor = '#f0f7ff';
-            selectedOption.style.borderColor = '#3498db';
-            
-            // Show thank you message
-            document.getElementById('thankYouMessage').style.display = 'block';
-            
-            // Submit email to Google Sheets
-            submitToGoogleSheets(email, selectedOptionIndex);
-            
-            // Close the popup
-            closeEmailPopup();
-            
-            // Show confirmation message
-            alert("Your vote has been recorded, the data will be updated soon.");
         }
-        
-        function validateEmail(email) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
-        }
-        
-        function submitToGoogleSheets(email, optionIndex) {
-            // Replace with your Google Apps Script Web App URL
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbyrcUp2ioHcBedR58cUc5sNZ7alNO7qwyrRd3fokWWTVO6wE1uzLfPv2qZUZBfuEX5hLA/exec';
-            
-            // Prepare form data
-            const formData = new FormData();
-            formData.append('email', email);
-            formData.append('vote', optionIndex);
-            formData.append('timestamp', new Date().toISOString());
-            
-            // Submit to Google Sheets via Google Apps Script
-            fetch(scriptURL, {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => {
-                console.log('Success:', response);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                // Even if Google Sheets submission fails, the vote is still recorded locally
-            });
-        }
+
+        // मूळ HTML मधील inline onclick / onsubmit handlers साठी functions global करा.
+        window.vote = vote;
+        window.showEmailPopup = showEmailPopup;
+        window.closeEmailPopup = closeEmailPopup;
+        window.submitEmail = submitEmail;
+
+        initializePoll();
     </script>
 </body>
 						
