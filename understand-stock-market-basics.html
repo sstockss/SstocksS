@@ -513,7 +513,7 @@
             color: #ffcc80;
             margin-top: 2rem;
             font-size: 1.8rem;
-            scroll-margin-top: 120px;
+            scroll-margin-top: 100px;
         }
         
         .article-content h3 {
@@ -2209,72 +2209,107 @@ function toggleAnswer(answerId) {
         });
         
         // Table of Contents Toggle
-        function toggleTOC() {
+function toggleTOC() {
+    const tocContent = document.getElementById('tocContent');
+    const toggleIcon = document.querySelector('.toc-toggle i');
+    tocContent.style.transition = '';
+    tocContent.classList.toggle('open');
+    if (tocContent.classList.contains('open')) {
+        toggleIcon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+    } else {
+        toggleIcon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+    }
+}
+
+// हेडरची प्रत्यक्ष उंची मोजून अचूक स्क्रोल करणारे Function
+function scrollToHeadingAccurately(element) {
+    const header = document.querySelector('header');
+    const headerHeight = header ? Math.ceil(header.getBoundingClientRect().height) : 80;
+    const extraGap = 16; // हेडर आणि हेडिंगमध्ये स्पष्ट अंतर ठेवण्यासाठी
+    const targetY = element.getBoundingClientRect().top + window.scrollY - headerHeight - extraGap;
+
+    window.scrollTo({
+        top: Math.max(0, targetY),
+        behavior: 'instant'
+    });
+}
+
+// Dynamic TOC Generation, Instant Auto-Close & Accurate Scroll
+function generateTOC() {
+    const tocList = document.querySelector('.toc-list');
+    if (!tocList) return;
+    tocList.innerHTML = '';
+
+    const headings = document.querySelectorAll('.article-content h2');
+    let h2Count = 0;
+
+    headings.forEach((heading) => {
+        const id = heading.id || `section-${h2Count}`;
+        heading.id = id;
+        const text = heading.textContent.trim();
+        h2Count++;
+
+        const listItem = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = `#${id}`;
+        link.className = 'toc-link';
+        link.innerHTML = `<span class="toc-number">${h2Count}</span><span class="toc-text">${text}</span>`;
+
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+
             const tocContent = document.getElementById('tocContent');
             const toggleIcon = document.querySelector('.toc-toggle i');
-            tocContent.classList.toggle('open');
-            if (tocContent.classList.contains('open')) {
-                toggleIcon.classList.replace('fa-chevron-down', 'fa-chevron-up');
-            } else {
-                toggleIcon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+            const targetElement = document.getElementById(id);
+
+            // १. लेआउट शिफ्ट टाळण्यासाठी TOC त्वरित बंद करा
+            if (tocContent && tocContent.classList.contains('open')) {
+                tocContent.style.transition = 'none';
+                tocContent.classList.remove('open');
+                void tocContent.offsetHeight; // Reflow force करून उंची लगेच 0 करा
+                if (toggleIcon) {
+                    toggleIcon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+                }
+            }
+
+            // २. TOC बंद झाल्यावर लगेच अचूक ठिकाणी स्क्रोल करा
+            if (targetElement) {
+                requestAnimationFrame(() => {
+                    scrollToHeadingAccurately(targetElement);
+                });
+            }
+        });
+
+        listItem.appendChild(link);
+        tocList.appendChild(listItem);
+    });
+
+    // Intersection Observer for active TOC links
+    const observer = new IntersectionObserver((entries) => {
+        let activeId = null;
+        for (const entry of entries) {
+            if (entry.isIntersecting) {
+                activeId = entry.target.id;
+                break;
             }
         }
 
-        // Dynamic TOC Generation & Active Link Highlighting
-        function generateTOC() {
-            const tocList = document.querySelector('.toc-list');
-            tocList.innerHTML = '';
-            const headings = document.querySelectorAll('.article-content h2');
-            let h2Count = 0;
-            let h3Count = 0;
+        document.querySelectorAll('.toc-link').forEach(link => {
+            link.classList.remove('active');
+        });
 
-            headings.forEach((heading) => {
-                const id = heading.id || `section-${h2Count}`;
-                heading.id = id;
-                const text = heading.textContent;
-                let tocNumber = '';
-                let tocClass = '';
-                if (heading.tagName === 'H2') {
-                    h2Count++;
-                    h3Count = 0;
-                    tocNumber = `${h2Count}`;
-                } else { // H3
-                    h3Count++;
-                    tocNumber = `${h2Count}`;
-                    tocClass = 'sub-link';
-                }
-                const listItem = document.createElement('li');
-                listItem.innerHTML = `<a href="#${id}" class="toc-link ${tocClass}"><span class="toc-number">${tocNumber}</span><span class="toc-text">${text}</span></a>`;
-                tocList.appendChild(listItem);
-            });
-
-            // Intersection Observer for active TOC links
-            const observer = new IntersectionObserver((entries) => {
-                let activeId = null;
-                // Find the first intersecting entry from the top
-                for(const entry of entries) {
-                    if(entry.isIntersecting) {
-                        activeId = entry.target.id;
-                        break;
-                    }
-                }
-
-                document.querySelectorAll('.toc-link').forEach(link => {
-                    link.classList.remove('active');
-                });
-
-                if (activeId) {
-                    const activeLink = document.querySelector(`.toc-link[href="#${activeId}"]`);
-                    if (activeLink) {
-                        activeLink.classList.add('active');
-                    }
-                }
-
-            }, { rootMargin: '-100px 0px -50% 0px', threshold: 0 });
-
-            headings.forEach(heading => observer.observe(heading));
+        if (activeId) {
+            const activeLink = document.querySelector(`.toc-link[href="#${activeId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
         }
-        document.addEventListener('DOMContentLoaded', generateTOC);
+    }, { rootMargin: '-110px 0px -50% 0px', threshold: 0 });
+
+    headings.forEach(heading => observer.observe(heading));
+}
+
+document.addEventListener('DOMContentLoaded', generateTOC);
 
         // Search Bar Functionality (Redirects to search-results.html)
 document.getElementById('searchForm').addEventListener('submit', function(e) {
