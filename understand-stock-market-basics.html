@@ -1958,12 +1958,37 @@ function toggleAnswer(answerId) {
     </form>
 </div>
 
+                    <!-- Subscription Options -->
                     <div class="subscription-section">
                         <h3 class="sidebar-title">Subscribe for Updates</h3>
-                        <form id="sidebarSubscriptionForm">
-                            <input type="email" placeholder="Your Email Address" required aria-label="Email for subscription">
-                            <button type="submit">Subscribe</button>
-                        </form>
+                        
+<form id="sidebarSubscriptionForm">
+
+    <!-- Web3Forms Access Key -->
+    <input type="hidden" name="access_key" value="abece205-581c-4d02-b9ae-06eddf266687">
+
+    <!-- Email Subject -->
+    <input type="hidden" name="subject" value="New Sidebar Subscription - SstocksS">
+
+    <!-- Website Name -->
+    <input type="hidden" name="from_name" value="SstocksS Website">
+
+    <!-- Spam Protection -->
+    <input type="checkbox" name="botcheck" style="display:none;">
+
+    <!-- Email Input -->
+    <input
+        type="email"
+        name="email"
+        placeholder="Your Email Address"
+        required
+        aria-label="Email for subscription"
+    >
+
+    <button type="submit">Subscribe</button>
+
+</form>
+
                         <p>Get new articles and updates directly to your inbox!</p>
                     </div>
 
