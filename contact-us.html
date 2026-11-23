@@ -415,32 +415,96 @@
 
         /* Footer - Same as index.html */
         footer {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem 0;
-            text-align: center;
-            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            box-sizing: border-box;
-            margin-top: 3rem;
-        }
+    background: linear-gradient(180deg, rgba(10, 15, 35, 0.35), rgba(10, 15, 35, 0.65));
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 2rem 0 1.5rem 0;
+    text-align: center;
+    box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 2rem;
+}
 
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+}
 
-        .slogan {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: white;
-            font-weight: 500;
-        }
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px 18px;
+    margin-bottom: 0.2rem;
+}
 
-        .credit {
-            color: #ddd;
-            font-size: 0.9rem;
-        }
+.footer-links a {
+    position: relative;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: all 0.25s ease;
+}
+
+.footer-links a:hover,
+.footer-links a:focus {
+    color: #ffffff;
+    background: rgba(255, 152, 0, 0.22);
+    border-color: #ff9800;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.25);
+}
+
+.footer-divider {
+    width: 180px;
+    max-width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 204, 128, 0.65), transparent);
+    margin: 0.4rem 0;
+}
+
+.slogan {
+    font-size: 1.15rem;
+    margin: 0.2rem 0 0 0;
+    color: #ffcc80;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.credit {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.88rem;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding-bottom: 76px; /* बॉटम नेव्हिगेशन बारसाठी जागा */
+    }
+
+    .footer-links {
+        gap: 8px 10px;
+    }
+
+    .footer-links a {
+        font-size: 0.85rem;
+        padding: 5px 10px;
+    }
+
+    .slogan {
+        font-size: 1rem;
+    }
+}
 
         /* Mobile-specific Bottom Navigation Bar - Same as index.html */
         #bottom-nav {
@@ -745,13 +809,23 @@
     </div>
 
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <p class="slogan">Empowering your options trading journey with knowledge and clarity.</p>
-                <p class="credit">@ 2025 SstocksS. All rights reserved.</p>
-            </div>
+    <div class="container">
+        <div class="footer-content">
+            <nav class="footer-links" aria-label="Footer Navigation">
+                <a href="sitemap.html">Sitemap</a>
+                <a href="media-gallery.html">Media Gallery</a>
+                <a href="cookie-policy.html">Cookie Policy</a>
+                <a href="presentation.html">Presentation</a>
+                <a href="feedback.html">Feedback</a>
+            </nav>
+
+            <div class="footer-divider"></div>
+
+            <p class="slogan">Make your data handling simple and efficient</p>
+            <p class="credit">@ 2025 Designed by sstockss</p>
         </div>
-    </footer>
+    </div>
+</footer>
 
     <script>
         // Service Worker Registration for PWA
