@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Presentations | SstocksS</title>
+    <link rel="icon" type="image/ico" sizes="96x96" href="Image/favicon.ico">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Display Font for Slide Counters -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles matching understand-stock-market-basics.html */
+        body {
+            font-family: 'Noto Sans Devanagari', Arial, sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+            width: 100%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        .logo:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin: 0;
+        }
+
+        /* Main Content */
+        main {
+            padding: 2rem 0 25px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .main-content-area {
+            display: flex;
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .content-area {
+            flex: 3;
+            min-width: 0;
+        }
+
+        /* Presentation Hero Header */
+        .pres-hero {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            box-sizing: border-box;
+        }
+
+        .pres-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 152, 0, 0.2);
+            border: 1px solid rgba(255, 152, 0, 0.6);
+            color: #ffcc80;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .pres-hero h1 {
+            font-size: 2rem;
+            margin: 0 0 0.6rem 0;
+            color: #ffffff;
+        }
+
+        .pres-hero p {
+            margin: 0 auto 1.2rem auto;
+            max-width: 720px;
+            color: #eaeaea;
+            font-size: 1.02rem;
+        }
+
+        /* Deck Switcher Pills */
+        .deck-selector-bar {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .deck-btn {
+            background: rgba(10, 15, 35, 0.55);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 9px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.92rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.25s ease;
+        }
+
+        .deck-btn:hover {
+            background: rgba(255, 255, 255, 0.16);
+            border-color: #ffcc80;
+        }
+
+        .deck-btn.active {
+            background: #ff9800;
+            border-color: #ff9800;
+            color: #ffffff;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.35);
+        }
+
+        /* Interactive Slide Stage Container */
+        .presentation-stage-wrapper {
+            background: linear-gradient(155deg, rgba(10, 15, 35, 0.88), rgba(18, 28, 62, 0.94));
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 14px;
+            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.38);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .presentation-stage-wrapper:fullscreen {
+            border-radius: 0;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            background: linear-gradient(155deg, #090e24, #14224b);
+        }
+
+        /* Top Auto-Progress Line */
+        .slide-progress-track {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.12);
+            overflow: hidden;
+        }
+
+        .slide-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #ff9800, #00e5ff);
+            transition: width 0.1s linear;
+        }
+
+        /* Stage Top Bar */
+        .stage-topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 0.9rem 1.3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+        .stage-deck-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.92rem;
+            color: #ffcc80;
+            font-weight: 600;
+        }
+
+        .slide-counter-badge {
+            font-family: 'Orbitron', monospace;
+            background: rgba(255, 152, 0, 0.2);
+            border: 1px solid rgba(255, 152, 0, 0.5);
+            color: #ffcc80;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        .stage-top-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .stage-ctrl-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .stage-ctrl-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #ffcc80;
+        }
+
+        .stage-ctrl-btn.active {
+            background: rgba(0, 229, 255, 0.22);
+            border-color: #00e5ff;
+            color: #e0f7fa;
+        }
+
+        /* Main Slide Viewport */
+        .slide-viewport {
+            padding: 2rem 2.2rem;
+            min-height: 360px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .slide-animate-in {
+            animation: slideFadeUp 0.35s ease;
+        }
+
+        @keyframes slideFadeUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-kicker {
+            display: inline-block;
+            color: #00e5ff;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .slide-heading {
+            font-size: 1.75rem;
+            margin: 0 0 0.8rem 0;
+            color: #ffffff;
+            line-height: 1.35;
+        }
+
+        .slide-lead {
+            font-size: 1.05rem;
+            color: #e0e0e0;
+            margin: 0 0 1.4rem 0;
+        }
+
+        .slide-points-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .slide-point-card {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-left: 3px solid #ff9800;
+            border-radius: 8px;
+            padding: 0.95rem 1.1rem;
+        }
+
+        .slide-point-card h4 {
+            margin: 0 0 0.35rem 0;
+            font-size: 1rem;
+            color: #ffcc80;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .slide-point-card p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.88);
+            line-height: 1.5;
+        }
+
+        .slide-takeaway-banner {
+            margin-top: 1.4rem;
+            background: rgba(7, 255, 15, 0.1);
+            border: 1px solid rgba(7, 255, 15, 0.32);
+            border-radius: 8px;
+            padding: 0.85rem 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: #e8f5e9;
+        }
+
+        .slide-takeaway-banner i {
+            color: #07ff0f;
+            font-size: 1.1rem;
+        }
+
+        /* Speaker Notes Drawer */
+        .speaker-notes-drawer {
+            display: none;
+            background: rgba(0, 0, 0, 0.42);
+            border-top: 1px dashed rgba(255, 204, 128, 0.35);
+            padding: 1rem 1.5rem;
+            font-size: 0.92rem;
+            color: #fff3e0;
+        }
+
+        .speaker-notes-drawer.open {
+            display: block;
+            animation: fadeIn 0.25s ease;
+        }
+
+        .speaker-notes-title {
+            font-weight: 700;
+            color: #ffcc80;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Stage Bottom Navigation Bar */
+        .stage-bottombar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 0.95rem 1.3rem;
+            background: rgba(0, 0, 0, 0.32);
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .nav-arrow-btn {
+            background: #ff9800;
+            color: #ffffff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.92rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .nav-arrow-btn:hover {
+            background: #e68900;
+            transform: translateY(-1px);
+        }
+
+        .nav-arrow-btn.secondary {
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+        }
+
+        .nav-arrow-btn.secondary:hover {
+            background: rgba(255, 255, 255, 0.24);
+        }
+
+        .slide-dots-strip {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .slide-dot-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            background: rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.85);
+            font-family: 'Orbitron', monospace;
+            font-size: 0.78rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .slide-dot-btn:hover {
+            border-color: #ffcc80;
+            color: #ffffff;
+        }
+
+        .slide-dot-btn.active {
+            background: #ff9800;
+            border-color: #ff9800;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        /* Quick Outline Thumbnail Strip Below Stage */
+        .slide-outline-strip {
+            margin-top: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.3rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .outline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+            padding-bottom: 0.6rem;
+        }
+
+        .outline-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #ffcc80;
+        }
+
+        .outline-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.85rem;
+        }
+
+        .outline-card {
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 8px;
+            padding: 0.8rem 0.9rem;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.22s ease;
+        }
+
+        .outline-card:hover {
+            border-color: rgba(255, 152, 0, 0.6);
+            background: rgba(0, 0, 0, 0.38);
+        }
+
+        .outline-card.active {
+            border-color: #ff9800;
+            background: rgba(255, 152, 0, 0.18);
+        }
+
+        .outline-num {
+            font-family: 'Orbitron', monospace;
+            font-size: 0.75rem;
+            color: #ffcc80;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .outline-title {
+            font-size: 0.88rem;
+            color: #ffffff;
+            font-weight: 600;
+            line-height: 1.35;
+        }
+
+        /* Sidebar Styles - Exact Match with Article Page (No Categories/Tools) */
+        .sidebar {
+            flex: 1;
+            min-width: 280px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .sidebar-title {
+            font-size: 1.2rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: #ffcc80;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .social-share-title {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #ffcc80;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .social-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: space-between;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: calc(25% - 0.4rem);
+            padding: 8px 0;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            font-size: 0;
+            transition: all 0.3s;
+        }
+
+        .social-btn i {
+            font-size: 1rem;
+        }
+
+        .social-btn.facebook { background: #3b5998; }
+        .social-btn.facebook:hover { background: #344e86; }
+        .social-btn.instagram { background: #e1306c; }
+        .social-btn.instagram:hover { background: #c13584; }
+        .social-btn.pinterest { background: #bd081c; }
+        .social-btn.pinterest:hover { background: #a30718; }
+        .social-btn.youtube { background: #ff0000; }
+        .social-btn.youtube:hover { background: #e60000; }
+
+        .search-bar-container form {
+            display: flex;
+            border-radius: 5px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.1);
+            width: 100%;
+        }
+
+        .search-bar-container input[type="search"] {
+            flex-grow: 1;
+            padding: 10px 15px;
+            border: none;
+            background: transparent;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            min-width: 0;
+        }
+
+        .search-bar-container input[type="search"]::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .search-bar-container button {
+            background: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 0 5px 5px 0;
+            flex-shrink: 0;
+        }
+
+        .search-bar-container button:hover {
+            background: #e68900;
+        }
+
+        .subscription-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .subscription-section h3 {
+            font-size: 1.1rem;
+            color: #ffcc80;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .subscription-section form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .subscription-section input[type="email"] {
+            padding: 10px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .subscription-section input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .subscription-section button {
+            background: #ff9800;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .subscription-section button:hover {
+            background: #e68900;
+        }
+
+        .subscription-section p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 1rem;
+            margin-bottom: 0;
+            text-align: center;
+        }
+
+        .popular-posts-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .popular-posts-section .post-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .popular-posts-section .post-list li {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .popular-posts-section .post-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .popular-posts-section .post-list img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 5px;
+            flex-shrink: 0;
+        }
+
+        .popular-posts-section .post-list a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            flex-grow: 1;
+        }
+
+        .popular-posts-section .post-list a:hover {
+            color: #ffcc80;
+            text-decoration: underline;
+        }
+
+        .view-more {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            padding: 8px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            color: #ff9800;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .view-more:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #e68900;
+        }
+
+        /* Footer - Exact Match with Article Page */
+        footer {
+            background: linear-gradient(180deg, rgba(10, 15, 35, 0.35), rgba(10, 15, 35, 0.65));
+            border-top: 1px solid rgba(255, 255, 255, 0.18);
+            padding: 2rem 0 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 1rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 10px 18px;
+            margin-bottom: 0.2rem;
+            padding: 0;
+        }
+
+        .footer-links a {
+            position: relative;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            transition: all 0.25s ease;
+        }
+
+        .footer-links a:hover,
+        .footer-links a:focus {
+            color: #ffffff;
+            background: rgba(255, 152, 0, 0.22);
+            border-color: #ff9800;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.25);
+        }
+
+        .footer-divider {
+            width: 180px;
+            max-width: 60%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 204, 128, 0.65), transparent);
+            margin: 0.4rem 0;
+        }
+
+        .slogan {
+            font-size: 1.15rem;
+            margin: 0.2rem 0 0 0;
+            color: #ffcc80;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .credit {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.88rem;
+            margin: 0;
+        }
+
+        /* Mobile-specific Bottom Navigation Bar */
+        #bottom-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1001;
+            padding: 5px 0;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            justify-content: space-around;
+            align-items: center;
+            height: 60px;
+            box-sizing: border-box;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        #bottom-nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.7rem;
+            padding: 5px;
+            border-radius: 8px;
+            transition: color 0.3s, background-color 0.3s;
+            flex: 1;
+            max-width: 80px;
+            min-height: 50px;
+            justify-content: center;
+        }
+
+        #bottom-nav a.active-bottom, #bottom-nav a:hover {
+            color: #ff9800;
+            background-color: rgba(255, 152, 0, 0.1);
+        }
+
+        #bottom-nav a i {
+            font-size: 1.2rem;
+            margin-bottom: 3px;
+        }
+
+        /* Custom Modal Styling for Alerts */
+        .custom-message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.92);
+            color: white;
+            padding: 28px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 152, 0, 0.45);
+            z-index: 2500;
+            text-align: center;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+            font-family: 'Noto Sans Devanagari', Arial, sans-serif;
+            max-width: 90%;
+            box-sizing: border-box;
+            animation: fadeIn 0.3s ease-out;
+            touch-action: none;
+        }
+
+        .custom-message-box p { margin: 0 0 12px 0; font-size: 1.05rem; line-height: 1.5; }
+        .custom-message-box strong { color: #ffcc80; }
+        .custom-message-box button { margin-top: 15px; padding: 10px 25px; background-color: #ff9800; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; transition: background-color 0.3s, transform 0.2s; }
+        .custom-message-box button:hover { background-color: #e68900; transform: translateY(-2px); }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .reveal { position: relative; opacity: 0; transition: 1s all ease; }
+        .reveal.active { opacity: 1; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                transition: all 0.3s ease;
+                z-index: 99;
+            }
+            .nav-links.active { left: 0; }
+            .nav-links li { margin: 1rem 0; width: 100%; text-align: center; }
+            .nav-links a { width: 80%; text-align: center; display: block; margin: 0 auto; }
+            .hamburger { display: block; }
+
+            .main-content-area { flex-direction: column; }
+            .sidebar { order: -1; min-width: unset; }
+            .social-btn { width: calc(33.33% - 0.4rem); }
+
+            .slide-viewport { padding: 1.4rem 1.2rem; }
+            .slide-heading { font-size: 1.4rem; }
+            .slide-points-grid { grid-template-columns: 1fr; }
+            .outline-cards-grid { grid-template-columns: 1fr; }
+
+            footer { padding-bottom: 76px; }
+            .footer-links { gap: 8px 10px; }
+            .footer-links a { font-size: 0.85rem; padding: 5px 10px; }
+            .slogan { font-size: 1rem; }
+
+            #bottom-nav { display: flex; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="https://www.sstockss.in/" class="logo">SstocksS</a>
+                <ul class="nav-links">
+                    <li><a href="https://www.sstockss.in/">Home</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="article.html">Blog</a></li>
+                    <li><a href="disclaimer.html">Disclaimer</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                </ul>
+                <div class="hamburger">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="main-content-area reveal">
+                <div class="content-area">
+                    <!-- Presentation Header & Multi-Deck Selector -->
+                    <section class="pres-hero">
+                        <div class="pres-badge">
+                            <i class="fas fa-desktop"></i> Interactive Slide Studio
+                        </div>
+                        <h1>SstocksS Visual Presentations</h1>
+                        <p>शेअर बाजार आणि ऑप्शन ट्रेडिंगच्या क्लिष्ट संकल्पना सोप्या स्लाईड्सद्वारे समजून घ्या. ऑटो-प्ले, स्पीकर नोट्स आणि फुलस्क्रीन मोडसह सादरीकरण पहा.</p>
+
+                        <div class="deck-selector-bar" id="deckSelectorBar">
+                            <button type="button" class="deck-btn active" data-deck="basics">
+                                <i class="fas fa-chart-line"></i> Stock Market Blueprint
+                            </button>
+                            <button type="button" class="deck-btn" data-deck="options">
+                                <i class="fas fa-layer-group"></i> Options Trading Mastery
+                            </button>
+                            <button type="button" class="deck-btn" data-deck="risk">
+                                <i class="fas fa-shield-alt"></i> Risk & Capital Protection
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- Interactive Slide Stage -->
+                    <section class="presentation-stage-wrapper" id="presentationStage" aria-label="Interactive Presentation Stage">
+                        <!-- Top Auto-Play Progress Bar -->
+                        <div class="slide-progress-track">
+                            <div class="slide-progress-fill" id="slideProgressFill"></div>
+                        </div>
+
+                        <!-- Top Control Header -->
+                        <div class="stage-topbar">
+                            <div class="stage-deck-info">
+                                <span class="slide-counter-badge" id="slideCounterBadge">01 / 04</span>
+                                <span id="activeDeckTitle">Stock Market Blueprint</span>
+                            </div>
+
+                            <div class="stage-top-controls">
+                                <button type="button" class="stage-ctrl-btn" id="autoPlayToggleBtn" title="Toggle Auto-Play Slideshow">
+                                    <i class="fas fa-play"></i> Auto-Play
+                                </button>
+                                <button type="button" class="stage-ctrl-btn" id="notesToggleBtn" title="Show/Hide Presenter Notes">
+                                    <i class="fas fa-sticky-note"></i> Notes
+                                </button>
+                                <button type="button" class="stage-ctrl-btn" id="fullscreenBtn" title="Fullscreen Mode (Press F)">
+                                    <i class="fas fa-expand"></i> Fullscreen
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Slide Canvas -->
+                        <div class="slide-viewport" id="slideViewport"></div>
+
+                        <!-- Presenter Notes Drawer -->
+                        <div class="speaker-notes-drawer" id="speakerNotesDrawer">
+                            <div class="speaker-notes-title">
+                                <i class="fas fa-microphone-alt"></i> Presenter Notes:
+                            </div>
+                            <div id="speakerNotesText"></div>
+                        </div>
+
+                        <!-- Bottom Navigation & Slide Dots -->
+                        <div class="stage-bottombar">
+                            <button type="button" class="nav-arrow-btn secondary" id="prevSlideBtn">
+                                <i class="fas fa-chevron-left"></i> Previous
+                            </button>
+
+                            <div class="slide-dots-strip" id="slideDotsStrip"></div>
+
+                            <button type="button" class="nav-arrow-btn" id="nextSlideBtn">
+                                Next <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- Quick Slide Outline & Export Strip -->
+                    <section class="slide-outline-strip" aria-label="Deck Outline">
+                        <div class="outline-header">
+                            <h3><i class="fas fa-th-list"></i> Deck Slide Outline</h3>
+                            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                <a href="understand-stock-market-basics.html" id="deckReadArticleLink" class="stage-ctrl-btn" style="text-decoration: none; color: #ffcc80;">
+                                    <i class="fas fa-book-open"></i> Read Full Guide
+                                </a>
+                                <button type="button" class="stage-ctrl-btn" id="exportDeckSummaryBtn" style="background: #ff9800; border-color: #ff9800; font-weight: 600;">
+                                    <i class="fas fa-download"></i> Export Notes (.txt)
+                                </button>
+                            </div>
+                        </div>
+                        <div class="outline-cards-grid" id="outlineCardsGrid"></div>
+                    </section>
+                </div>
+
+                <!-- Sidebar Content - Exact Match with Article Page (No Categories/Tools) -->
+                <div class="sidebar">
+                    <div class="social-share">
+                        <div class="social-share-title">Share Our Site</div>
+                        <div class="social-buttons">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.sstockss.in/" target="_blank" class="social-btn facebook" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/" target="_blank" class="social-btn instagram" aria-label="Share on Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://pinterest.com/pin/create/button/?url=https://www.sstockss.in/&media=https://www.sstockss.in/ImageData/sstockss_Img.jpg&description=Options%20Master:%20Your%20Guide%20to%20Option%20Trading" target="_blank" class="social-btn pinterest" aria-label="Share on Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                            <a href="https://www.youtube.com/" target="_blank" class="social-btn youtube" aria-label="Visit our YouTube channel"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="search-bar-container">
+                        <h3 class="sidebar-title">Search Our Site</h3>
+                        <form id="searchForm" action="search-results.html" method="GET" role="search">
+                            <input type="search" id="query" name="q" placeholder="Search articles ..." aria-label="Search through site content" required>
+                            <button type="submit">Search</button>
+                        </form>
+                    </div>
+
+                    <!-- Subscription Options with Web3Forms Key -->
+                    <div class="subscription-section">
+                        <h3 class="sidebar-title">Subscribe for Updates</h3>
+                        <form id="sidebarSubscriptionForm">
+                            <!-- Web3Forms Access Key -->
+                            <input type="hidden" name="access_key" value="abece205-581c-4d02-b9ae-06eddf266687">
+                            <input type="hidden" name="subject" value="New Sidebar Subscription - SstocksS">
+                            <input type="hidden" name="from_name" value="SstocksS Website">
+                            <input type="checkbox" name="botcheck" style="display:none;">
+
+                            <input type="email" name="email" placeholder="Your Email Address" required aria-label="Email for subscription">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                        <p>Get new articles and updates directly to your inbox!</p>
+                    </div>
+
+                    <!-- Popular Posts Section -->
+                    <div class="popular-posts-section">
+                        <h3 class="sidebar-title">Popular Posts</h3>
+                        <ul class="post-list">
+                            <li><img src="Image/understand-stock-market-basics.webp" alt="understand-stock-market-basics"><a href="understand-stock-market-basics.html">चुकीचे पाऊल नकोच । यासाठी शेअर मार्केटची मूलभूत संकल्पना समजून घ्यावीच लागेल.</a></li>
+                            <li><img src="Image/options-trading-myths-exposed.webp" alt="options-trading-myths-exposed"><a href="options-trading-myths-exposed.html">ऑप्शन ट्रेडिंग मधील, अफवा ज्यावर विश्वास ठेवणे तुम्हाला थांबवावेच लागेल.</a></li>
+                            <li><img src="Image/why-options-trading-is-not-risky.webp" alt="why-options-trading-is-not-risky"><a href="why-options-trading-is-not-risky.html">ऑप्शन ट्रेडिंग तुम्हाला वाटते तेवढे धोकादायक का नाही?</a></li>
+                            <li><img src="Image/investing-vs-trading-which-is-better.webp" alt="investing-vs-trading-which-is-better"><a href="investing-vs-trading-which-is-better.html">इन्व्हेस्टिंग की ट्रेडिंग? चुकीचा निर्णय तुम्हाला कंगाल करू शकतो!</a></li>
+                            <li><img src="Image/relationship-between-economy-and-stock-market.webp" alt="relationship-between-economy-and-stock-market"><a href="relationship-between-economy-and-stock-market.html">अर्थव्यवस्था आणि शेअर बाजार यांच्यातील शक्तिशाली संबंध.</a></li>
+                        </ul>
+                        <a href="article.html" class="view-more">View More Popular Posts</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mobile-specific Bottom Navigation Bar -->
+    <div id="bottom-nav">
+        <a href="https://www.sstockss.in/">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="article.html">
+            <i class="fas fa-book-open"></i>
+            <span>Articles</span>
+        </a>
+        <a href="Ideas.html">
+            <i class="fas fa-lightbulb"></i>
+            <span>Ideas</span>
+        </a>
+        <a href="data-analyzer.html">
+            <i class="fas fa-chart-area"></i>
+            <span>Analyzer</span>
+        </a>
+        <a href="contact-us.html">
+            <i class="fas fa-envelope"></i>
+            <span>Contact Us</span>
+        </a>
+    </div>
+
+    <!-- Footer - Exact Match with Article Page -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links" aria-label="Footer Navigation">
+                    <a href="sitemap.html">Sitemap</a>
+                    <a href="media-gallery.html">Media Gallery</a>
+                    <a href="cookie-policy.html">Cookie Policy</a>
+                    <a href="presentation.html">Presentation</a>
+                    <a href="feedback.html">Feedback</a>
+                </div>
+
+                <div class="footer-divider"></div>
+
+                <p class="slogan">Make your data handling simple and efficient</p>
+                <p class="credit">@ 2027 Designed by sstockss</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll Reveal Animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            for (let i = 0; i < reveals.length; i++) {
+                const element = reveals[i];
+                const windowHeight = window.innerHeight;
+                const revealTop = element.getBoundingClientRect().top;
+                const revealPoint = 150;
+                if (revealTop < windowHeight - revealPoint) {
+                    if (!element.classList.contains('active')) {
+                        element.classList.add('active');
+                    }
+                } else {
+                    if (element.classList.contains('active')) {
+                        element.classList.remove('active');
+                    }
+                }
+            }
+        }
+        window.addEventListener('scroll', reveal);
+        reveal();
+
+        // Custom Modal Message Box
+        function showCustomMessageBox(message, email) {
+            const messageBox = document.createElement('div');
+            messageBox.classList.add('custom-message-box');
+            messageBox.innerHTML = `
+                <p>${message}</p>
+                ${email ? `<p>तुम्ही या ईमेलवर अपडेट्स प्राप्त कराल: <strong>${email}</strong></p>` : ''}
+                <button>Close</button>
+            `;
+            document.body.appendChild(messageBox);
+
+            messageBox.querySelector('button').addEventListener('click', () => {
+                document.body.removeChild(messageBox);
+            });
+        }
+
+        // ============================================================
+        // Interactive Presentation Deck Engine
+        // ============================================================
+        const PRESENTATION_DECKS = {
+            basics: {
+                title: "Stock Market Blueprint",
+                articleUrl: "understand-stock-market-basics.html",
+                slides: [
+                    {
+                        kicker: "Module 01 · Foundation",
+                        heading: "शेअर मार्केट म्हणजे नेमके काय?",
+                        lead: "शेअर बाजार हा असा संघटित मंच आहे जिथे कंपन्या व्यवसाय विस्तारासाठी भांडवल उभारतात आणि गुंतवणूकदार त्या कंपन्यांमध्ये भागीदारी घेतात.",
+                        points: [
+                            { icon: "fa-building", title: "प्रायमरी मार्केट (IPO)", text: "कंपनी पहिल्यांदाच सामान्य गुंतवणूकदारांना शेअर्स देऊन थेट भांडवल उभारते." },
+                            { icon: "fa-exchange-alt", title: "सेकंडरी मार्केट (NSE / BSE)", text: "गुंतवणूकदार एकमेकांमध्ये शेअर्सची खरेदी-विक्री पारदर्शक पद्धतीने करतात." }
+                        ],
+                        takeaway: "शेअर बाजार हा जुगार नसून कंपन्यांच्या वास्तविक वाढीत सहभागी होण्याचे माध्यम आहे.",
+                        notes: "नवीन गुंतवणूकदारांनी प्रथम कंपनीचा व्यवसाय आणि एक्सचेंजची भूमिका समजून घेणे आवश्यक आहे."
+                    },
+                    {
+                        kicker: "Module 02 · Market Ecosystem",
+                        heading: "शेअर बाजारातील प्रमुख प्लेअर्स",
+                        lead: "प्रत्येक व्यवहारामागे विशिष्ट जबाबदारी पार पाडणारे महत्त्वाचे घटक कार्यरत असतात.",
+                        points: [
+                            { icon: "fa-user-tie", title: "गुंतवणूकदार आणि ट्रेडर्स", text: "दीर्घकालीन संपत्ती निर्मिती करणारे आणि अल्पकालीन संधी शोधणारे सहभागी." },
+                            { icon: "fa-balance-scale", title: "SEBI आणि ब्रोकर्स", text: "SEBI बाजाराचे नियमन करते तर नोंदणीकृत ब्रोकर्स व्यवहारांना व्यासपीठ देतात." }
+                        ],
+                        takeaway: "SEBI च्या कडक नियमांमुळे गुंतवणूकदारांचे हक्क आणि व्यवहार सुरक्षित राहतात.",
+                        notes: "कोणत्याही ट्रेडिंग खात्याची निवड करताना SEBI नोंदणीकृत ब्रोकरच निवडावा."
+                    },
+                    {
+                        kicker: "Module 03 · Price Action",
+                        heading: "शेअर्सचे भाव कसे ठरतात?",
+                        lead: "बाजारातील किमती कोणत्याही एका व्यक्तीच्या हातात नसून मागणी आणि पुरवठ्याच्या संतुलनावर चालतात.",
+                        points: [
+                            { icon: "fa-arrow-up", title: "मागणी वाढल्यास (Demand)", text: "खरेदीदार जास्त आणि विक्रेते कमी असल्यास शेअरची किंमत वर जाते." },
+                            { icon: "fa-arrow-down", title: "पुरवठा वाढल्यास (Supply)", text: "विक्रीचा दबाव वाढल्यास शेअरची किंमत खाली येते." }
+                        ],
+                        takeaway: "कंपनीचा नफा, आर्थिक धोरणे आणि गुंतवणूकदारांची मानसिकता यांचा थेट परिणाम मागणी-पुरवठ्यावर होतो.",
+                        notes: "भाववाढीमागील कारणे तपासताना कंपनीचे तिमाही निकाल आणि आर्थिक आकडेवारी पहावी."
+                    },
+                    {
+                        kicker: "Module 04 · Investor Mindset",
+                        heading: "दीर्घकालीन आणि शाश्वत गुंतवणूक",
+                        lead: "अफवांवर विश्वास न ठेवता अभ्यासपूर्ण निर्णय घेणे हीच यशाची खरी गुरुकिल्ली आहे.",
+                        points: [
+                            { icon: "fa-search-dollar", title: "मूलभूत अभ्यास (Research)", text: "कंपनीचे कर्ज, नफा आणि भविष्यातील संधी तपासूनच गुंतवणूक करा." },
+                            { icon: "fa-hourglass-half", title: "संयम आणि सातत्य", text: "योग्य कंपन्यांमध्ये दीर्घकाळ टिकून राहिल्यास चक्रवाढ परताव्याचा लाभ मिळतो." }
+                        ],
+                        takeaway: "शिस्तबद्ध अभ्यास आणि संयम तुम्हाला बाजारातील चढ-उतारांवर मात करण्यास सक्षम बनवतो.",
+                        notes: "प्रस्तुतीकरणाच्या शेवटी गुंतवणूकदारांना स्वतःचे ध्येय आणि जोखीम क्षमता ठरवण्यास सांगा."
+                    }
+                ]
+            },
+            options: {
+                title: "Options Trading Mastery",
+                articleUrl: "options-trading-myths-exposed.html",
+                slides: [
+                    {
+                        kicker: "Options 01 · Reality Check",
+                        heading: "ऑप्शन ट्रेडिंगमधील सामान्य अफवा",
+                        lead: "अनेक नवशिक्यांना वाटते की ऑप्शन ट्रेडिंग म्हणजे झटपट श्रीमंत होण्याचा मार्ग किंवा निव्वळ सट्टा आहे.",
+                        points: [
+                            { icon: "fa-times-circle", title: "अफवा: फक्त नशीब चालते", text: "वास्तव: डेटा, व्होलॅटिलिटी आणि अचूक रणनीतीशिवाय यश शक्य नाही." },
+                            { icon: "fa-check-circle", title: "वास्तव: हेजिंगचे साधन", text: "मोठे गुंतवणूकदार पोर्टफोलिओ सुरक्षित ठेवण्यासाठी ऑप्शन्सचा वापर करतात." }
+                        ],
+                        takeaway: "अर्धवट माहितीच्या आधारे ट्रेड घेणे हेच नुकसानाचे सर्वात मोठे कारण असते.",
+                        notes: "ऑप्शन खरेदी आणि विक्री यांतील मूलभूत फरक स्पष्ट करून सांगा."
+                    },
+                    {
+                        kicker: "Options 02 · Core Mechanics",
+                        heading: "कॉल (Call) आणि पुट (Put) ऑप्शन्स",
+                        lead: "बाजार वर जाणार असेल किंवा खाली येणार असेल, दोन्ही परिस्थितीत धोरणात्मक संधी उपलब्ध असतात.",
+                        points: [
+                            { icon: "fa-chart-line", title: "Call Option (CE)", text: "बाजार किंवा स्टॉक वर जाण्याचा अंदाज असल्यास वापरला जाणारा पर्याय." },
+                            { icon: "fa-chart-area", title: "Put Option (PE)", text: "बाजार घसरण्याची शक्यता असल्यास किंवा हेजिंगसाठी वापरला जाणारा पर्याय." }
+                        ],
+                        takeaway: "केवळ दिशा अचूक असणे पुरेसे नाही, तर वेळ (Time Decay) देखील तुमच्या बाजूने असणे महत्त्वाचे आहे.",
+                        notes: "Theta (Time Decay) मुळे एक्सपायरी जवळ येताच प्रीमियम कसा कमी होतो हे उदाहरण देऊन सांगा."
+                    },
+                    {
+                        kicker: "Options 03 · Strategy Edge",
+                        heading: "ऑप्शन ट्रेडिंग धोकादायक का नाही?",
+                        lead: "जर तुम्ही नियमबद्ध जोखीम व्यवस्थापन पाळले, तर तुमचा तोटा नेहमी मर्यादित राहतो.",
+                        points: [
+                            { icon: "fa-sliders-h", title: "मर्यादित जोखीम (Defined Risk)", text: "स्प्रेड्स आणि स्टॉप-लॉसमुळे संभाव्य नुकसान आधीच निश्चित करता येते." },
+                            { icon: "fa-brain", title: "भावनांवर नियंत्रण", text: "आधीच ठरवलेल्या योजनेनुसार ट्रेड घेतल्यास भीती आणि लोभ टाळता येतो." }
+                        ],
+                        takeaway: "धोका ऑप्शनमध्ये नसून अनियंत्रित पोझिशन साईझिंगमध्ये असतो.",
+                        notes: "नेहमी एकूण भांडवलाच्या १% ते २% पेक्षा जास्त जोखीम एका ट्रेडमध्ये घेऊ नये."
+                    }
+                ]
+            },
+            risk: {
+                title: "Risk & Capital Protection",
+                articleUrl: "investing-vs-trading-which-is-better.html",
+                slides: [
+                    {
+                        kicker: "Capital 01 · Golden Rule",
+                        heading: "भांडवल रक्षण हेच पहिले ध्येय",
+                        lead: "ट्रेडिंगमध्ये नफा कमावण्यापेक्षा तुमचे मूळ भांडवल सुरक्षित ठेवणे अधिक महत्त्वाचे आहे.",
+                        points: [
+                            { icon: "fa-shield-alt", title: "स्टॉप-लॉस (Stop-Loss)", text: "प्रत्येक ट्रेडमध्ये बाहेर पडण्याची स्पष्ट मर्यादा आधीच ठरवा." },
+                            { icon: "fa-coins", title: "पोझिशन साईझिंग", text: "संपूर्ण भांडवल एकाच ट्रेडमध्ये कधीही गुंतवू नका." }
+                        ],
+                        takeaway: "जर तुमचे भांडवल टिकून राहिले, तर बाजारात पुन्हा संधी नक्कीच मिळते.",
+                        notes: "मोठा तोटा भरून काढण्यासाठी किती जास्त टक्केवारीने नफा कमवावा लागतो याचे गणित समजावून सांगा."
+                    },
+                    {
+                        kicker: "Capital 02 · Choice",
+                        heading: "इन्व्हेस्टिंग की ट्रेडिंग?",
+                        lead: "तुमचा उपलब्ध वेळ, मानसिकता आणि आर्थिक उद्दिष्टे यांवरून तुमचा मार्ग निवडा.",
+                        points: [
+                            { icon: "fa-seedling", title: "इन्व्हेस्टिंग (Investing)", text: "कमी वेळ देऊ शकणाऱ्या आणि दीर्घकालीन संपत्ती निर्मिती करणाऱ्यांसाठी उत्तम." },
+                            { icon: "fa-bolt", title: "ट्रेडिंग (Trading)", text: "दररोज बाजार अभ्यासणाऱ्या आणि शिस्तबद्ध वेळ देणाऱ्यांसाठी उपयुक्त." }
+                        ],
+                        takeaway: "दोन्ही पद्धती उत्तम आहेत, फक्त त्यांची सरमिसळ करू नका.",
+                        notes: "ट्रेडिंगसाठी घेतलेला शेअर तोट्यात गेल्यावर त्याला इन्व्हेस्टमेंट बनवण्याची चूक टाळावी."
+                    },
+                    {
+                        kicker: "Capital 03 · Macro View",
+                        heading: "अर्थव्यवस्था आणि बाजार चक्र",
+                        lead: "व्याजदर, महागाई आणि जीडीपी वाढीचा वेग बाजाराची दिशा ठरवण्यात महत्त्वाची भूमिका बजावतो.",
+                        points: [
+                            { icon: "fa-landmark", title: "धोरणात्मक बदल", text: "मध्यवर्ती बँकेचे निर्णय आणि सरकारी धोरणे विविध क्षेत्रांवर परिणाम करतात." },
+                            { icon: "fa-sync-alt", title: "तेजी आणि मंदीची चक्रे", text: "प्रत्येक तेजीनंतर विश्रांती आणि मंदी नंतर नवीन संधी निर्माण होतात." }
+                        ],
+                        takeaway: "व्यापक आर्थिक चित्र समजून घेतल्यास चुकीच्या वेळी मोठी जोखीम घेणे टाळता येते.",
+                        notes: "आर्थिक बातम्यांचा तात्काळ आवेगाने प्रतिसाद न देता दीर्घकालीन ट्रेंड पहावा."
+                    }
+                ]
+            }
+        };
+
+        let currentDeckKey = "basics";
+        let currentSlideIndex = 0;
+        let autoPlayEnabled = false;
+        let autoPlayProgress = 0;
+        let autoPlayTimer = null;
+        const SLIDE_DURATION_MS = 6000;
+
+        const slideViewport = document.getElementById("slideViewport");
+        const slideCounterBadge = document.getElementById("slideCounterBadge");
+        const activeDeckTitle = document.getElementById("activeDeckTitle");
+        const slideDotsStrip = document.getElementById("slideDotsStrip");
+        const outlineCardsGrid = document.getElementById("outlineCardsGrid");
+        const speakerNotesDrawer = document.getElementById("speakerNotesDrawer");
+        const speakerNotesText = document.getElementById("speakerNotesText");
+        const slideProgressFill = document.getElementById("slideProgressFill");
+        const deckReadArticleLink = document.getElementById("deckReadArticleLink");
+
+        function renderSlideStage() {
+            const deck = PRESENTATION_DECKS[currentDeckKey];
+            const slides = deck.slides;
+            if (currentSlideIndex >= slides.length) currentSlideIndex = 0;
+            if (currentSlideIndex < 0) currentSlideIndex = slides.length - 1;
+
+            const slide = slides[currentSlideIndex];
+
+            activeDeckTitle.textContent = deck.title;
+            deckReadArticleLink.href = deck.articleUrl;
+            slideCounterBadge.textContent = `${String(currentSlideIndex + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}`;
+
+            const pointsHtml = slide.points.map(pt => `
+                <div class="slide-point-card">
+                    <h4><i class="fas ${pt.icon}"></i> ${pt.title}</h4>
+                    <p>${pt.text}</p>
+                </div>
+            `).join("");
+
+            slideViewport.innerHTML = `
+                <div class="slide-animate-in">
+                    <span class="slide-kicker">${slide.kicker}</span>
+                    <h2 class="slide-heading">${slide.heading}</h2>
+                    <p class="slide-lead">${slide.lead}</p>
+                    <div class="slide-points-grid">${pointsHtml}</div>
+                    <div class="slide-takeaway-banner">
+                        <i class="fas fa-lightbulb"></i>
+                        <span><strong>Key Takeaway:</strong> ${slide.takeaway}</span>
+                    </div>
+                </div>
+            `;
+
+            speakerNotesText.textContent = slide.notes;
+
+            // Update Dots
+            slideDotsStrip.innerHTML = "";
+            slides.forEach((_, idx) => {
+                const dot = document.createElement("button");
+                dot.type = "button";
+                dot.className = "slide-dot-btn" + (idx === currentSlideIndex ? " active" : "");
+                dot.textContent = idx + 1;
+                dot.setAttribute("aria-label", `Go to slide ${idx + 1}`);
+                dot.addEventListener("click", () => {
+                    currentSlideIndex = idx;
+                    resetAutoPlayProgress();
+                    renderSlideStage();
+                });
+                slideDotsStrip.appendChild(dot);
+            });
+
+            // Update Outline Cards
+            outlineCardsGrid.innerHTML = "";
+            slides.forEach((s, idx) => {
+                const card = document.createElement("button");
+                card.type = "button";
+                card.className = "outline-card" + (idx === currentSlideIndex ? " active" : "");
+                card.innerHTML = `
+                    <span class="outline-num">SLIDE ${String(idx + 1).padStart(2, "0")}</span>
+                    <div class="outline-title">${s.heading}</div>
+                `;
+                card.addEventListener("click", () => {
+                    currentSlideIndex = idx;
+                    resetAutoPlayProgress();
+                    renderSlideStage();
+                });
+                outlineCardsGrid.appendChild(card);
+            });
+        }
+
+        function resetAutoPlayProgress() {
+            autoPlayProgress = 0;
+            slideProgressFill.style.width = "0%";
+        }
+
+        function startAutoPlay() {
+            stopAutoPlay();
+            autoPlayEnabled = true;
+            const autoBtn = document.getElementById("autoPlayToggleBtn");
+            autoBtn.classList.add("active");
+            autoBtn.innerHTML = '<i class="fas fa-pause"></i> Pause Auto';
+
+            const stepMs = 100;
+            autoPlayTimer = setInterval(() => {
+                autoPlayProgress += (stepMs / SLIDE_DURATION_MS) * 100;
+                if (autoPlayProgress >= 100) {
+                    autoPlayProgress = 0;
+                    currentSlideIndex = (currentSlideIndex + 1) % PRESENTATION_DECKS[currentDeckKey].slides.length;
+                    renderSlideStage();
+                }
+                slideProgressFill.style.width = `${Math.min(autoPlayProgress, 100)}%`;
+            }, stepMs);
+        }
+
+        function stopAutoPlay() {
+            autoPlayEnabled = false;
+            if (autoPlayTimer) {
+                clearInterval(autoPlayTimer);
+                autoPlayTimer = null;
+            }
+            const autoBtn = document.getElementById("autoPlayToggleBtn");
+            autoBtn.classList.remove("active");
+            autoBtn.innerHTML = '<i class="fas fa-play"></i> Auto-Play';
+            resetAutoPlayProgress();
+        }
+
+        // Deck Selection Buttons
+        document.querySelectorAll("#deckSelectorBar .deck-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                document.querySelectorAll("#deckSelectorBar .deck-btn").forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                currentDeckKey = btn.getAttribute("data-deck");
+                currentSlideIndex = 0;
+                resetAutoPlayProgress();
+                renderSlideStage();
+            });
+        });
+
+        // Prev / Next Controls
+        document.getElementById("prevSlideBtn").addEventListener("click", () => {
+            currentSlideIndex--;
+            resetAutoPlayProgress();
+            renderSlideStage();
+        });
+
+        document.getElementById("nextSlideBtn").addEventListener("click", () => {
+            currentSlideIndex++;
+            resetAutoPlayProgress();
+            renderSlideStage();
+        });
+
+        // Auto-Play Toggle
+        document.getElementById("autoPlayToggleBtn").addEventListener("click", () => {
+            if (autoPlayEnabled) {
+                stopAutoPlay();
+            } else {
+                startAutoPlay();
+            }
+        });
+
+        // Speaker Notes Toggle
+        const notesToggleBtn = document.getElementById("notesToggleBtn");
+        notesToggleBtn.addEventListener("click", () => {
+            const isOpen = speakerNotesDrawer.classList.toggle("open");
+            notesToggleBtn.classList.toggle("active", isOpen);
+        });
+
+        // Fullscreen Toggle
+        const presentationStage = document.getElementById("presentationStage");
+        document.getElementById("fullscreenBtn").addEventListener("click", () => {
+            if (!document.fullscreenElement) {
+                if (presentationStage.requestFullscreen) {
+                    presentationStage.requestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        });
+
+        // Keyboard Navigation (Left, Right, F)
+        document.addEventListener("keydown", (e) => {
+            if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+            if (e.key === "ArrowRight") {
+                currentSlideIndex++;
+                resetAutoPlayProgress();
+                renderSlideStage();
+            } else if (e.key === "ArrowLeft") {
+                currentSlideIndex--;
+                resetAutoPlayProgress();
+                renderSlideStage();
+            } else if (e.key.toLowerCase() === "f") {
+                if (!document.fullscreenElement && presentationStage.requestFullscreen) {
+                    presentationStage.requestFullscreen();
+                }
+            }
+        });
+
+        // Export Presentation Notes (.txt)
+        document.getElementById("exportDeckSummaryBtn").addEventListener("click", () => {
+            const deck = PRESENTATION_DECKS[currentDeckKey];
+            const lines = [
+                `SstocksS Presentation Deck: ${deck.title}`,
+                `Generated on: ${new Date().toLocaleDateString('en-IN')}`,
+                `====================================================`,
+                ""
+            ];
+
+            deck.slides.forEach((s, i) => {
+                lines.push(`Slide ${i + 1}: ${s.heading}`);
+                lines.push(`Overview: ${s.lead}`);
+                s.points.forEach(p => lines.push(`  - ${p.title}: ${p.text}`));
+                lines.push(`Key Takeaway: ${s.takeaway}`);
+                lines.push(`Presenter Note: ${s.notes}`);
+                lines.push("");
+            });
+
+            const blob = new Blob([lines.join("\n")], { type: "text/plain;charset=utf-8" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = `${currentDeckKey}-presentation-notes.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+
+        // Initial Render
+        renderSlideStage();
+
+        // Sidebar Search Form Handler
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const query = this.querySelector('input[type="search"]').value.trim();
+            if (query) {
+                window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
+            }
+        });
+
+        // Web3Forms Sidebar Subscription Handler
+        document.getElementById('sidebarSubscriptionForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const form = this;
+            const emailInput = form.querySelector('input[type="email"]');
+            const submitButton = form.querySelector('button[type="submit"]');
+            const email = emailInput.value.trim();
+
+            if (!email) return;
+
+            const originalButtonText = submitButton.textContent;
+            submitButton.disabled = true;
+            submitButton.textContent = "Submitting...";
+
+            try {
+                const formData = new FormData(form);
+                const response = await fetch("https://api.web3forms.com/submit", {
+                    method: "POST",
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    showCustomMessageBox("सदस्यता घेतल्याबद्दल धन्यवाद! नवीन लेख आणि अपडेट्स तुम्हाला ईमेलवर मिळतील.", email);
+                    form.reset();
+                } else {
+                    showCustomMessageBox(result.message || "सबस्क्रिप्शन अयशस्वी झाले. कृपया पुन्हा प्रयत्न करा.", null);
+                }
+            } catch (error) {
+                console.error("Subscription error:", error);
+                showCustomMessageBox("नेटवर्क त्रुटी आली आहे. कृपया इंटरनेट कनेक्शन तपासून पुन्हा प्रयत्न करा.", null);
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+            }
+        });
+    </script>
+</body>
+</html>
