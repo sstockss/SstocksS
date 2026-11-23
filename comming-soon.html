@@ -5,31 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SstocksS | Content Coming Soon</title>
     <link rel="icon" type="image/ico" sizes="96x96" href="Image/favicon.ico">
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Digital Clock Font Only -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        /* Base styles matching understand-stock-market-basics.html */
         body {
             font-family: 'Noto Sans Devanagari', Arial, sans-serif;
             background: linear-gradient(to right, #6a11cb, #2575fc);
             color: white;
+            margin: 0;
+            padding: 0;
             line-height: 1.6;
             overflow-x: hidden;
             -webkit-overflow-scrolling: touch;
         }
-        
+
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            box-sizing: border-box;
         }
-        
-        /* Header & Navigation */
+
+        /* Header & Navigation - Exact Match with understand-stock-market-basics.html */
         header {
             background: rgba(255, 255, 255, 0.1);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -39,14 +40,14 @@
             backdrop-filter: blur(5px);
             width: 100%;
         }
-        
+
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 0;
         }
-        
+
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
@@ -57,20 +58,22 @@
             background-color: rgba(255, 255, 255, 0.1);
             transition: background-color 0.3s;
         }
-        
+
         .logo:hover {
             background-color: rgba(255, 255, 255, 0.2);
         }
-        
+
         .nav-links {
             display: flex;
             list-style: none;
+            margin: 0;
+            padding: 0;
         }
-        
+
         .nav-links li {
             margin-left: 1.5rem;
         }
-        
+
         .nav-links a {
             color: white;
             text-decoration: none;
@@ -80,11 +83,12 @@
             transition: background-color 0.3s;
             background-color: rgba(255, 255, 255, 0.1);
         }
-        
-        .nav-links a:hover {
+
+        .nav-links a:hover,
+        .nav-links a:focus {
             background-color: rgba(255, 255, 255, 0.2);
         }
-        
+
         .hamburger {
             display: none;
             cursor: pointer;
@@ -93,141 +97,289 @@
             padding: 10px;
             border-radius: 5px;
             border: none;
+            margin: 0;
         }
-        
-        /* Main Content */
+
+        /* Main Content - Exact Layout Proportions from Article Page */
         main {
-            padding: 3rem 0;
+            padding: 2rem 0 25px 0;
             width: 100%;
-            padding-bottom: 80px;
+            box-sizing: border-box;
         }
-        
+
         .main-content-area {
             display: flex;
             gap: 2rem;
             width: 100%;
         }
-        
+
         .content-area {
             flex: 3;
             min-width: 0;
         }
-        
+
+        /* Hero & Coming Soon Card */
         .hero {
-            padding: 4rem 0;
+            padding: 0;
             text-align: center;
         }
-        
+
         .hero-content {
             display: flex;
             flex-direction: column;
             align-items: center;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            padding: 3rem 2rem;
+            padding: 2.5rem 2rem;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             width: 100%;
+            box-sizing: border-box;
         }
-        
+
         .hero-text {
             max-width: 800px;
-        }
-        
-        .hero-text h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: white;
-        }
-        
-        .hero-text p {
-            margin-bottom: 2rem;
-            font-size: 1.2rem;
-            color: #ddd;
-        }
-        
-        .countdown-container {
-            margin: 2rem 0;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
             width: 100%;
-            max-width: 600px;
         }
-        
-        .countdown-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 152, 0, 0.2);
+            border: 1px solid rgba(255, 152, 0, 0.6);
             color: #ffcc80;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
         }
-        
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #07ff0f;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #07ff0f;
+            animation: pulseDot 1.5s infinite;
+        }
+
+        @keyframes pulseDot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.3); }
+        }
+
+        .hero-text h1 {
+            font-size: 2.2rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: white;
+            line-height: 1.3;
+        }
+
+        .hero-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: #eaeaea;
+            line-height: 1.7;
+        }
+
+        /* Pro Digital Clock & Countdown Section */
+        .digital-clock-wrapper {
+            margin: 1.8rem auto;
+            padding: 1.8rem 1.5rem;
+            background: linear-gradient(145deg, rgba(10, 15, 35, 0.78), rgba(18, 28, 60, 0.88));
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            width: 100%;
+            max-width: 650px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .digital-clock-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff9800, #07ff0f, #00e5ff, #ff9800);
+        }
+
+        .countdown-title {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.2rem;
+            color: #ffcc80;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
         .countdown {
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            gap: 0.8rem;
+            flex-wrap: nowrap;
         }
-        
+
         .countdown-item {
-            text-align: center;
-            min-width: 80px;
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
+            padding: 0.9rem 0.6rem;
+            min-width: 100px;
+            flex: 1;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
-        
+
+        .countdown-item:hover {
+            transform: translateY(-3px);
+            border-color: rgba(255, 152, 0, 0.6);
+        }
+
         .countdown-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            padding: 0.5rem;
-            margin-bottom: 0.5rem;
+            font-family: 'Orbitron', monospace, sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 0 0 12px rgba(0, 229, 255, 0.6), 0 0 24px rgba(37, 117, 252, 0.4);
+            line-height: 1.1;
+            margin-bottom: 0.4rem;
+            letter-spacing: 2px;
         }
-        
+
+        .countdown-item.seconds-box .countdown-number {
+            color: #ff9800;
+            text-shadow: 0 0 12px rgba(255, 152, 0, 0.65);
+        }
+
         .countdown-label {
-            font-size: 0.9rem;
-            color: #ccc;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: rgba(255, 255, 255, 0.75);
+            font-weight: 600;
         }
-        
+
+        .clock-separator {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: rgba(255, 204, 128, 0.7);
+            animation: blinkColon 1s infinite;
+            margin-top: -15px;
+        }
+
+        @keyframes blinkColon {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.25; }
+        }
+
+        /* Launch Date & Time Display Below Clock */
+        .launch-schedule-bar {
+            margin-top: 1.4rem;
+            padding-top: 1.1rem;
+            border-top: 1px dashed rgba(255, 255, 255, 0.2);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 12px 20px;
+        }
+
+        .schedule-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 7px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            font-size: 0.92rem;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .schedule-pill i {
+            color: #ff9800;
+            font-size: 0.95rem;
+        }
+
+        .schedule-pill span {
+            color: #ffcc80;
+            font-weight: 600;
+        }
+
         .countdown-ended {
             font-size: 1.5rem;
-            color: #ffcc80;
+            color: #07ff0f;
+            font-weight: 700;
             text-align: center;
             padding: 1rem;
         }
-        
+
         .button-container {
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
             justify-content: center;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
         }
-        
+
         .cta-button {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             background-color: #ff9800;
             color: white;
-            padding: 0.8rem 2rem;
+            padding: 10px 22px;
             border-radius: 5px;
             text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: background-color 0.3s, transform 0.2s;
             border: none;
             cursor: pointer;
             text-align: center;
         }
-        
+
         .cta-button:hover {
             background-color: #e68900;
+            transform: translateY(-2px);
         }
-        
+
+        .cta-button.secondary-btn {
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .cta-button.secondary-btn:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+
         .section-title {
             text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 2.5rem;
+            font-size: 1.8rem;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
             color: white;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 12px;
         }
-        
+
         .section-title::after {
             content: '';
             position: absolute;
@@ -235,33 +387,31 @@
             bottom: 0;
             transform: translateX(-50%);
             width: 80px;
-            height: 4px;
+            height: 3px;
             background-color: #ff9800;
-            border-radius: 2px;
         }
-        
-        /* Updated Newsletter Section */
+
+        /* Newsletter Section */
+        #stay-updated {
+            margin-top: 2rem;
+        }
+
         .newsletter-section {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            padding: 3rem;
+            padding: 2rem;
             text-align: center;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            margin-top: 3rem;
+            box-sizing: border-box;
         }
-        
-        .newsletter-section h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: white;
-        }
-        
+
         .newsletter-section p {
-            font-size: 1.1rem;
-            color: #ddd;
-            margin-bottom: 2rem;
+            font-size: 1.05rem;
+            color: #eaeaea;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
         }
-        
+
         .newsletter-form {
             display: flex;
             justify-content: center;
@@ -270,47 +420,47 @@
             max-width: 600px;
             margin: 0 auto;
         }
-        
+
         .newsletter-form input[type="email"] {
-            padding: 0.8rem 1.2rem;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 10px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 5px;
             width: 100%;
             max-width: 350px;
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.1);
             color: white;
+            font-size: 1rem;
             outline: none;
             transition: all 0.3s ease;
         }
-        
+
         .newsletter-form input[type="email"]:hover,
         .newsletter-form input[type="email"]:focus {
             border-color: #ff9800;
-            background-color: rgba(255, 255, 255, 0.25);
+            background-color: rgba(255, 255, 255, 0.18);
         }
-        
+
         .newsletter-form input[type="email"]::placeholder {
             color: rgba(255, 255, 255, 0.7);
         }
-        
+
         .newsletter-form button {
             background-color: #ff9800;
             color: white;
-            padding: 0.8rem 2rem;
+            padding: 10px 22px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s;
         }
-        
+
         .newsletter-form button:hover {
             background-color: #e68900;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        
-        /* Sidebar Styles */
+
+        /* Sidebar Styles - Exact 1:1 Copy from understand-stock-market-basics.html */
         .sidebar {
             flex: 1;
             min-width: 280px;
@@ -322,17 +472,17 @@
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
-            order: 2;
         }
-        
+
         .sidebar-title {
             font-size: 1.2rem;
+            margin-top: 0;
             margin-bottom: 1rem;
             color: #ffcc80;
             border-bottom: 2px solid rgba(255, 255, 255, 0.2);
             padding-bottom: 0.5rem;
         }
-        
+
         .social-share-title {
             font-size: 1.1rem;
             margin-bottom: 1rem;
@@ -340,14 +490,14 @@
             border-bottom: 2px solid rgba(255, 255, 255, 0.2);
             padding-bottom: 0.5rem;
         }
-        
+
         .social-buttons {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
             justify-content: space-between;
         }
-        
+
         .social-btn {
             display: flex;
             align-items: center;
@@ -360,11 +510,11 @@
             font-size: 0;
             transition: all 0.3s;
         }
-        
+
         .social-btn i {
             font-size: 1rem;
         }
-        
+
         .social-btn.facebook { background: #3b5998; }
         .social-btn.facebook:hover { background: #344e86; }
         .social-btn.instagram { background: #e1306c; }
@@ -373,14 +523,52 @@
         .social-btn.pinterest:hover { background: #a30718; }
         .social-btn.youtube { background: #ff0000; }
         .social-btn.youtube:hover { background: #e60000; }
-        
+
+        .search-bar-container form {
+            display: flex;
+            border-radius: 5px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.1);
+            width: 100%;
+        }
+
+        .search-bar-container input[type="search"] {
+            flex-grow: 1;
+            padding: 10px 15px;
+            border: none;
+            background: transparent;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            min-width: 0;
+        }
+
+        .search-bar-container input[type="search"]::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .search-bar-container button {
+            background: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 0 5px 5px 0;
+            flex-shrink: 0;
+        }
+
+        .search-bar-container button:hover {
+            background: #e68900;
+        }
+
         .subscription-section {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             padding: 15px;
             box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
         }
-        
+
         .subscription-section h3 {
             font-size: 1.1rem;
             color: #ffcc80;
@@ -389,13 +577,13 @@
             border-bottom: 2px solid rgba(255, 255, 255, 0.2);
             padding-bottom: 0.5rem;
         }
-        
+
         .subscription-section form {
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
-        
+
         .subscription-section input[type="email"] {
             padding: 10px 15px;
             border: 1px solid rgba(255, 255, 255, 0.3);
@@ -404,19 +592,12 @@
             color: white;
             font-size: 1rem;
             outline: none;
-            transition: all 0.3s ease;
         }
-        
-        .subscription-section input[type="email"]:hover,
-        .subscription-section input[type="email"]:focus {
-            border-color: #ff9800;
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
+
         .subscription-section input[type="email"]::placeholder {
             color: rgba(255, 255, 255, 0.6);
         }
-        
+
         .subscription-section button {
             background: #ff9800;
             color: white;
@@ -426,35 +607,34 @@
             cursor: pointer;
             font-size: 1rem;
             font-weight: bold;
-            transition: all 0.3s ease;
+            transition: background-color 0.3s;
         }
-        
+
         .subscription-section button:hover {
             background: #e68900;
-            transform: translateY(-2px);
         }
-        
+
         .subscription-section p {
             font-size: 0.9rem;
             color: rgba(255, 255, 255, 0.8);
             margin-top: 1rem;
+            margin-bottom: 0;
             text-align: center;
         }
-        
-        /* Fixed Popular Posts Section */
+
         .popular-posts-section {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             padding: 15px;
             box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
         }
-        
+
         .popular-posts-section .post-list {
             list-style: none;
             padding: 0;
             margin: 0;
         }
-        
+
         .popular-posts-section .post-list li {
             margin-bottom: 10px;
             padding-bottom: 10px;
@@ -463,14 +643,13 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .popular-posts-section .post-list li:last-child {
             border-bottom: none;
             margin-bottom: 0;
             padding-bottom: 0;
         }
-        
-        /* Fixed image size */
+
         .popular-posts-section .post-list img {
             width: 60px;
             height: 60px;
@@ -478,7 +657,7 @@
             border-radius: 5px;
             flex-shrink: 0;
         }
-        
+
         .popular-posts-section .post-list a {
             color: white;
             text-decoration: none;
@@ -486,12 +665,12 @@
             transition: color 0.3s;
             flex-grow: 1;
         }
-        
+
         .popular-posts-section .post-list a:hover {
             color: #ffcc80;
             text-decoration: underline;
         }
-        
+
         .view-more {
             display: block;
             text-align: center;
@@ -504,40 +683,87 @@
             font-weight: bold;
             transition: background-color 0.3s, color 0.3s;
         }
-        
+
         .view-more:hover {
             background: rgba(255, 255, 255, 0.2);
             color: #e68900;
         }
-        
-        /* Footer */
+
+        /* Footer - Exact 1:1 Copy from understand-stock-market-basics.html */
         footer {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem 0;
+            background: linear-gradient(180deg, rgba(10, 15, 35, 0.35), rgba(10, 15, 35, 0.65));
+            border-top: 1px solid rgba(255, 255, 255, 0.18);
+            padding: 2rem 0 1.5rem 0;
             text-align: center;
-            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             width: 100%;
-            margin-top: 3rem;
+            box-sizing: border-box;
+            margin-top: 1rem;
         }
-        
+
         .footer-content {
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap: 0.6rem;
         }
-        
-        .slogan {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: white;
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 10px 18px;
+            margin-bottom: 0.2rem;
+            padding: 0;
+        }
+
+        .footer-links a {
+            position: relative;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 0.95rem;
             font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            transition: all 0.25s ease;
         }
-        
+
+        .footer-links a:hover,
+        .footer-links a:focus {
+            color: #ffffff;
+            background: rgba(255, 152, 0, 0.22);
+            border-color: #ff9800;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.25);
+        }
+
+        .footer-divider {
+            width: 180px;
+            max-width: 60%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 204, 128, 0.65), transparent);
+            margin: 0.4rem 0;
+        }
+
+        .slogan {
+            font-size: 1.15rem;
+            margin: 0.2rem 0 0 0;
+            color: #ffcc80;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
         .credit {
-            color: #ddd;
-            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.88rem;
+            margin: 0;
         }
-        
+
         /* Mobile-specific Bottom Navigation Bar */
         #bottom-nav {
             display: none;
@@ -554,10 +780,11 @@
             justify-content: space-around;
             align-items: center;
             height: 60px;
+            box-sizing: border-box;
             border-top-left-radius: 15px;
             border-top-right-radius: 15px;
         }
-        
+
         #bottom-nav a {
             display: flex;
             flex-direction: column;
@@ -573,17 +800,17 @@
             min-height: 50px;
             justify-content: center;
         }
-        
+
         #bottom-nav a.active-bottom, #bottom-nav a:hover {
             color: #ff9800;
             background-color: rgba(255, 152, 0, 0.1);
         }
-        
+
         #bottom-nav a i {
             font-size: 1.2rem;
             margin-bottom: 3px;
         }
-        
+
         /* Custom Modal Styling for Alerts */
         .custom-message-box {
             position: fixed;
@@ -597,69 +824,30 @@
             z-index: 1000;
             text-align: center;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Noto Sans Devanagari', Arial, sans-serif;
             max-width: 90%;
+            box-sizing: border-box;
             animation: fadeIn 0.3s ease-out;
             touch-action: none;
         }
-        
-        .custom-message-box p {
-            margin: 0 0 15px 0;
-            font-size: 1.1rem;
-            line-height: 1.5;
-        }
-        
-        .custom-message-box strong {
-            color: #ffcc80;
-        }
-        
-        .custom-message-box button {
-            margin-top: 20px;
-            padding: 10px 25px;
-            background-color: #ff9800;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-        
-        .custom-message-box button:hover {
-            background-color: #e68900;
-            transform: translateY(-2px);
-        }
-        
+
+        .custom-message-box p { margin: 0 0 15px 0; font-size: 1.1rem; line-height: 1.5; }
+        .custom-message-box strong { color: #ffcc80; }
+        .custom-message-box button { margin-top: 20px; padding: 10px 25px; background-color: #ff9800; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; transition: background-color 0.3s, transform 0.2s; }
+        .custom-message-box button:hover { background-color: #e68900; transform: translateY(-2px); }
+
         /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Scroll Reveal Animation */
-        .reveal {
-            position: relative;
-            opacity: 0;
-            transition: 1s all ease;
-        }
-        
-        .reveal.active {
-            opacity: 1;
-        }
-        
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .reveal { position: relative; opacity: 0; transition: 1s all ease; }
+        .reveal.active { opacity: 1; }
+
         /* Responsive Design */
+        @media (max-width: 992px) {
+            .countdown { flex-wrap: wrap; }
+            .clock-separator { display: none; }
+            .countdown-item { min-width: 95px; }
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
@@ -675,66 +863,29 @@
                 transition: all 0.3s ease;
                 z-index: 99;
             }
-            
-            .nav-links.active {
-                left: 0;
-            }
-            
-            .nav-links li {
-                margin: 1rem 0;
-                width: 100%;
-                text-align: center;
-            }
-            
-            .nav-links a {
-                width: 80%;
-                text-align: center;
-                display: block;
-                margin: 0 auto;
-            }
-            
-            .hamburger {
-                display: block;
-            }
-            
-            .hero-content {
-                padding: 1.5rem;
-            }
-            
-            .hero-text h1 {
-                font-size: 2rem;
-            }
-            
-            .countdown-number {
-                font-size: 2rem;
-            }
-            
-            .main-content-area {
-                flex-direction: column;
-            }
-            
-            .sidebar {
-                order: -1;
-                min-width: unset;
-            }
-            
-            .social-btn {
-                width: calc(33.33% - 0.4rem);
-            }
-            
-            .newsletter-form {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .newsletter-form input[type="email"] {
-                max-width: 90%;
-            }
-            
-            /* Show bottom navigation on mobile */
-            #bottom-nav {
-                display: flex;
-            }
+            .nav-links.active { left: 0; }
+            .nav-links li { margin: 1rem 0; width: 100%; text-align: center; }
+            .nav-links a { width: 80%; text-align: center; display: block; margin: 0 auto; }
+            .hamburger { display: block; }
+
+            .main-content-area { flex-direction: column; }
+            .sidebar { order: -1; min-width: unset; }
+            .social-btn { width: calc(33.33% - 0.4rem); }
+
+            .hero-content { padding: 1.5rem; }
+            .hero-text h1 { font-size: 1.85rem; }
+            .countdown-item { min-width: calc(50% - 0.5rem); padding: 0.75rem 0.5rem; }
+            .countdown-number { font-size: 1.8rem; }
+
+            .newsletter-form { flex-direction: column; align-items: center; }
+            .newsletter-form input[type="email"] { max-width: 100%; }
+
+            footer { padding-bottom: 76px; }
+            .footer-links { gap: 8px 10px; }
+            .footer-links a { font-size: 0.85rem; padding: 5px 10px; }
+            .slogan { font-size: 1rem; }
+
+            #bottom-nav { display: flex; }
         }
     </style>
 </head>
@@ -742,9 +893,9 @@
     <header>
         <div class="container">
             <nav>
-                <a href="index.html" class="logo">SstocksS</a>
+                <a href="https://www.sstockss.in/" class="logo">SstocksS</a>
                 <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="https://www.sstockss.in/">Home</a></li>
                     <li><a href="about-us.html">About Us</a></li>
                     <li><a href="article.html">Blog</a></li>
                     <li><a href="disclaimer.html">Disclaimer</a></li>
@@ -765,32 +916,53 @@
 
     <main>
         <div class="container">
-            <div class="main-content-area">
+            <div class="main-content-area reveal">
                 <div class="content-area">
                     <section class="hero">
                         <div class="hero-content">
-                            <div class="hero-text reveal">
+                            <div class="hero-text">
+                                <div class="status-badge">
+                                    <span class="status-dot"></span> Upcoming Release
+                                </div>
                                 <h1>Exciting New Content Coming Soon!</h1>
                                 <p>We're working hard to bring you valuable insights and strategies for option trading. Our team is preparing something special that will help you navigate the markets with more confidence.</p>
                                 
-                                <div class="countdown-container reveal">
-                                    <div class="countdown-title">Content Launch In:</div>
-                                    <div class="countdown">
+                                <!-- Professional Digital Clock & Launch Schedule -->
+                                <div class="digital-clock-wrapper">
+                                    <div class="countdown-title">
+                                        <i class="fas fa-stopwatch"></i> Content Launch Countdown
+                                    </div>
+                                    <div class="countdown" id="countdownDisplay">
                                         <div class="countdown-item">
-                                            <div class="countdown-number" id="days">07</div>
+                                            <div class="countdown-number" id="days">00</div>
                                             <div class="countdown-label">Days</div>
                                         </div>
+                                        <div class="clock-separator">:</div>
                                         <div class="countdown-item">
-                                            <div class="countdown-number" id="hours">12</div>
+                                            <div class="countdown-number" id="hours">00</div>
                                             <div class="countdown-label">Hours</div>
                                         </div>
+                                        <div class="clock-separator">:</div>
                                         <div class="countdown-item">
-                                            <div class="countdown-number" id="minutes">45</div>
+                                            <div class="countdown-number" id="minutes">00</div>
                                             <div class="countdown-label">Minutes</div>
                                         </div>
-                                        <div class="countdown-item">
-                                            <div class="countdown-number" id="seconds">30</div>
+                                        <div class="clock-separator">:</div>
+                                        <div class="countdown-item seconds-box">
+                                            <div class="countdown-number" id="seconds">00</div>
                                             <div class="countdown-label">Seconds</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Content Release Date & Time -->
+                                    <div class="launch-schedule-bar">
+                                        <div class="schedule-pill">
+                                            <i class="far fa-calendar-alt"></i>
+                                            Publish Date: <span id="displayLaunchDate">25 December 2026</span>
+                                        </div>
+                                        <div class="schedule-pill">
+                                            <i class="far fa-clock"></i>
+                                            Publish Time: <span id="displayLaunchTime">10:00 AM IST</span>
                                         </div>
                                     </div>
                                 </div>
@@ -798,66 +970,79 @@
                                 <p>In the meantime, explore our existing articles or subscribe to be the first to know when this content goes live!</p>
                                 
                                 <div class="button-container">
-                                    <a href="article.html" class="cta-button">Browse Articles</a>
-                                    <a href="index.html" class="cta-button">Return Home</a>
+                                    <a href="article.html" class="cta-button"><i class="fas fa-book-open"></i> Browse Articles</a>
+                                    <a href="https://www.sstockss.in/" class="cta-button secondary-btn"><i class="fas fa-home"></i> Return Home</a>
                                 </div>
                             </div>
                         </div>
                     </section>
 
                     <section id="stay-updated">
-                        <h2 class="section-title reveal">Get Notified When We Launch</h2>
-                        <div class="newsletter-section reveal">
+                        <h2 class="section-title">Get Notified When We Launch</h2>
+                        <div class="newsletter-section">
                             <p>Subscribe to our newsletter to receive exclusive options trading strategies, market updates, and expert tips directly to your inbox.</p>
                             <form class="newsletter-form" id="newsletterForm">
-                                <input type="email" placeholder="Enter your email address" required>
+                                <!-- Web3Forms Access Key -->
+                                <input type="hidden" name="access_key" value="abece205-581c-4d02-b9ae-06eddf266687">
+                                <input type="hidden" name="subject" value="Coming Soon Launch Notification - SstocksS">
+                                <input type="hidden" name="from_name" value="SstocksS Website">
+                                <input type="checkbox" name="botcheck" style="display:none;">
+
+                                <input type="email" name="email" placeholder="Enter your email address" required aria-label="Email for launch notification">
                                 <button type="submit">Notify Me</button>
                             </form>
                         </div>
                     </section>
                 </div>
 
-                <!-- Sidebar Content -->
+                <!-- Sidebar Content - Matched Size & Dimensions with Article Page -->
                 <div class="sidebar">
-                    <!-- Social Media Share Buttons -->
                     <div class="social-share">
                         <div class="social-share-title">Share Our Site</div>
                         <div class="social-buttons">
-                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.sstockss.com/" target="_blank" class="social-btn facebook" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.sstockss.in/" target="_blank" class="social-btn facebook" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
                             <a href="https://www.instagram.com/" target="_blank" class="social-btn instagram" aria-label="Share on Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="https://pinterest.com/pin/create/button/?url=https://www.sstockss.com/&media=https://www.sstockss.com/ImageData/sstockss_Img.jpg&description=Options%20Master:%20Your%20Guide%20to%20Option%20Trading" target="_blank" class="social-btn pinterest" aria-label="Share on Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                            <a href="https://pinterest.com/pin/create/button/?url=https://www.sstockss.in/&media=https://www.sstockss.in/ImageData/sstockss_Img.jpg&description=Options%20Master:%20Your%20Guide%20to%20Option%20Trading" target="_blank" class="social-btn pinterest" aria-label="Share on Pinterest"><i class="fab fa-pinterest-p"></i></a>
                             <a href="https://www.youtube.com/" target="_blank" class="social-btn youtube" aria-label="Visit our YouTube channel"><i class="fab fa-youtube"></i></a>
                         </div>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="search-bar-container">
+                        <h3 class="sidebar-title">Search Our Site</h3>
+                        <form id="searchForm" action="search-results.html" method="GET" role="search">
+                            <input type="search" id="query" name="q" placeholder="Search articles ..." aria-label="Search through site content" required>
+                            <button type="submit">Search</button>
+                        </form>
                     </div>
 
                     <!-- Subscription Options -->
                     <div class="subscription-section">
                         <h3 class="sidebar-title">Subscribe for Updates</h3>
                         <form id="sidebarSubscriptionForm">
-                            <input type="email" placeholder="Your Email Address" required aria-label="Email for subscription">
+                            <!-- Web3Forms Access Key -->
+                            <input type="hidden" name="access_key" value="abece205-581c-4d02-b9ae-06eddf266687">
+                            <input type="hidden" name="subject" value="New Sidebar Subscription - SstocksS">
+                            <input type="hidden" name="from_name" value="SstocksS Website">
+                            <input type="checkbox" name="botcheck" style="display:none;">
+
+                            <input type="email" name="email" placeholder="Your Email Address" required aria-label="Email for subscription">
                             <button type="submit">Subscribe</button>
                         </form>
-                        <p>Get notified when new content is published!</p>
+                        <p>Get new articles and updates directly to your inbox!</p>
                     </div>
 
                     <!-- Popular Posts Section -->
                     <div class="popular-posts-section">
                         <h3 class="sidebar-title">Popular Posts</h3>
                         <ul class="post-list">
-                            <li>
-                                <img src="Image/understand-stock-market-basics.webp" alt="understand-stock-market-basics">
-                                <a href="understand-stock-market-basics.html">चुकीचे पाऊल नकोच । यासाठी शेअर मार्केटची मूलभूत संकल्पना समजून घ्यावीच लागेल.</a>
-                            </li>
-                            <li>
-                                <img src="Image/options-trading-myths-exposed.webp" alt="options-trading-myths-exposed">
-                                <a href="options-trading-myths-exposed.html">ऑप्शन ट्रेडिंग मधील, अफवा ज्यावर विश्वास ठेवणे तुम्हाला थांबवावेच लागेल.</a>
-                            </li>
-                            <li>
-                                <img src="Image/why-options-trading-is-not-risky.webp" alt="why-options-trading-is-not-risky">
-                                <a href="why-options-trading-is-not-risky.html">ऑप्शन ट्रेडिंग तुम्हाला वाटते तेवढे धोकादायक का नाही?</a>
-                            </li>
+                            <li><img src="Image/understand-stock-market-basics.webp" alt="understand-stock-market-basics"><a href="understand-stock-market-basics.html">चुकीचे पाऊल नकोच । यासाठी शेअर मार्केटची मूलभूत संकल्पना समजून घ्यावीच लागेल.</a></li>
+                            <li><img src="Image/options-trading-myths-exposed.webp" alt="options-trading-myths-exposed"><a href="options-trading-myths-exposed.html">ऑप्शन ट्रेडिंग मधील, अफवा ज्यावर विश्वास ठेवणे तुम्हाला थांबवावेच लागेल.</a></li>
+                            <li><img src="Image/why-options-trading-is-not-risky.webp" alt="why-options-trading-is-not-risky"><a href="why-options-trading-is-not-risky.html">ऑप्शन ट्रेडिंग तुम्हाला वाटते तेवढे धोकादायक का नाही?</a></li>
+                            <li><img src="Image/investing-vs-trading-which-is-better.webp" alt="investing-vs-trading-which-is-better"><a href="investing-vs-trading-which-is-better.html">इन्व्हेस्टिंग की ट्रेडिंग? चुकीचा निर्णय तुम्हाला कंगाल करू शकतो!</a></li>
+                            <li><img src="Image/relationship-between-economy-and-stock-market.webp" alt="relationship-between-economy-and-stock-market"><a href="relationship-between-economy-and-stock-market.html">अर्थव्यवस्था आणि शेअर बाजार यांच्यातील शक्तिशाली संबंध.</a></li>
                         </ul>
-                        <a href="article.html" class="view-more">View More Articles</a>
+                        <a href="article.html" class="view-more">View More Popular Posts</a>
                     </div>
                 </div>
             </div>
@@ -866,7 +1051,7 @@
 
     <!-- Mobile-specific Bottom Navigation Bar -->
     <div id="bottom-nav">
-        <a href="index.html">
+        <a href="https://www.sstockss.in/">
             <i class="fas fa-home"></i>
             <span>Home</span>
         </a>
@@ -888,17 +1073,28 @@
         </a>
     </div>
 
+    <!-- Footer - Exact 1:1 Match with understand-stock-market-basics.html -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <p class="slogan">Empowering your options trading journey with knowledge and clarity.</p>
-                <p class="credit">@ 2025 SstocksS. All rights reserved.</p>
+                <div class="footer-links" aria-label="Footer Navigation">
+                    <a href="sitemap.html">Sitemap</a>
+                    <a href="media-gallery.html">Media Gallery</a>
+                    <a href="cookie-policy.html">Cookie Policy</a>
+                    <a href="presentation.html">Presentation</a>
+                    <a href="feedback.html">Feedback</a>
+                </div>
+
+                <div class="footer-divider"></div>
+
+                <p class="slogan">Make your data handling simple and efficient</p>
+                <p class="credit">@ 2027 Designed by sstockss</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile Navigation Toggle (for hamburger menu)
+        // Mobile Navigation Toggle
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
 
@@ -906,18 +1102,28 @@
             navLinks.classList.toggle('active');
         });
 
-        // Close mobile menu when clicking on a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
             });
         });
 
-        // Countdown Timer
+        // ==========================================
+        // Launch Date & Digital Countdown Timer
+        // येथे तुम्ही भविष्यातील कोणतीही तारीख व वेळ बदलू शकता
+        // ==========================================
+        const TARGET_LAUNCH_STRING = 'December 25, 2026 10:00:00';
+        const launchDate = new Date(TARGET_LAUNCH_STRING);
+
+        function renderScheduleInfo() {
+            const dateOptions = { day: '2-digit', month: 'long', year: 'numeric' };
+            const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: true };
+            document.getElementById('displayLaunchDate').textContent = launchDate.toLocaleDateString('en-IN', dateOptions);
+            document.getElementById('displayLaunchTime').textContent = launchDate.toLocaleTimeString('en-IN', timeOptions).toUpperCase() + ' IST';
+        }
+        renderScheduleInfo();
+
         function updateCountdown() {
-            // Set the launch date (replace with your actual launch date)
-            const launchDate = new Date('December 25, 2025 00:00:00');
-            
             const now = new Date();
             const difference = launchDate - now;
             
@@ -932,25 +1138,21 @@
                 document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
                 document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
             } else {
-                // Timer has ended
-                document.querySelector('.countdown').innerHTML = '<div class="countdown-ended">Content is now live!</div>';
+                document.getElementById('countdownDisplay').innerHTML = '<div class="countdown-ended"><i class="fas fa-check-circle"></i> Content is Now Live!</div>';
             }
         }
         
-        // Initialize and update countdown every second
         updateCountdown();
         setInterval(updateCountdown, 1000);
 
-        // Scroll Reveal Animation Function
+        // Scroll Reveal Animation
         function reveal() {
             const reveals = document.querySelectorAll('.reveal');
-            
             for (let i = 0; i < reveals.length; i++) {
                 const element = reveals[i];
                 const windowHeight = window.innerHeight;
                 const revealTop = element.getBoundingClientRect().top;
                 const revealPoint = 150;
-                
                 if (revealTop < windowHeight - revealPoint) {
                     if (!element.classList.contains('active')) {
                         element.classList.add('active');
@@ -962,18 +1164,26 @@
                 }
             }
         }
-        
         window.addEventListener('scroll', reveal);
         reveal();
 
-        // Function to display custom message box
+        // Search Bar Functionality
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const query = this.querySelector('input[type="search"]').value.trim();
+            if (query) {
+                window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
+            }
+        });
+
+        // Custom Modal Message Box
         function showCustomMessageBox(message, email) {
             const messageBox = document.createElement('div');
             messageBox.classList.add('custom-message-box');
             messageBox.innerHTML = `
                 <p>${message}</p>
                 ${email ? `<p>तुम्ही या ईमेलवर अपडेट्स प्राप्त कराल: <strong>${email}</strong></p>` : ''}
-                <button>बंद करा</button>
+                <button>Close</button>
             `;
             document.body.appendChild(messageBox);
             
@@ -982,31 +1192,51 @@
             });
         }
 
-        // Newsletter Subscription Form Functionality
-        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const emailInput = this.querySelector('input[type="email"]');
-            const email = emailInput.value;
-            
-            if (email) {
-                showCustomMessageBox("सदस्यता घेतल्याबद्दल धन्यवाद! नवीन सामग्री लाँच झाल्यावर आम्ही तुम्हाला कळवू.", email);
-                emailInput.value = '';
-            }
-        });
+        // Reusable Web3Forms Submission Handler for Both Forms
+        function attachWeb3FormHandler(formId) {
+            const form = document.getElementById(formId);
+            if (!form) return;
 
-        // Sidebar Subscription Form Functionality
-        document.getElementById('sidebarSubscriptionForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const emailInput = this.querySelector('input[type="email"]');
-            const email = emailInput.value;
-            
-            if (email) {
-                showCustomMessageBox("सदस्यता घेतल्याबद्दल धन्यवाद! नवीन सामग्री लाँच झाल्यावर आम्ही तुम्हाला कळवू.", email);
-                emailInput.value = '';
-            }
-        });
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                const emailInput = form.querySelector('input[type="email"]');
+                const submitButton = form.querySelector('button[type="submit"]');
+                const email = emailInput.value.trim();
+
+                if (!email) return;
+
+                const originalButtonText = submitButton.textContent;
+                submitButton.disabled = true;
+                submitButton.textContent = "Submitting...";
+
+                try {
+                    const formData = new FormData(form);
+                    const response = await fetch("https://api.web3forms.com/submit", {
+                        method: "POST",
+                        body: formData
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        showCustomMessageBox("सदस्यता घेतल्याबद्दल धन्यवाद! नवीन सामग्री लाँच झाल्यावर आम्ही तुम्हाला कळवू.", email);
+                        form.reset();
+                    } else {
+                        showCustomMessageBox(result.message || "सबस्क्रिप्शन अयशस्वी झाले. कृपया पुन्हा प्रयत्न करा.", null);
+                    }
+                } catch (error) {
+                    console.error("Subscription error:", error);
+                    showCustomMessageBox("नेटवर्क त्रुटी आली आहे. कृपया इंटरनेट कनेक्शन तपासून पुन्हा प्रयत्न करा.", null);
+                } finally {
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalButtonText;
+                }
+            });
+        }
+
+        attachWeb3FormHandler('newsletterForm');
+        attachWeb3FormHandler('sidebarSubscriptionForm');
     </script>
 </body>
-
 </html>
-
