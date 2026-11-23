@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | SstocksS</title>
+    <link rel="icon" type="image/ico" sizes="96x96" href="Image/favicon.ico">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Digital Display Font for 404 & Auto-Redirect Timer -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles matching understand-stock-market-basics.html */
+        body {
+            font-family: 'Noto Sans Devanagari', Arial, sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+            width: 100%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        .logo:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin: 0;
+        }
+
+        /* Main Content */
+        main {
+            padding: 2rem 0 25px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .main-content-area {
+            display: flex;
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .content-area {
+            flex: 3;
+            min-width: 0;
+        }
+
+        /* 404 Hero Card */
+        .error-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .error-code-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 82, 82, 0.22);
+            border: 1px solid rgba(255, 138, 128, 0.6);
+            color: #ffccbc;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .error-code-display {
+            font-family: 'Orbitron', monospace, sans-serif;
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1;
+            margin: 0.5rem 0 1rem 0;
+            background: linear-gradient(90deg, #ffcc80, #ff9800, #00e5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.35));
+            letter-spacing: 6px;
+        }
+
+        .error-card h1 {
+            font-size: 2rem;
+            margin-top: 0;
+            margin-bottom: 0.8rem;
+            color: #ffffff;
+        }
+
+        .error-card p {
+            font-size: 1.05rem;
+            color: #eaeaea;
+            max-width: 720px;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        /* Auto Diagnostic & Broken URL Box */
+        .diagnostic-box {
+            background: linear-gradient(145deg, rgba(10, 15, 35, 0.78), rgba(18, 28, 60, 0.88));
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 12px;
+            padding: 1.4rem;
+            margin: 1.5rem auto;
+            max-width: 700px;
+            text-align: left;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .diagnostic-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+            padding-bottom: 0.7rem;
+            margin-bottom: 0.9rem;
+            font-size: 0.9rem;
+            color: #ffcc80;
+            font-weight: 600;
+        }
+
+        .diagnostic-row {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin-bottom: 0.8rem;
+            font-size: 0.92rem;
+        }
+
+        .diagnostic-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .diagnostic-label {
+            color: rgba(255, 255, 255, 0.68);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
+        .diagnostic-value {
+            font-family: monospace;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 7px 11px;
+            border-radius: 6px;
+            color: #80deea;
+            word-break: break-all;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Smart Suggested Match Box */
+        .smart-suggestion-box {
+            background: rgba(7, 255, 15, 0.1);
+            border: 1px solid rgba(7, 255, 15, 0.35);
+            border-radius: 10px;
+            padding: 1.1rem 1.4rem;
+            margin: 1.4rem auto;
+            max-width: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            text-align: left;
+        }
+
+        .smart-suggestion-text {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .smart-suggestion-tag {
+            font-size: 0.78rem;
+            color: #07ff0f;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .smart-suggestion-title {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+        }
+
+        .smart-suggestion-title:hover {
+            color: #ffcc80;
+            text-decoration: underline;
+        }
+
+        /* Auto-Redirect Control Bar */
+        .auto-redirect-bar {
+            background: rgba(0, 0, 0, 0.32);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 0.9rem 1.2rem;
+            margin: 1.4rem auto;
+            max-width: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .redirect-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: #ffffff;
+        }
+
+        .redirect-countdown-num {
+            font-family: 'Orbitron', monospace;
+            color: #ff9800;
+            font-weight: 700;
+            font-size: 1.15rem;
+        }
+
+        .redirect-toggle-btn {
+            background: rgba(255, 255, 255, 0.14);
+            color: #ffcc80;
+            border: 1px solid rgba(255, 204, 128, 0.45);
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.25s ease;
+        }
+
+        .redirect-toggle-btn:hover {
+            background: rgba(255, 152, 0, 0.25);
+            color: #ffffff;
+        }
+
+        /* Action Buttons */
+        .button-container {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #ff9800;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.98rem;
+            transition: background-color 0.3s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: #e68900;
+            transform: translateY(-2px);
+        }
+
+        .cta-button.secondary-btn {
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .cta-button.secondary-btn:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .cta-button.report-btn {
+            background-color: rgba(0, 229, 255, 0.18);
+            border: 1px solid rgba(0, 229, 255, 0.5);
+            color: #e0f7fa;
+        }
+
+        .cta-button.report-btn:hover {
+            background-color: rgba(0, 229, 255, 0.3);
+        }
+
+        /* Quick Recovery Search Section */
+        .recovery-section {
+            margin-top: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .recovery-section h2 {
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 0.8rem;
+            color: #ffcc80;
+        }
+
+        .recovery-section p {
+            margin-top: 0;
+            margin-bottom: 1.2rem;
+            color: #eaeaea;
+            font-size: 1rem;
+        }
+
+        .recovery-search-form {
+            display: flex;
+            max-width: 560px;
+            margin: 0 auto;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+        .recovery-search-form input[type="search"] {
+            flex: 1;
+            padding: 11px 16px;
+            border: none;
+            background: transparent;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            min-width: 0;
+        }
+
+        .recovery-search-form input[type="search"]::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .recovery-search-form button {
+            background: #ff9800;
+            color: white;
+            border: none;
+            padding: 11px 22px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .recovery-search-form button:hover {
+            background: #e68900;
+        }
+
+        /* Sidebar Styles - Exact Match with Article Page (No Categories/Tools) */
+        .sidebar {
+            flex: 1;
+            min-width: 280px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .sidebar-title {
+            font-size: 1.2rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: #ffcc80;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .social-share-title {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #ffcc80;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .social-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: space-between;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: calc(25% - 0.4rem);
+            padding: 8px 0;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            font-size: 0;
+            transition: all 0.3s;
+        }
+
+        .social-btn i {
+            font-size: 1rem;
+        }
+
+        .social-btn.facebook { background: #3b5998; }
+        .social-btn.facebook:hover { background: #344e86; }
+        .social-btn.instagram { background: #e1306c; }
+        .social-btn.instagram:hover { background: #c13584; }
+        .social-btn.pinterest { background: #bd081c; }
+        .social-btn.pinterest:hover { background: #a30718; }
+        .social-btn.youtube { background: #ff0000; }
+        .social-btn.youtube:hover { background: #e60000; }
+
+        .search-bar-container form {
+            display: flex;
+            border-radius: 5px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.1);
+            width: 100%;
+        }
+
+        .search-bar-container input[type="search"] {
+            flex-grow: 1;
+            padding: 10px 15px;
+            border: none;
+            background: transparent;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            min-width: 0;
+        }
+
+        .search-bar-container input[type="search"]::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .search-bar-container button {
+            background: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 0 5px 5px 0;
+            flex-shrink: 0;
+        }
+
+        .search-bar-container button:hover {
+            background: #e68900;
+        }
+
+        .subscription-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .subscription-section h3 {
+            font-size: 1.1rem;
+            color: #ffcc80;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .subscription-section form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .subscription-section input[type="email"] {
+            padding: 10px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .subscription-section input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .subscription-section button {
+            background: #ff9800;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .subscription-section button:hover {
+            background: #e68900;
+        }
+
+        .subscription-section p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 1rem;
+            margin-bottom: 0;
+            text-align: center;
+        }
+
+        .popular-posts-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .popular-posts-section .post-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .popular-posts-section .post-list li {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .popular-posts-section .post-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .popular-posts-section .post-list img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 5px;
+            flex-shrink: 0;
+        }
+
+        .popular-posts-section .post-list a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            flex-grow: 1;
+        }
+
+        .popular-posts-section .post-list a:hover {
+            color: #ffcc80;
+            text-decoration: underline;
+        }
+
+        .view-more {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            padding: 8px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            color: #ff9800;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .view-more:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #e68900;
+        }
+
+        /* Footer - Exact Match with Article Page */
+        footer {
+            background: linear-gradient(180deg, rgba(10, 15, 35, 0.35), rgba(10, 15, 35, 0.65));
+            border-top: 1px solid rgba(255, 255, 255, 0.18);
+            padding: 2rem 0 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 1rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 10px 18px;
+            margin-bottom: 0.2rem;
+            padding: 0;
+        }
+
+        .footer-links a {
+            position: relative;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            transition: all 0.25s ease;
+        }
+
+        .footer-links a:hover,
+        .footer-links a:focus {
+            color: #ffffff;
+            background: rgba(255, 152, 0, 0.22);
+            border-color: #ff9800;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.25);
+        }
+
+        .footer-divider {
+            width: 180px;
+            max-width: 60%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 204, 128, 0.65), transparent);
+            margin: 0.4rem 0;
+        }
+
+        .slogan {
+            font-size: 1.15rem;
+            margin: 0.2rem 0 0 0;
+            color: #ffcc80;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .credit {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.88rem;
+            margin: 0;
+        }
+
+        /* Mobile-specific Bottom Navigation Bar */
+        #bottom-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1001;
+            padding: 5px 0;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            justify-content: space-around;
+            align-items: center;
+            height: 60px;
+            box-sizing: border-box;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        #bottom-nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.7rem;
+            padding: 5px;
+            border-radius: 8px;
+            transition: color 0.3s, background-color 0.3s;
+            flex: 1;
+            max-width: 80px;
+            min-height: 50px;
+            justify-content: center;
+        }
+
+        #bottom-nav a.active-bottom, #bottom-nav a:hover {
+            color: #ff9800;
+            background-color: rgba(255, 152, 0, 0.1);
+        }
+
+        #bottom-nav a i {
+            font-size: 1.2rem;
+            margin-bottom: 3px;
+        }
+
+        /* Custom Modal Styling for Alerts */
+        .custom-message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.92);
+            color: white;
+            padding: 28px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 152, 0, 0.45);
+            z-index: 1000;
+            text-align: center;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+            font-family: 'Noto Sans Devanagari', Arial, sans-serif;
+            max-width: 90%;
+            box-sizing: border-box;
+            animation: fadeIn 0.3s ease-out;
+            touch-action: none;
+        }
+
+        .custom-message-box p { margin: 0 0 12px 0; font-size: 1.05rem; line-height: 1.5; }
+        .custom-message-box strong { color: #ffcc80; }
+        .custom-message-box button { margin-top: 15px; padding: 10px 25px; background-color: #ff9800; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; transition: background-color 0.3s, transform 0.2s; }
+        .custom-message-box button:hover { background-color: #e68900; transform: translateY(-2px); }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .reveal { position: relative; opacity: 0; transition: 1s all ease; }
+        .reveal.active { opacity: 1; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                transition: all 0.3s ease;
+                z-index: 99;
+            }
+            .nav-links.active { left: 0; }
+            .nav-links li { margin: 1rem 0; width: 100%; text-align: center; }
+            .nav-links a { width: 80%; text-align: center; display: block; margin: 0 auto; }
+            .hamburger { display: block; }
+
+            .main-content-area { flex-direction: column; }
+            .sidebar { order: -1; min-width: unset; }
+            .social-btn { width: calc(33.33% - 0.4rem); }
+
+            .error-code-display { font-size: 3.4rem; }
+            .error-card { padding: 1.8rem 1.2rem; }
+            .recovery-search-form { flex-direction: column; }
+            .recovery-search-form button { border-radius: 0; }
+
+            footer { padding-bottom: 76px; }
+            .footer-links { gap: 8px 10px; }
+            .footer-links a { font-size: 0.85rem; padding: 5px 10px; }
+            .slogan { font-size: 1rem; }
+
+            #bottom-nav { display: flex; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="https://www.sstockss.in/" class="logo">SstocksS</a>
+                <ul class="nav-links">
+                    <li><a href="https://www.sstockss.in/">Home</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="article.html">Blog</a></li>
+                    <li><a href="disclaimer.html">Disclaimer</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-of-service.html">Terms of Service</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                </ul>
+                <div class="hamburger">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="main-content-area reveal">
+                <div class="content-area">
+                    <section class="error-card">
+                        <div class="error-code-badge">
+                            <i class="fas fa-exclamation-triangle"></i> HTTP 404 · RESOURCE NOT FOUND
+                        </div>
+                        <div class="error-code-display">404</div>
+                        <h1>हे पान उपलब्ध नाही किंवा त्याचा पत्ता बदलला आहे!</h1>
+                        <p>तुम्ही शोधत असलेले पान हलवले गेले असावे, हटवले गेले असावे किंवा URL मध्ये टायपिंगची चूक झाली असावी. आमच्या सिस्टीमने हा पत्ता आपोआप तपासला आहे.</p>
+
+                        <!-- Automatic Diagnostic Box -->
+                        <div class="diagnostic-box">
+                            <div class="diagnostic-header">
+                                <span><i class="fas fa-microchip"></i> Auto Link Diagnostic</span>
+                                <span id="detectedTimestamp">--:--:--</span>
+                            </div>
+                            <div class="diagnostic-row">
+                                <span class="diagnostic-label">Requested URL</span>
+                                <div class="diagnostic-value" id="requestedUrlText">Detecting URL...</div>
+                            </div>
+                            <div class="diagnostic-row">
+                                <span class="diagnostic-label">Referring Source</span>
+                                <div class="diagnostic-value" id="referrerUrlText">Direct Visit / Bookmark</div>
+                            </div>
+                        </div>
+
+                        <!-- Smart Keyword Suggestion Box -->
+                        <div class="smart-suggestion-box" id="smartSuggestionBox">
+                            <div class="smart-suggestion-text">
+                                <span class="smart-suggestion-tag"><i class="fas fa-magic"></i> Smart Match Suggestion</span>
+                                <a href="understand-stock-market-basics.html" class="smart-suggestion-title" id="suggestedArticleLink">
+                                    चुकीचे पाऊल नकोच । यासाठी शेअर मार्केटची मूलभूत संकल्पना समजून घ्यावीच लागेल.
+                                </a>
+                            </div>
+                            <a href="understand-stock-market-basics.html" class="cta-button" id="suggestedArticleBtn" style="padding: 8px 16px; font-size: 0.9rem;">
+                                <i class="fas fa-arrow-right"></i> Open Guide
+                            </a>
+                        </div>
+
+                        <!-- Automatic Redirect Countdown Bar -->
+                        <div class="auto-redirect-bar">
+                            <div class="redirect-status">
+                                <i class="fas fa-sync-alt fa-spin" id="redirectSpinner" style="color: #00e5ff;"></i>
+                                <span id="redirectStatusText">
+                                    <strong class="redirect-countdown-num" id="redirectSeconds">15</strong> सेकंदांत आपोआप होमपेजवर रीडायरेक्ट होईल.
+                                </span>
+                            </div>
+                            <button type="button" class="redirect-toggle-btn" id="toggleRedirectBtn">
+                                <i class="fas fa-pause"></i> Pause Auto-Redirect
+                            </button>
+                        </div>
+
+                        <!-- Primary Navigation & Auto-Report Actions -->
+                        <div class="button-container">
+                            <a href="https://www.sstockss.in/" class="cta-button">
+                                <i class="fas fa-home"></i> Return Home
+                            </a>
+                            <a href="article.html" class="cta-button secondary-btn">
+                                <i class="fas fa-book-open"></i> Browse Articles
+                            </a>
+                            <button type="button" class="cta-button report-btn" id="reportBrokenLinkBtn">
+                                <i class="fas fa-bug"></i> Report Broken Link
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- Instant Recovery Search Box -->
+                    <section class="recovery-section">
+                        <h2><i class="fas fa-search"></i> तुम्हाला नेमके काय शोधायचे आहे?</h2>
+                        <p>स्टॉक मार्केट, ऑप्शन ट्रेडिंग किंवा रणनीतीसंबंधी कोणताही विषय खाली सर्च करा.</p>
+                        <form class="recovery-search-form" id="recoverySearchForm" action="search-results.html" method="GET" role="search">
+                            <input type="search" id="recoveryQuery" name="q" placeholder="उदा. Stock Market Basics, Option Trading, Risk..." aria-label="Search for missing content" required>
+                            <button type="submit">Search Now</button>
+                        </form>
+                    </section>
+                </div>
+
+                <!-- Sidebar Content - Exact Match with Article Page (No Categories/Tools) -->
+                <div class="sidebar">
+                    <div class="social-share">
+                        <div class="social-share-title">Share Our Site</div>
+                        <div class="social-buttons">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.sstockss.in/" target="_blank" class="social-btn facebook" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/" target="_blank" class="social-btn instagram" aria-label="Share on Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://pinterest.com/pin/create/button/?url=https://www.sstockss.in/&media=https://www.sstockss.in/ImageData/sstockss_Img.jpg&description=Options%20Master:%20Your%20Guide%20to%20Option%20Trading" target="_blank" class="social-btn pinterest" aria-label="Share on Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                            <a href="https://www.youtube.com/" target="_blank" class="social-btn youtube" aria-label="Visit our YouTube channel"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="search-bar-container">
+                        <h3 class="sidebar-title">Search Our Site</h3>
+                        <form id="searchForm" action="search-results.html" method="GET" role="search">
+                            <input type="search" id="query" name="q" placeholder="Search articles ..." aria-label="Search through site content" required>
+                            <button type="submit">Search</button>
+                        </form>
+                    </div>
+
+                    <!-- Subscription Options with Web3Forms Key -->
+                    <div class="subscription-section">
+                        <h3 class="sidebar-title">Subscribe for Updates</h3>
+                        <form id="sidebarSubscriptionForm">
+                            <!-- Web3Forms Access Key -->
+                            <input type="hidden" name="access_key" value="abece205-581c-4d02-b9ae-06eddf266687">
+                            <input type="hidden" name="subject" value="New Sidebar Subscription - SstocksS">
+                            <input type="hidden" name="from_name" value="SstocksS Website">
+                            <input type="checkbox" name="botcheck" style="display:none;">
+
+                            <input type="email" name="email" placeholder="Your Email Address" required aria-label="Email for subscription">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                        <p>Get new articles and updates directly to your inbox!</p>
+                    </div>
+
+                    <!-- Popular Posts Section -->
+                    <div class="popular-posts-section">
+                        <h3 class="sidebar-title">Popular Posts</h3>
+                        <ul class="post-list">
+                            <li><img src="Image/understand-stock-market-basics.webp" alt="understand-stock-market-basics"><a href="understand-stock-market-basics.html">चुकीचे पाऊल नकोच । यासाठी शेअर मार्केटची मूलभूत संकल्पना समजून घ्यावीच लागेल.</a></li>
+                            <li><img src="Image/options-trading-myths-exposed.webp" alt="options-trading-myths-exposed"><a href="options-trading-myths-exposed.html">ऑप्शन ट्रेडिंग मधील, अफवा ज्यावर विश्वास ठेवणे तुम्हाला थांबवावेच लागेल.</a></li>
+                            <li><img src="Image/why-options-trading-is-not-risky.webp" alt="why-options-trading-is-not-risky"><a href="why-options-trading-is-not-risky.html">ऑप्शन ट्रेडिंग तुम्हाला वाटते तेवढे धोकादायक का नाही?</a></li>
+                            <li><img src="Image/investing-vs-trading-which-is-better.webp" alt="investing-vs-trading-which-is-better"><a href="investing-vs-trading-which-is-better.html">इन्व्हेस्टिंग की ट्रेडिंग? चुकीचा निर्णय तुम्हाला कंगाल करू शकतो!</a></li>
+                            <li><img src="Image/relationship-between-economy-and-stock-market.webp" alt="relationship-between-economy-and-stock-market"><a href="relationship-between-economy-and-stock-market.html">अर्थव्यवस्था आणि शेअर बाजार यांच्यातील शक्तिशाली संबंध.</a></li>
+                        </ul>
+                        <a href="article.html" class="view-more">View More Popular Posts</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mobile-specific Bottom Navigation Bar -->
+    <div id="bottom-nav">
+        <a href="https://www.sstockss.in/">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="article.html">
+            <i class="fas fa-book-open"></i>
+            <span>Articles</span>
+        </a>
+        <a href="Ideas.html">
+            <i class="fas fa-lightbulb"></i>
+            <span>Ideas</span>
+        </a>
+        <a href="data-analyzer.html">
+            <i class="fas fa-chart-area"></i>
+            <span>Analyzer</span>
+        </a>
+        <a href="contact-us.html">
+            <i class="fas fa-envelope"></i>
+            <span>Contact Us</span>
+        </a>
+    </div>
+
+    <!-- Footer - Exact Match with Article Page -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links" aria-label="Footer Navigation">
+                    <a href="sitemap.html">Sitemap</a>
+                    <a href="media-gallery.html">Media Gallery</a>
+                    <a href="cookie-policy.html">Cookie Policy</a>
+                    <a href="presentation.html">Presentation</a>
+                    <a href="feedback.html">Feedback</a>
+                </div>
+
+                <div class="footer-divider"></div>
+
+                <p class="slogan">Make your data handling simple and efficient</p>
+                <p class="credit">@ 2027 Designed by sstockss</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const WEB3FORMS_KEY = "abece205-581c-4d02-b9ae-06eddf266687";
+        const HOME_REDIRECT_URL = "https://www.sstockss.in/";
+
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll Reveal Animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            for (let i = 0; i < reveals.length; i++) {
+                const element = reveals[i];
+                const windowHeight = window.innerHeight;
+                const revealTop = element.getBoundingClientRect().top;
+                const revealPoint = 150;
+                if (revealTop < windowHeight - revealPoint) {
+                    if (!element.classList.contains('active')) {
+                        element.classList.add('active');
+                    }
+                } else {
+                    if (element.classList.contains('active')) {
+                        element.classList.remove('active');
+                    }
+                }
+            }
+        }
+        window.addEventListener('scroll', reveal);
+        reveal();
+
+        // 1. Auto Diagnostic: Detect Broken URL, Referrer & Timestamp
+        const currentFullUrl = window.location.href;
+        const referrerUrl = document.referrer || "Direct Visit / Bookmark / External Link";
+        document.getElementById('requestedUrlText').textContent = currentFullUrl;
+        document.getElementById('referrerUrlText').textContent = referrerUrl;
+        document.getElementById('detectedTimestamp').textContent = new Date().toLocaleTimeString('en-IN');
+
+        // 2. Smart Keyword Suggestion based on URL Slug
+        const articleSuggestions = [
+            {
+                keywords: ["myth", "afwa", "rumor", "false"],
+                title: "ऑप्शन ट्रेडिंग मधील, अफवा ज्यावर विश्वास ठेवणे तुम्हाला थांबवावेच लागेल.",
+                url: "options-trading-myths-exposed.html"
+            },
+            {
+                keywords: ["risk", "risky", "safe", "dhokadayak"],
+                title: "ऑप्शन ट्रेडिंग तुम्हाला वाटते तेवढे धोकादायक का नाही?",
+                url: "why-options-trading-is-not-risky.html"
+            },
+            {
+                keywords: ["invest", "trading", "better", "capital"],
+                title: "इन्व्हेस्टिंग की ट्रेडिंग? चुकीचा निर्णय तुम्हाला कंगाल करू शकतो!",
+                url: "investing-vs-trading-which-is-better.html"
+            },
+            {
+                keywords: ["economy", "arthavyavastha", "gdp", "macro"],
+                title: "अर्थव्यवस्था आणि शेअर बाजार यांच्यातील शक्तिशाली संबंध.",
+                url: "relationship-between-economy-and-stock-market.html"
+            },
+            {
+                keywords: ["mistake", "loss", "chuk", "capital"],
+                title: "ट्रेडिंग मध्ये तुम्ही रोज करत असलेली ही एक चूक, जी तुमच्या भांडवलाचा खेळ कायमचा संपवते!",
+                url: "trading-mistake-that-kills-capital.html"
+            },
+            {
+                keywords: ["basic", "basics", "share", "stock", "market", "ipo"],
+                title: "चुकीचे पाऊल नकोच । यासाठी शेअर मार्केटची मूलभूत संकल्पना समजून घ्यावीच लागेल.",
+                url: "understand-stock-market-basics.html"
+            }
+        ];
+
+        function applySmartSuggestion() {
+            const lowerUrl = currentFullUrl.toLowerCase();
+            let matched = articleSuggestions[articleSuggestions.length - 1];
+
+            for (const item of articleSuggestions) {
+                if (item.keywords.some(kw => lowerUrl.includes(kw))) {
+                    matched = item;
+                    break;
+                }
+            }
+
+            const linkEl = document.getElementById('suggestedArticleLink');
+            const btnEl = document.getElementById('suggestedArticleBtn');
+            linkEl.textContent = matched.title;
+            linkEl.href = matched.url;
+            btnEl.href = matched.url;
+        }
+        applySmartSuggestion();
+
+        // 3. Automatic Redirect Countdown with Pause/Resume Control
+        let remainingSeconds = 15;
+        let redirectPaused = false;
+        const redirectSecondsEl = document.getElementById('redirectSeconds');
+        const redirectStatusTextEl = document.getElementById('redirectStatusText');
+        const toggleRedirectBtn = document.getElementById('toggleRedirectBtn');
+        const redirectSpinner = document.getElementById('redirectSpinner');
+
+        const redirectInterval = setInterval(() => {
+            if (redirectPaused) return;
+
+            remainingSeconds--;
+            if (redirectSecondsEl) {
+                redirectSecondsEl.textContent = remainingSeconds;
+            }
+
+            if (remainingSeconds <= 0) {
+                clearInterval(redirectInterval);
+                window.location.href = HOME_REDIRECT_URL;
+            }
+        }, 1000);
+
+        toggleRedirectBtn.addEventListener('click', () => {
+            redirectPaused = !redirectPaused;
+            if (redirectPaused) {
+                redirectSpinner.classList.remove('fa-spin');
+                redirectSpinner.style.color = '#ffcc80';
+                redirectStatusTextEl.innerHTML = 'ऑटो-रीडायरेक्ट <strong>थांबवले आहे</strong>. तुम्ही या पानावर सुरक्षित आहात.';
+                toggleRedirectBtn.innerHTML = '<i class="fas fa-play"></i> Resume Auto-Redirect';
+            } else {
+                redirectSpinner.classList.add('fa-spin');
+                redirectSpinner.style.color = '#00e5ff';
+                redirectStatusTextEl.innerHTML = `<strong class="redirect-countdown-num" id="redirectSeconds">${remainingSeconds}</strong> सेकंदांत आपोआप होमपेजवर रीडायरेक्ट होईल.`;
+                toggleRedirectBtn.innerHTML = '<i class="fas fa-pause"></i> Pause Auto-Redirect';
+            }
+        });
+
+        // Custom Modal Message Box
+        function showCustomMessageBox(message, email) {
+            const messageBox = document.createElement('div');
+            messageBox.classList.add('custom-message-box');
+            messageBox.innerHTML = `
+                <p>${message}</p>
+                ${email ? `<p>तुम्ही या ईमेलवर अपडेट्स प्राप्त कराल: <strong>${email}</strong></p>` : ''}
+                <button>Close</button>
+            `;
+            document.body.appendChild(messageBox);
+
+            messageBox.querySelector('button').addEventListener('click', () => {
+                document.body.removeChild(messageBox);
+            });
+        }
+
+        // 4. Automatic Broken Link Report via Web3Forms
+        const reportBtn = document.getElementById('reportBrokenLinkBtn');
+        reportBtn.addEventListener('click', async () => {
+            redirectPaused = true;
+            toggleRedirectBtn.innerHTML = '<i class="fas fa-play"></i> Resume Auto-Redirect';
+            redirectSpinner.classList.remove('fa-spin');
+
+            const originalText = reportBtn.innerHTML;
+            reportBtn.disabled = true;
+            reportBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Reporting...';
+
+            try {
+                const payload = new FormData();
+                payload.append("access_key", WEB3FORMS_KEY);
+                payload.append("subject", "404 Broken Link Alert - SstocksS");
+                payload.append("from_name", "SstocksS 404 Auto-Reporter");
+                payload.append("broken_url", currentFullUrl);
+                payload.append("referrer_url", referrerUrl);
+                payload.append("detected_at", new Date().toLocaleString('en-IN'));
+
+                const res = await fetch("https://api.web3forms.com/submit", {
+                    method: "POST",
+                    body: payload
+                });
+                const data = await res.json();
+
+                if (data.success) {
+                    showCustomMessageBox("ब्रोकन लिंकची माहिती आमच्या टीमला ईमेलद्वारे पाठवली आहे. लवकरच ती दुरुस्त केली जाईल!", null);
+                } else {
+                    showCustomMessageBox("रिपोर्ट पाठवताना अडचण आली. कृपया पुन्हा प्रयत्न करा.", null);
+                }
+            } catch (err) {
+                console.error("404 Report error:", err);
+                showCustomMessageBox("नेटवर्क त्रुटी आली आहे. कृपया इंटरनेट कनेक्शन तपासून पुन्हा प्रयत्न करा.", null);
+            } finally {
+                reportBtn.disabled = false;
+                reportBtn.innerHTML = originalText;
+            }
+        });
+
+        // Search Forms Handler
+        function attachSearchHandler(formId) {
+            const form = document.getElementById(formId);
+            if (!form) return;
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const q = this.querySelector('input[type="search"]').value.trim();
+                if (q) {
+                    window.location.href = `search-results.html?q=${encodeURIComponent(q)}`;
+                }
+            });
+        }
+        attachSearchHandler('searchForm');
+        attachSearchHandler('recoverySearchForm');
+
+        // Web3Forms Sidebar Subscription Handler
+        document.getElementById('sidebarSubscriptionForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const form = this;
+            const emailInput = form.querySelector('input[type="email"]');
+            const submitButton = form.querySelector('button[type="submit"]');
+            const email = emailInput.value.trim();
+
+            if (!email) return;
+
+            const originalButtonText = submitButton.textContent;
+            submitButton.disabled = true;
+            submitButton.textContent = "Submitting...";
+
+            try {
+                const formData = new FormData(form);
+                const response = await fetch("https://api.web3forms.com/submit", {
+                    method: "POST",
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    showCustomMessageBox("सदस्यता घेतल्याबद्दल धन्यवाद! नवीन लेख आणि अपडेट्स तुम्हाला ईमेलवर मिळतील.", email);
+                    form.reset();
+                } else {
+                    showCustomMessageBox(result.message || "सबस्क्रिप्शन अयशस्वी झाले. कृपया पुन्हा प्रयत्न करा.", null);
+                }
+            } catch (error) {
+                console.error("Subscription error:", error);
+                showCustomMessageBox("नेटवर्क त्रुटी आली आहे. कृपया इंटरनेट कनेक्शन तपासून पुन्हा प्रयत्न करा.", null);
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+            }
+        });
+    </script>
+</body>
+</html>
