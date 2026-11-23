@@ -2161,14 +2161,14 @@ function toggleAnswer(answerId) {
         }
         document.addEventListener('DOMContentLoaded', generateTOC);
 
-        // Search Bar Functionality
-        document.getElementById('searchForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const query = this.querySelector('input[type="search"]').value;
-            if (query) {
-                window.open(`https://www.google.com/search?q=site:sstockss.in+${encodeURIComponent(query)}`, '_blank');
-            }
-        });
+        // Search Bar Functionality (Redirects to search-results.html)
+document.getElementById('searchForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const query = this.querySelector('input[type="search"]').value.trim();
+    if (query) {
+        window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
+    }
+});
 
         // Custom Message Box
         function showCustomMessageBox(message, email) {
